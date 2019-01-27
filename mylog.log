@@ -1,0 +1,58 @@
+[2019-01-27T00:22:26.026Z] [org.springframework.boot.StartupInfoLogger] [main] [50] [INFO ] Starting SpringBootDemoApplication on rainyuidianxx with PID 7348 (G:\IDE_workplace\springBootDemo\target\classes started by Administrator in G:\IDE_workplace\springBootDemo)
+[2019-01-27T00:22:26.026Z] [org.springframework.boot.SpringApplication] [main] [675] [INFO ] No active profile set, falling back to default profiles: default
+[2019-01-27T00:22:27.027Z] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [main] [90] [INFO ] Tomcat initialized with port(s): 9090 (http)
+[2019-01-27T00:22:27.027Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Initializing ProtocolHandler ["http-nio-9090"]
+[2019-01-27T00:22:27.027Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Starting service [Tomcat]
+[2019-01-27T00:22:27.027Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Starting Servlet engine: [Apache Tomcat/9.0.14]
+[2019-01-27T00:22:27.027Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\JDK1.8\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;G:\JDK1.8\bin;G:\apache-maven-3.5.4-bin\apache-maven-3.5.4\bin;G:\mysql-8.0.13-winx64\bin;C:\Program Files (x86)\Common Files\Thunder Network\KanKan\Codecs;C:\WINDOWS\System32\OpenSSH\;H:\svn\bin;G:\Git\cmd;G:\Erlang\erl10.2\bin;G:\apache-tomcat-8.5.34(Jenkins）\apache-tomcat-8.5.34\bin\;G:\Python\Scripts\;G:\Python\;C:\Users\Administrator\AppData\Local\Programs\Python\Launcher\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;G:\PyCharm Community Edition 2018.3.2\bin;;M:\OpenVPN\bin;.]
+[2019-01-27T00:22:27.027Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Initializing Spring embedded WebApplicationContext
+[2019-01-27T00:22:27.027Z] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [main] [296] [INFO ] Root WebApplicationContext: initialization completed in 637 ms
+[2019-01-27T00:22:27.027Z] [org.springframework.scheduling.concurrent.ExecutorConfigurationSupport] [main] [171] [INFO ] Initializing ExecutorService 'applicationTaskExecutor'
+[2019-01-27T00:22:27.027Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Starting ProtocolHandler ["http-nio-9090"]
+[2019-01-27T00:22:27.027Z] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [main] [204] [INFO ] Tomcat started on port(s): 9090 (http) with context path ''
+[2019-01-27T00:22:27.027Z] [org.springframework.boot.StartupInfoLogger] [main] [59] [INFO ] Started SpringBootDemoApplication in 1.032 seconds (JVM running for 1.516)
+[2019-01-27T00:22:34.034Z] [org.apache.juli.logging.DirectJDKLog] [http-nio-9090-exec-1] [173] [INFO ] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2019-01-27T00:22:34.034Z] [org.springframework.web.servlet.FrameworkServlet] [http-nio-9090-exec-1] [524] [INFO ] Initializing Servlet 'dispatcherServlet'
+[2019-01-27T00:22:34.034Z] [org.springframework.web.servlet.FrameworkServlet] [http-nio-9090-exec-1] [546] [INFO ] Completed initialization in 3 ms
+[2019-01-27T00:22:34.034Z] [com.yudainxx.springBootDemo.controller.HelloWorldController] [http-nio-9090-exec-1] [24] [INFO ] this is a info message
+[2019-01-27T00:22:34.034Z] [com.yudainxx.springBootDemo.controller.HelloWorldController] [http-nio-9090-exec-1] [25] [WARN ] this is a warn message
+[2019-01-27T00:22:34.034Z] [com.yudainxx.springBootDemo.controller.HelloWorldController] [http-nio-9090-exec-1] [26] [ERROR] this is a error message
+2019-01-27 00:24:47.667  INFO 12100 --- [main] c.y.s.SpringBootDemoApplication          : Starting SpringBootDemoApplication on rainyuidianxx with PID 12100 (G:\IDE_workplace\springBootDemo\target\classes started by Administrator in G:\IDE_workplace\springBootDemo)
+2019-01-27 00:24:47.670  INFO 12100 --- [main] c.y.s.SpringBootDemoApplication          : No active profile set, falling back to default profiles: default
+2019-01-27 00:24:48.203  INFO 12100 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (http)
+2019-01-27 00:24:48.215  INFO 12100 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-01-27 00:24:48.215  INFO 12100 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-01-27 00:24:48.219  INFO 12100 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\JDK1.8\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;G:\JDK1.8\bin;G:\apache-maven-3.5.4-bin\apache-maven-3.5.4\bin;G:\mysql-8.0.13-winx64\bin;C:\Program Files (x86)\Common Files\Thunder Network\KanKan\Codecs;C:\WINDOWS\System32\OpenSSH\;H:\svn\bin;G:\Git\cmd;G:\Erlang\erl10.2\bin;G:\apache-tomcat-8.5.34(Jenkins）\apache-tomcat-8.5.34\bin\;G:\Python\Scripts\;G:\Python\;C:\Users\Administrator\AppData\Local\Programs\Python\Launcher\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;G:\PyCharm Community Edition 2018.3.2\bin;;M:\OpenVPN\bin;.]
+2019-01-27 00:24:48.281  INFO 12100 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-01-27 00:24:48.281  INFO 12100 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 587 ms
+2019-01-27 00:24:48.382  INFO 12100 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-01-27 00:24:48.478  INFO 12100 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9090 (http) with context path ''
+2019-01-27 00:24:48.480  INFO 12100 --- [main] c.y.s.SpringBootDemoApplication          : Started SpringBootDemoApplication in 1.077 seconds (JVM running for 1.447)
+2019-01-27 00:24:54.194  INFO 12100 --- [http-nio-9090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-01-27 00:24:54.194  INFO 12100 --- [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-01-27 00:24:54.198  INFO 12100 --- [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2019-01-27 00:24:54.209  INFO 12100 --- [http-nio-9090-exec-1] c.y.s.controller.HelloWorldController    : this is a info message
+2019-01-27 00:24:54.209  WARN 12100 --- [http-nio-9090-exec-1] c.y.s.controller.HelloWorldController    : this is a warn message
+2019-01-27 00:24:54.209 ERROR 12100 --- [http-nio-9090-exec-1] c.y.s.controller.HelloWorldController    : this is a error message
+2019-01-27 00:25:35.147  INFO 12100 --- [http-nio-9090-exec-3] c.y.s.controller.HelloWorldController    : this is a info message
+2019-01-27 00:25:35.147  WARN 12100 --- [http-nio-9090-exec-3] c.y.s.controller.HelloWorldController    : this is a warn message
+2019-01-27 00:25:35.147 ERROR 12100 --- [http-nio-9090-exec-3] c.y.s.controller.HelloWorldController    : this is a error message
+[2019-01-27T00:26:25.025Z] [org.springframework.boot.StartupInfoLogger] [main] [50] [INFO ] Starting SpringBootDemoApplication on rainyuidianxx with PID 9556 (G:\IDE_workplace\springBootDemo\target\classes started by Administrator in G:\IDE_workplace\springBootDemo)
+[2019-01-27T00:26:25.025Z] [org.springframework.boot.SpringApplication] [main] [675] [INFO ] No active profile set, falling back to default profiles: default
+[2019-01-27T00:26:25.025Z] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [main] [90] [INFO ] Tomcat initialized with port(s): 9090 (http)
+[2019-01-27T00:26:25.025Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Initializing ProtocolHandler ["http-nio-9090"]
+[2019-01-27T00:26:25.025Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Starting service [Tomcat]
+[2019-01-27T00:26:25.025Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Starting Servlet engine: [Apache Tomcat/9.0.14]
+[2019-01-27T00:26:25.025Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\JDK1.8\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;G:\JDK1.8\bin;G:\apache-maven-3.5.4-bin\apache-maven-3.5.4\bin;G:\mysql-8.0.13-winx64\bin;C:\Program Files (x86)\Common Files\Thunder Network\KanKan\Codecs;C:\WINDOWS\System32\OpenSSH\;H:\svn\bin;G:\Git\cmd;G:\Erlang\erl10.2\bin;G:\apache-tomcat-8.5.34(Jenkins）\apache-tomcat-8.5.34\bin\;G:\Python\Scripts\;G:\Python\;C:\Users\Administrator\AppData\Local\Programs\Python\Launcher\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;G:\PyCharm Community Edition 2018.3.2\bin;;M:\OpenVPN\bin;.]
+[2019-01-27T00:26:25.025Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Initializing Spring embedded WebApplicationContext
+[2019-01-27T00:26:25.025Z] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [main] [296] [INFO ] Root WebApplicationContext: initialization completed in 618 ms
+[2019-01-27T00:26:25.025Z] [org.springframework.scheduling.concurrent.ExecutorConfigurationSupport] [main] [171] [INFO ] Initializing ExecutorService 'applicationTaskExecutor'
+[2019-01-27T00:26:25.025Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Starting ProtocolHandler ["http-nio-9090"]
+[2019-01-27T00:26:25.025Z] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [main] [204] [INFO ] Tomcat started on port(s): 9090 (http) with context path ''
+[2019-01-27T00:26:25.025Z] [org.springframework.boot.StartupInfoLogger] [main] [59] [INFO ] Started SpringBootDemoApplication in 0.972 seconds (JVM running for 1.477)
+[2019-01-27T00:26:30.030Z] [org.apache.juli.logging.DirectJDKLog] [http-nio-9090-exec-1] [173] [INFO ] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2019-01-27T00:26:30.030Z] [org.springframework.web.servlet.FrameworkServlet] [http-nio-9090-exec-1] [524] [INFO ] Initializing Servlet 'dispatcherServlet'
+[2019-01-27T00:26:30.030Z] [org.springframework.web.servlet.FrameworkServlet] [http-nio-9090-exec-1] [546] [INFO ] Completed initialization in 3 ms
+[2019-01-27T00:26:30.030Z] [com.yudainxx.springBootDemo.controller.HelloWorldController] [http-nio-9090-exec-1] [24] [INFO ] this is a info message
+[2019-01-27T00:26:30.030Z] [com.yudainxx.springBootDemo.controller.HelloWorldController] [http-nio-9090-exec-1] [25] [WARN ] this is a warn message
+[2019-01-27T00:26:30.030Z] [com.yudainxx.springBootDemo.controller.HelloWorldController] [http-nio-9090-exec-1] [26] [ERROR] this is a error message

@@ -1,0 +1,145 @@
+2019-01-27 09:38:38.265 [main] INFO  c.y.springBootDemo.SpringBootDemoApplication - Starting SpringBootDemoApplication on rainyuidianxx with PID 7756 (G:\IDE_workplace\springBootDemo\target\classes started by Administrator in G:\IDE_workplace\springBootDemo)
+2019-01-27 09:38:38.267 [main] INFO  c.y.springBootDemo.SpringBootDemoApplication - No active profile set, falling back to default profiles: default
+2019-01-27 09:38:38.885 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9090 (http)
+2019-01-27 09:38:38.893 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+2019-01-27 09:38:38.898 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-01-27 09:38:38.899 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-01-27 09:38:38.903 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\JDK1.8\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;G:\JDK1.8\bin;G:\apache-maven-3.5.4-bin\apache-maven-3.5.4\bin;G:\mysql-8.0.13-winx64\bin;C:\Program Files (x86)\Common Files\Thunder Network\KanKan\Codecs;C:\WINDOWS\System32\OpenSSH\;H:\svn\bin;G:\Git\cmd;G:\Erlang\erl10.2\bin;G:\apache-tomcat-8.5.34(Jenkins）\apache-tomcat-8.5.34\bin\;G:\Python\Scripts\;G:\Python\;C:\Users\Administrator\AppData\Local\Programs\Python\Launcher\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;G:\PyCharm Community Edition 2018.3.2\bin;;M:\OpenVPN\bin;.]
+2019-01-27 09:38:38.967 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-27 09:38:38.967 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 680 ms
+2019-01-27 09:38:39.079 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-01-27 09:38:39.161 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+2019-01-27 09:38:39.174 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9090 (http) with context path ''
+2019-01-27 09:38:39.176 [main] INFO  c.y.springBootDemo.SpringBootDemoApplication - Started SpringBootDemoApplication in 1.059 seconds (JVM running for 1.521)
+2019-01-27 09:39:07.472 [http-nio-9090-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-01-27 09:39:07.472 [http-nio-9090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-01-27 09:39:07.479 [http-nio-9090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 7 ms
+2019-01-27 09:39:07.552 [http-nio-9090-exec-1] INFO  c.y.springBootDemo.controller.HelloWorldController - this is a info message
+2019-01-27 09:39:07.552 [http-nio-9090-exec-1] WARN  c.y.springBootDemo.controller.HelloWorldController - this is a warn message
+2019-01-27 09:39:07.552 [http-nio-9090-exec-1] ERROR c.y.springBootDemo.controller.HelloWorldController - this is a error message
+2019-01-27 09:41:15.135 [main] INFO  c.y.springBootDemo.SpringBootDemoApplication - Starting SpringBootDemoApplication on rainyuidianxx with PID 1496 (G:\IDE_workplace\springBootDemo\target\classes started by Administrator in G:\IDE_workplace\springBootDemo)
+2019-01-27 09:41:15.137 [main] INFO  c.y.springBootDemo.SpringBootDemoApplication - No active profile set, falling back to default profiles: default
+2019-01-27 09:41:15.739 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9090 (http)
+2019-01-27 09:41:15.747 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+2019-01-27 09:41:15.752 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-01-27 09:41:15.752 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-01-27 09:41:15.757 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\JDK1.8\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;G:\JDK1.8\bin;G:\apache-maven-3.5.4-bin\apache-maven-3.5.4\bin;G:\mysql-8.0.13-winx64\bin;C:\Program Files (x86)\Common Files\Thunder Network\KanKan\Codecs;C:\WINDOWS\System32\OpenSSH\;H:\svn\bin;G:\Git\cmd;G:\Erlang\erl10.2\bin;G:\apache-tomcat-8.5.34(Jenkins）\apache-tomcat-8.5.34\bin\;G:\Python\Scripts\;G:\Python\;C:\Users\Administrator\AppData\Local\Programs\Python\Launcher\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;G:\PyCharm Community Edition 2018.3.2\bin;;M:\OpenVPN\bin;.]
+2019-01-27 09:41:15.822 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-27 09:41:15.822 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 664 ms
+2019-01-27 09:41:15.953 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-01-27 09:41:16.034 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+2019-01-27 09:41:16.047 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9090 (http) with context path ''
+2019-01-27 09:41:16.048 [main] INFO  c.y.springBootDemo.SpringBootDemoApplication - Started SpringBootDemoApplication in 1.056 seconds (JVM running for 1.611)
+2019-01-27 09:41:20.419 [http-nio-9090-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-01-27 09:41:20.419 [http-nio-9090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-01-27 09:41:20.423 [http-nio-9090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2019-01-27 09:41:20.433 [http-nio-9090-exec-1] INFO  c.y.springBootDemo.controller.HelloWorldController - this is a info message
+2019-01-27 09:41:20.434 [http-nio-9090-exec-1] WARN  c.y.springBootDemo.controller.HelloWorldController - this is a warn message
+2019-01-27 09:41:20.434 [http-nio-9090-exec-1] ERROR c.y.springBootDemo.controller.HelloWorldController - this is a error message
+2019-01-27 10:44:32.375 [main] INFO  c.y.springBootDemo.SpringBootDemoApplication - Starting SpringBootDemoApplication on rainyuidianxx with PID 12536 (G:\IDE_workplace\springBootDemo\target\classes started by Administrator in G:\IDE_workplace\springBootDemo)
+2019-01-27 10:44:32.375 [main] INFO  c.y.springBootDemo.SpringBootDemoApplication - No active profile set, falling back to default profiles: default
+2019-01-27 10:44:32.906 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9090 (http)
+2019-01-27 10:44:32.922 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+2019-01-27 10:44:32.922 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-01-27 10:44:32.922 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-01-27 10:44:32.922 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\JDK1.8\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;G:\JDK1.8\bin;G:\apache-maven-3.5.4-bin\apache-maven-3.5.4\bin;G:\mysql-8.0.13-winx64\bin;C:\Program Files (x86)\Common Files\Thunder Network\KanKan\Codecs;C:\WINDOWS\System32\OpenSSH\;H:\svn\bin;G:\Git\cmd;G:\Erlang\erl10.2\bin;G:\apache-tomcat-8.5.34(Jenkins）\apache-tomcat-8.5.34\bin\;G:\Python\Scripts\;G:\Python\;C:\Users\Administrator\AppData\Local\Programs\Python\Launcher\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;G:\PyCharm Community Edition 2018.3.2\bin;;M:\OpenVPN\bin;.]
+2019-01-27 10:44:32.984 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-27 10:44:32.984 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 578 ms
+2019-01-27 10:44:33.078 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-01-27 10:44:33.155 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+2019-01-27 10:44:33.166 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9090 (http) with context path ''
+2019-01-27 10:44:33.168 [main] INFO  c.y.springBootDemo.SpringBootDemoApplication - Started SpringBootDemoApplication in 0.98 seconds (JVM running for 1.457)
+2019-01-27 10:44:36.362 [http-nio-9090-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-01-27 10:44:36.362 [http-nio-9090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-01-27 10:44:36.365 [http-nio-9090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2019-01-27 10:44:36.375 [http-nio-9090-exec-1] INFO  c.y.springBootDemo.controller.HelloWorldController - this is a info message
+2019-01-27 10:44:36.375 [http-nio-9090-exec-1] WARN  c.y.springBootDemo.controller.HelloWorldController - this is a warn message
+2019-01-27 10:44:36.376 [http-nio-9090-exec-1] ERROR c.y.springBootDemo.controller.HelloWorldController - this is a error message
+2019-01-27 10:47:48.449 [main] INFO  c.y.springBootDemo.SpringBootDemoApplication - Starting SpringBootDemoApplication on rainyuidianxx with PID 9220 (G:\IDE_workplace\springBootDemo\target\classes started by Administrator in G:\IDE_workplace\springBootDemo)
+2019-01-27 10:47:48.449 [main] INFO  c.y.springBootDemo.SpringBootDemoApplication - No active profile set, falling back to default profiles: default
+2019-01-27 10:47:48.981 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9090 (http)
+2019-01-27 10:47:48.983 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+2019-01-27 10:47:48.983 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-01-27 10:47:48.983 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-01-27 10:47:48.983 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [G:\JDK1.8\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;G:\JDK1.8\bin;G:\apache-maven-3.5.4-bin\apache-maven-3.5.4\bin;G:\mysql-8.0.13-winx64\bin;C:\Program Files (x86)\Common Files\Thunder Network\KanKan\Codecs;C:\WINDOWS\System32\OpenSSH\;H:\svn\bin;G:\Git\cmd;G:\Erlang\erl10.2\bin;G:\apache-tomcat-8.5.34(Jenkins）\apache-tomcat-8.5.34\bin\;G:\Python\Scripts\;G:\Python\;C:\Users\Administrator\AppData\Local\Programs\Python\Launcher\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;G:\PyCharm Community Edition 2018.3.2\bin;;M:\OpenVPN\bin;.]
+2019-01-27 10:47:49.045 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-27 10:47:49.045 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 580 ms
+2019-01-27 10:47:49.155 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-01-27 10:47:49.222 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+2019-01-27 10:47:49.238 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9090 (http) with context path ''
+2019-01-27 10:47:49.238 [main] INFO  c.y.springBootDemo.SpringBootDemoApplication - Started SpringBootDemoApplication in 0.961 seconds (JVM running for 1.403)
+2019-01-27 10:47:53.680 [http-nio-9090-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-01-27 10:47:53.680 [http-nio-9090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-01-27 10:47:53.682 [http-nio-9090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2019-01-27 10:47:53.692 [http-nio-9090-exec-1] INFO  c.y.springBootDemo.controller.HelloWorldController - this is a info message
+2019-01-27 10:47:53.692 [http-nio-9090-exec-1] WARN  c.y.springBootDemo.controller.HelloWorldController - this is a warn message
+2019-01-27 10:47:53.692 [http-nio-9090-exec-1] ERROR c.y.springBootDemo.controller.HelloWorldController - this is a error message
+2019-01-27 10:56:21.639 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.action.PropertyAction - Could not find properties file [classpath:application.properties].
+ERROR in ch.qos.logback.core.joran.action.PropertyAction - Could not find properties file [classpath:application.properties].
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:169)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithConventions(AbstractLoggingSystem.java:82)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:60)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:117)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:293)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:266)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:229)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:202)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:75)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:54)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:347)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.yudainxx.springBootDemo.SpringBootDemoApplication.main(SpringBootDemoApplication.java:22)
+2019-01-27 10:56:49.912 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.action.PropertyAction - Could not find properties file [classpath:application.properties].
+ERROR in ch.qos.logback.core.joran.action.PropertyAction - Could not find properties file [classpath:application.properties].
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:169)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithConventions(AbstractLoggingSystem.java:82)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:60)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:117)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:293)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:266)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:229)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:202)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:75)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:54)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:347)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.yudainxx.springBootDemo.SpringBootDemoApplication.main(SpringBootDemoApplication.java:22)
+2019-01-27 10:58:49.392 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.action.PropertyAction - Could not find resource [classpath:application.properties].
+ERROR in ch.qos.logback.core.joran.action.PropertyAction - Could not find resource [classpath:application.properties].
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:169)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithConventions(AbstractLoggingSystem.java:82)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:60)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:117)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:293)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:266)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:229)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:202)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:75)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:54)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:347)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.yudainxx.springBootDemo.SpringBootDemoApplication.main(SpringBootDemoApplication.java:22)
