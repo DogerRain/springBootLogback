@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 //Spring Boot Application的入口点是包含@SpringBootApplication注释的类。
 //		该类应具有运行Spring Boot应用程序的主要方法。 @SpringBootApplication注释包括自动配置，
@@ -15,7 +14,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @SpringBootApplication
 @EnableScheduling
 @RestController
-@EnableEurekaClient
+//@EnableEurekaClient
 @EnableSwagger2
 
 public class SpringBootDemoApplication implements  CommandLineRunner  {
