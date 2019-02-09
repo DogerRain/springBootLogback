@@ -19,7 +19,7 @@ public class JavaMailUtil {
     //发件人账户密码
     public static String senderPassword = "AA57331099hn";
 
-    public static void sendMail() throws Exception {
+    public static void sendMail(String messages) throws Exception {
         //1、连接邮件服务器的参数配置
         Properties props = new Properties();
         //设置用户的认证方式

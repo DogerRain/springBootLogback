@@ -3,6 +3,7 @@ package com.yudainxx.springBootDemo;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -16,7 +17,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @RestController
 //@EnableEurekaClient
 @EnableSwagger2
-
+//使用Hystrix隔离服务
+@EnableHystrix
 public class SpringBootDemoApplication implements  CommandLineRunner  {
 //public class SpringBootDemoApplication extends   SpringBootServletInitializer {
 //	@Override
