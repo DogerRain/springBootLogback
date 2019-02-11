@@ -1,5 +1,7 @@
 package com.yudainxx.springBootDemo;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,14 +19,14 @@ public class SpringBootDemoApplication implements  CommandLineRunner  {
 //	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 //		return application.sources(SpringBootDemoApplication.class);
 //	}
-
+private static final Logger logger = LoggerFactory.getLogger(SpringBootDemoApplication.class);
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootDemoApplication.class, args);
 	}
 //	spring启动
 	@Override
 	public void run(String... arg0) throws Exception {
-		System.out.println("springboot服务正在启动......");
+		logger.info("springboot服务已启动......");
 	}
 
 }
