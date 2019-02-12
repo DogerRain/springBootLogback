@@ -1,15 +1,16 @@
 package com.yudainxx.springBootDemo.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 @RestController
 public class HystrixTestController {
 
     @RequestMapping(value = "/testHystrix")
-//    @HystrixCommand(fallbackMethod = "fallback_hello", commandProperties = {
-//            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000")
-//    })
+    @HystrixCommand(fallbackMethod = "fallback_hello", commandProperties = {
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000")
+    })
     public String hello() throws InterruptedException {
         Thread.sleep(3000);
         return "Welcome Hystrix";

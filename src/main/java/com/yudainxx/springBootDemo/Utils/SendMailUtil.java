@@ -4,6 +4,11 @@
 //import com.sun.xml.internal.messaging.saaj.packaging.mime.internet.MimeBodyPart;
 //import com.sun.xml.internal.messaging.saaj.packaging.mime.internet.MimeMultipart;
 //
+//import javax.mail.Message;
+//import javax.mail.Multipart;
+//import javax.mail.Session;
+//import javax.mail.internet.InternetAddress;
+//import javax.mail.internet.MimeMessage;
 //import java.net.PasswordAuthentication;
 //
 //public  class SendMailUtil  {

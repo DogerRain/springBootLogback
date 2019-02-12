@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 public class SwaggerAPIController {
     private static final Logger logger = LoggerFactory.getLogger(SwaggerAPIController.class);
-    @RequestMapping(value = "/products", method = RequestMethod.GET)
+    @RequestMapping(value = "/products2", method = RequestMethod.GET)
     public List<String> getProducts() {
         logger.info("进入api的products GET方法");
         List<String> productsList = new ArrayList<>();
@@ -20,7 +20,7 @@ public class SwaggerAPIController {
         productsList.add("Almond");
         return productsList;
     }
-    @RequestMapping(value = "/products", method = RequestMethod.POST)
+    @RequestMapping(value = "/products2", method = RequestMethod.POST)
     public String createProduct() {
         logger.info("进入api的products POST方法");
         return "Product is saved successfully";
