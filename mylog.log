@@ -14,9 +14,9 @@
 [2019-01-27T00:22:34.034Z] [org.apache.juli.logging.DirectJDKLog] [http-nio-9090-exec-1] [173] [INFO ] Initializing Spring DispatcherServlet 'dispatcherServlet'
 [2019-01-27T00:22:34.034Z] [org.springframework.web.servlet.FrameworkServlet] [http-nio-9090-exec-1] [524] [INFO ] Initializing Servlet 'dispatcherServlet'
 [2019-01-27T00:22:34.034Z] [org.springframework.web.servlet.FrameworkServlet] [http-nio-9090-exec-1] [546] [INFO ] Completed initialization in 3 ms
-[2019-01-27T00:22:34.034Z] [com.yudainxx.springBootDemo.controller.HelloWorldController] [http-nio-9090-exec-1] [24] [INFO ] this is a info message
-[2019-01-27T00:22:34.034Z] [com.yudainxx.springBootDemo.controller.HelloWorldController] [http-nio-9090-exec-1] [25] [WARN ] this is a warn message
-[2019-01-27T00:22:34.034Z] [com.yudainxx.springBootDemo.controller.HelloWorldController] [http-nio-9090-exec-1] [26] [ERROR] this is a error message
+[2019-01-27T00:22:34.034Z] [HelloWorldController] [http-nio-9090-exec-1] [24] [INFO ] this is a info message
+[2019-01-27T00:22:34.034Z] [HelloWorldController] [http-nio-9090-exec-1] [25] [WARN ] this is a warn message
+[2019-01-27T00:22:34.034Z] [HelloWorldController] [http-nio-9090-exec-1] [26] [ERROR] this is a error message
 2019-01-27 00:24:47.667  INFO 12100 --- [main] c.y.s.SpringBootDemoApplication          : Starting SpringBootDemoApplication on rainyuidianxx with PID 12100 (G:\IDE_workplace\springBootDemo\target\classes started by Administrator in G:\IDE_workplace\springBootDemo)
 2019-01-27 00:24:47.670  INFO 12100 --- [main] c.y.s.SpringBootDemoApplication          : No active profile set, falling back to default profiles: default
 2019-01-27 00:24:48.203  INFO 12100 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (http)
@@ -53,6 +53,6 @@
 [2019-01-27T00:26:30.030Z] [org.apache.juli.logging.DirectJDKLog] [http-nio-9090-exec-1] [173] [INFO ] Initializing Spring DispatcherServlet 'dispatcherServlet'
 [2019-01-27T00:26:30.030Z] [org.springframework.web.servlet.FrameworkServlet] [http-nio-9090-exec-1] [524] [INFO ] Initializing Servlet 'dispatcherServlet'
 [2019-01-27T00:26:30.030Z] [org.springframework.web.servlet.FrameworkServlet] [http-nio-9090-exec-1] [546] [INFO ] Completed initialization in 3 ms
-[2019-01-27T00:26:30.030Z] [com.yudainxx.springBootDemo.controller.HelloWorldController] [http-nio-9090-exec-1] [24] [INFO ] this is a info message
-[2019-01-27T00:26:30.030Z] [com.yudainxx.springBootDemo.controller.HelloWorldController] [http-nio-9090-exec-1] [25] [WARN ] this is a warn message
-[2019-01-27T00:26:30.030Z] [com.yudainxx.springBootDemo.controller.HelloWorldController] [http-nio-9090-exec-1] [26] [ERROR] this is a error message
+[2019-01-27T00:26:30.030Z] [HelloWorldController] [http-nio-9090-exec-1] [24] [INFO ] this is a info message
+[2019-01-27T00:26:30.030Z] [HelloWorldController] [http-nio-9090-exec-1] [25] [WARN ] this is a warn message
+[2019-01-27T00:26:30.030Z] [HelloWorldController] [http-nio-9090-exec-1] [26] [ERROR] this is a error message
