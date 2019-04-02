@@ -19,7 +19,7 @@ public class HelloWorldController {
     @RequestMapping("/hello")
     public String index() {
         System.out.print("123");
-        return "Hello World";
+        return "welcome";
     }
 
     @RequestMapping("/")
@@ -27,6 +27,6 @@ public class HelloWorldController {
         logger.info("this is a info message");
         logger.warn("this is a warn message");
         logger.error("this is a error message");
-        return name;
+        return "welcome";
     }
 }
