@@ -1,6 +1,6 @@
 package com.yudianxx.springBootDemo.mapper;
 
-import com.yudianxx.springBootDemo.pojo.User;
+import com.yudianxx.springBootDemo.model.User;
 import org.apache.ibatis.annotations.Mapper;
 
 

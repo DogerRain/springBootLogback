@@ -1,21 +1,25 @@
 package com.yudianxx.springBootDemo.controller;
 
-import com.yudianxx.springBootDemo.pojo.User;
+import com.yudianxx.springBootDemo.model.User;
 import com.yudianxx.springBootDemo.service.UserService;
+import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.logging.Logger;
 
 @RestController
+@RequestMapping("NEOC/")
+@Slf4j
 public class UserController {
-    @Resource
+    @Autowired
     private UserService userService;
-    private static final Logger log = Logger.getLogger(UserController.class.getName());
-    @RequestMapping(value="/showUser")
+    @ApiOperation(value = "散标信息", notes = "入库散标信息（会自动生成产品信息）")
+    @RequestMapping(value = "/insert/bidInfo", method = RequestMethod.POST)
     public User getUserById(HttpServletRequest request, @RequestParam Integer userId){
         int userId1 = Integer.parseInt(request.getParameter("userId"));
         log.info("userId1的值为："+userId1);

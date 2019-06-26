@@ -1,7 +1,7 @@
 package com.yudianxx.springBootDemo.service;
 
 import com.yudianxx.springBootDemo.mapper.UserMapper;
-import com.yudianxx.springBootDemo.pojo.User;
+import com.yudianxx.springBootDemo.model.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,5 +28,14 @@ public class UserService {
 
         return result;
     }
-
+//    //@Valid 默认校验整个对象的所有字段
+//    public  Object addMessage(@Valid Message message, BindingResult result){
+//        if (result.hasErrors()){  //校验满足了 例如@NotBlank
+//            //
+//            result.getAllErrors().get(0).getDefaultMessage(); //返回第一个不满足的提示错误
+////            throw  new RuntimeException("111");
+//            throw  new RuntimeException(result.getAllErrors().get(0).getDefaultMessage());
+//        }
+//        return null;
+//    }
 }

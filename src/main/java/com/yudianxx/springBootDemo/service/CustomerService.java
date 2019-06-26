@@ -1,4 +1,7 @@
 package com.yudianxx.springBootDemo.service;
 
-public class CustomerService {
+import com.yudianxx.springBootDemo.domain.Customer;
+
+public interface CustomerService {
+    public Customer queryCustomer();
 }
