@@ -67,3 +67,6 @@ logging:
   config: classpath:logback.xml
   level:
     com.yudianxx.springBootDemo: info
+
+create:
+  bean: myBean

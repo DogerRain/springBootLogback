@@ -9,10 +9,18 @@ import org.springframework.context.annotation.Configuration;
 public class HelloWorldConfiguration {
 
     @Bean
-    @ConditionalOnSystem(system = "linux")
-    SayHelloWorld sayHelloWorld() {
+    //match 返回true才会进入这个方法
+    @ConditionalOnSystem(system = "linux",value = "request/a")
+    SayHelloWorld SayHelloWorld() {
 
         System.out.println("---------------》加载sayhelloworld");
+
+        return new SayHelloWorld();
+    }
+
+    SayHelloWorld SayHelloWorld1() {
+
+        System.out.println("---------------》加载sayhelloworld1111111111");
 
         return new SayHelloWorld();
     }
