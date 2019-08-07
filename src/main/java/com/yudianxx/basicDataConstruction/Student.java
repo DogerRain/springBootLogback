@@ -86,11 +86,12 @@ class HashSetTest {
             System.out.println(student);
         }
         System.out.println("-----------Iterator遍历-------------");
+        //取list第一个元素
+//        System.out.println(list.iterator().next());
         Iterator<Student> iterator = list.iterator();
         while (iterator.hasNext()) {
             System.out.println(iterator.next());
         }
-
         new HashSetTest().method(list);
     }
 
