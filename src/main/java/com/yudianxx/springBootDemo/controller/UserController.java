@@ -1,5 +1,7 @@
 package com.yudianxx.springBootDemo.controller;
 
+import com.yudianxx.springBootDemo.annotation.Log;
+import com.yudianxx.springBootDemo.annotation.SysLogTypeEnum;
 import com.yudianxx.springBootDemo.model.User;
 import com.yudianxx.springBootDemo.service.UserService;
 import io.swagger.annotations.ApiOperation;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Collections;
@@ -26,12 +29,12 @@ public class UserController {
     private UserService userService;
     @ApiOperation(value = "散标信息", notes = "入库散标信息（会自动生成产品信息）")
     @RequestMapping(value = "/insert/bidInfo", method = RequestMethod.POST)
-    public User getUserById(HttpServletRequest request, @RequestParam Integer userId){
-        int userId1 = Integer.parseInt(request.getParameter("userId"));
-        log.info("userId1的值为："+userId1);
-        int userId2 =userId;
+    @Log(resource = "123",type = SysLogTypeEnum.UPDATE)
+    public User getUserById(@RequestBody User user,HttpServletRequest request){
+//        int userId1 = Integer.parseInt(request.getParameter("userId"));
+//        log.info("userId1的值为："+userId1);
+        int userId2 =user.getId();
         log.info("userId2的值为："+userId2);
-        User user = userService.getUserById(userId1);
         log.info("User："+user);
         return user;
     }
