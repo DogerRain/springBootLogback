@@ -58,5 +58,12 @@ public class SpringBootDemoApplication implements CommandLineRunner {
                 .apis(RequestHandlerSelectors.basePackage("com.yudianxx.springBootDemo.controller"))
                 .build();
     }
+
+    //@Bean 的话一定是一个对象，不能是一个void
+    @Bean(name = "methods")
+    public String method1(){
+        System.out.println("1111111111111111111111111111111");
+        return null;
+    }
 }
 

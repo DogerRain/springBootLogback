@@ -5,16 +5,22 @@ import com.yudianxx.springBootDemo.service.UserService;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Collections;
+import java.util.List;
 
 @RestController
 @RequestMapping("NEOC/")
 @Slf4j
+@ConditionalOnClass(RestTemplate.class)
 public class UserController {
     @Autowired
     private UserService userService;
@@ -29,5 +35,9 @@ public class UserController {
         log.info("User："+user);
         return user;
     }
+
+    @LoadBalanced
+    @Autowired(required = false)
+    private List<RestTemplate> restTemplates = Collections.emptyList();
 
 }

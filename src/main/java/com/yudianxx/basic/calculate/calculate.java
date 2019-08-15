@@ -2,6 +2,7 @@ package com.yudianxx.basic.calculate;
 
 
 //k++ 最后才执行++；++k是先运算得到k再执行，
+
 public class calculate {
     public static void main(String[] args) {
         int i=0;
@@ -17,4 +18,6 @@ public class calculate {
     static void method(int in){
         System.out.println(in);
     }
+
+
 }
