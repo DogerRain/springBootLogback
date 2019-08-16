@@ -70,6 +70,7 @@ class HashSetTest {
 
         System.out.println("-----------------List----------------------\n");
 
+        //list是有顺序的，先add的先被遍历出来
         List<Student> list = new ArrayList<>();
         list.add(stu5);
 //        list.add(stu1);
