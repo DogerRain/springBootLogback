@@ -8,8 +8,9 @@ import java.util.Map;
 
 public class solution {
     public static void main(String[] args) {
-        int[] nums = {2, 7, 11, 15};
-        int target = 13;
+//        int[] nums = {2, 7, 11, 15};
+        int[] nums = {1, 2};
+        int target = 3;
         int[] result = new int[0];
         try {
 //            result = new solution().twoSum1(nums, target);
@@ -22,6 +23,8 @@ public class solution {
             return;
         }
         System.out.println("[" + result[0] + "] [" + result[1] + "]");
+        int[] a =new solution().twoSum3(nums, target);
+        System.out.println(a[0]+","+a[1]);
     }
 
 
@@ -50,6 +53,19 @@ public class solution {
 //                找到
                 return new int[]{i, map.get(complement)};
             }
+        }
+        return null;
+    }
+
+    //方法三，一遍遍历hashMap
+    public int[] twoSum3(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            if (map.containsKey(complement)) {
+                return new int[] {map.get(complement),i};
+            }
+            map.put(nums[i],i);
         }
         return null;
     }
