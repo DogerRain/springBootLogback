@@ -13,6 +13,8 @@ public class HashMapTest {
         System.out.println(n);
         Map<String, String> map = new HashMap<>();
         map.put("1", "甲");
+        int hashcode ="甲".hashCode();
+        System.out.println(hashcode);
     }
 
     private String test() {
