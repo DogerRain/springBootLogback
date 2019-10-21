@@ -1,4 +1,4 @@
-package com.yudianxx;
+package com.yudianxx.test;
 
 public class test {
     public static void main(String[] args) {
