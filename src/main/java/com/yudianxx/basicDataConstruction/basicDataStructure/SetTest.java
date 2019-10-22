@@ -1,4 +1,4 @@
-package com.yudianxx.basic.basicDataStructure;
+package com.yudianxx.basicDataConstruction.basicDataStructure;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
