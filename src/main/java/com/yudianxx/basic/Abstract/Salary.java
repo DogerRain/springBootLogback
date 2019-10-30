@@ -21,4 +21,16 @@ public  class  Salary extends Employee{
         System.out.println("计算 Salary 的工资 : "+ getName());
         return salary/5;
     }
+
+
+    /**
+     * @Author: Administrator
+     * @Date: 2019/10/29  15:23
+     * @Description:  必须要实现父类抽象方法
+     * @Param:
+     * @return:
+     */
+    public void abstrartMethod(){
+
+    }
 }

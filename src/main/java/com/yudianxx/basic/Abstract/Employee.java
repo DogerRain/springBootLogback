@@ -35,6 +35,12 @@ public abstract class Employee {
     public  void mailCheck(){
         System.out.println("我是Emplyee类");
         System.out.println("工资确认："+this.name+","+this.address);
+        test();
     }
 
+    public static void test(){
+        System.out.println("static Test");
+    }
+
+//    public abstract void abstrartMethod();
 }
