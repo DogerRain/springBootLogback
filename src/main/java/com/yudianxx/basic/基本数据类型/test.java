@@ -1,18 +1,18 @@
-package com.yudianxx.test;
+package com.yudianxx.basic.基本数据类型;
 
 public class test {
     public static void main(String[] args) {
         int a = 100;
         int b = 100;
-        int c = 200;
-        int d = 200;
+        int c = 2000;
+        int d = 2000;
 
         Integer e = 100; //等于Integer e = Integer.valueOf(100);
         Integer f = 100;
         Integer g = 200;
         Integer h = 200;
 
-        Integer ee = Integer.valueOf(100);   //源码valueOf是一个static的Integer对象，valueOf是有一个128的判断
+        Integer ee = Integer.valueOf(100);   //源码valueOf是一个static的Integer对象，valueOf是有一个小于128的判断
         Integer ff = Integer.valueOf(100);
 
         //new 的话地址肯定是不等的
@@ -21,7 +21,7 @@ public class test {
         Integer l =new Integer(200);
 
 //        System.out.println("a == b 》》》"+(a == b)); //true
-//        System.out.println("c == d 》》》"+(c == d)); //true
+        System.out.println("c == d 》》》"+(c == d)); //true
         System.out.println("e == f 》》》"+(e == f));
         System.out.println("g == h 》》》"+(g == h));
 

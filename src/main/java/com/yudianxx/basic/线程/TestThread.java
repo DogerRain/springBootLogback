@@ -48,6 +48,7 @@ class MyThread1 implements Runnable {
             intoB();
         }
     }
+
 }
 
 public class TestThread {
