@@ -40,7 +40,6 @@ class MyThread1 implements Runnable {
         System.out.printf("线程%s离开intoA()，objName=%s\n", currentThread, objName);
     }
 
-    @Override
     public void run() {
         if (objName.equals("A")) {
             intoA();
@@ -52,6 +51,8 @@ class MyThread1 implements Runnable {
 }
 
 public class TestThread {
+
+    //死锁的demo
 
     public static void main(String[] args) throws InterruptedException {
         final MyThread1 obj1 = new MyThread1("A");
@@ -68,4 +69,6 @@ public class TestThread {
         Thread threadB = new Thread(obj2, "threadB");
         threadB.start();
     }
+
+
 }

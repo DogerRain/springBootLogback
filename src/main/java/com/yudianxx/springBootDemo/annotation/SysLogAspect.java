@@ -2,9 +2,11 @@ package com.yudianxx.springBootDemo.annotation;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.extern.slf4j.Slf4j;
+import org.aopalliance.intercept.Joinpoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,11 @@ public class SysLogAspect {
 
     @Pointcut("@annotation(com.yudianxx.springBootDemo.annotation.Log)")
     public void pointCut() {}
+
+    @Before("pointCut()")
+    public void doBefore(Joinpoint joinpoint){
+
+    }
 
     @Around("pointCut()")
     public Object doAround(ProceedingJoinPoint point) throws Throwable {

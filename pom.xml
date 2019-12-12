@@ -36,9 +36,9 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
+        <java.version>1.7</java.version>
         <start-class>com.yudianxx.springBootDemo.SpringBootDemoApplication</start-class>
-        <java.version>1.8</java.version>
+        <java.version>1.7</java.version>
         <mybatisplus.version>2.2.0</mybatisplus.version>
         <mybatisplus-spring-boot-starter.version>1.0.5</mybatisplus-spring-boot-starter.version>
     </properties>
@@ -336,7 +336,12 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
-
+        
+        <dependency>
+            <groupId>com.taobao.metamorphosis</groupId>
+            <artifactId>metamorphosis-client-extension</artifactId>
+            <version>1.4.6.2</version>
+        </dependency>
     </dependencies>
 
     <!--<build>-->
@@ -357,6 +362,14 @@
                     <source>1.8</source>
                     <target>1.8</target>
                     <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
                 </configuration>
             </plugin>
         </plugins>

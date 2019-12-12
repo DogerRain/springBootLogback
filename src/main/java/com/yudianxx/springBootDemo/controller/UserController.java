@@ -1,6 +1,7 @@
 package com.yudianxx.springBootDemo.controller;
 
 import com.yudianxx.springBootDemo.annotation.Log;
+import com.yudianxx.springBootDemo.annotation.MyAnnotation;
 import com.yudianxx.springBootDemo.annotation.SysLogTypeEnum;
 import com.yudianxx.springBootDemo.model.User;
 import com.yudianxx.springBootDemo.service.UserService;
@@ -29,6 +30,7 @@ public class UserController {
     @ApiOperation(value = "散标信息", notes = "入库散标信息（会自动生成产品信息）")
     @RequestMapping(value = "/insert/bidInfo", method = RequestMethod.POST)
     @Log(resource = "123", type = SysLogTypeEnum.UPDATE)
+    @MyAnnotation(methodName = "getUserById")
     public User getUserById(@RequestBody User user, HttpServletRequest request) {
 //        int userId1 = Integer.parseInt(request.getParameter("userId"));
 //        log.info("userId1的值为："+userId1);
