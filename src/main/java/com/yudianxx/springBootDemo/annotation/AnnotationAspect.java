@@ -16,9 +16,6 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class AnnotationAspect {
-
-
-
     @Around(value = "@annotation(around)")
     public void processAuthority(ProceedingJoinPoint point, MyAnnotation around) throws Throwable {
         System.out.println("ANNOTATION welcome");

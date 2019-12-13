@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,6 +37,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 //})
 //@ImportResource(locations = {"classpath:/mybatis/spring-mybatis-plus.xml"})
 @Slf4j
+@EnableAspectJAutoProxy
 public class SpringBootDemoApplication implements CommandLineRunner {
     //public class SpringBootDemoApplication extends   SpringBootServletInitializer {
 //	@Override

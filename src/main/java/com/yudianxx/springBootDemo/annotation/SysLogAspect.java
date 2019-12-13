@@ -1,13 +1,12 @@
 package com.yudianxx.springBootDemo.annotation;
 
+import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.extern.slf4j.Slf4j;
 import org.aopalliance.intercept.Joinpoint;
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
@@ -27,20 +26,36 @@ public class SysLogAspect {
     @Autowired
 //    private SysLogService sysLogService;
 
+    //表示用来拦截这个Log类，即使用了@Log注解的类
     @Pointcut("@annotation(com.yudianxx.springBootDemo.annotation.Log)")
     public void pointCut() {}
 
-    @Before("pointCut()")
-    public void doBefore(Joinpoint joinpoint){
-
+    //拦截点，表示拦截该包包括子包下面所有public的方法
+    @Pointcut("execution(public * com.yudianxx.springBootDemo.controller.*.*(..))")
+    public void signAop() {
     }
-
-    @Around("pointCut()")
+    @Around("signAop()")
+//    @Around("pointCut()")
     public Object doAround(ProceedingJoinPoint point) throws Throwable {
         Object result = point.proceed();
         this.saveLog(point);
         return result;
     }
+
+    @Before("signAop()")
+    public void dobefore(JoinPoint joinPoint){
+        log.info("我是before");
+        log.info(joinPoint.getSignature().getName());
+    }
+
+    //不知道为什么没有执行
+    @AfterReturning(value = "signAop()", returning = "retVal1")
+    public String  doAfterReturning(JoinPoint joinPoint ,String retVal1 ) {
+        log.info("我是afterReturning");
+        return "";
+    }
+
+
     /**
      * 保存系统日志
      * @param point 切面
@@ -68,6 +83,5 @@ public class SysLogAspect {
             log.info("[Class Method Args] : " + Arrays.toString(args));
         }
         log.info("-------------------Request Content-------------------");
-        log.info("\n");
     }
 }
