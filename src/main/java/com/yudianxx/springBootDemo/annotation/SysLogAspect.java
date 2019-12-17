@@ -31,7 +31,7 @@ public class SysLogAspect {
     public void pointCut() {}
 
     //拦截点，表示拦截该包包括子包下面所有public的方法
-    @Pointcut("execution(public * com.yudianxx.springBootDemo.controller.*.*(..))")
+    @Pointcut("execution(public * com1.yudianxx.springBootDemo.controller.*.*(..))")
     public void signAop() {
     }
     @Around("signAop()")

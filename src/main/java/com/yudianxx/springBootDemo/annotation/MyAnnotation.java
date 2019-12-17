@@ -9,4 +9,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)//作用于方法
 public @interface MyAnnotation {
     String methodName () default "";
+    String description() default "";
 }

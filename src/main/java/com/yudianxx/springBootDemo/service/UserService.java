@@ -1,5 +1,6 @@
 package com.yudianxx.springBootDemo.service;
 
+import com.yudianxx.springBootDemo.annotation.MyAnnotation;
 import com.yudianxx.springBootDemo.mapper.UserMapper;
 import com.yudianxx.springBootDemo.model.User;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,9 @@ public class UserService {
     @Resource
     private UserMapper userDao;
     @Transactional
-    public User getUserById(int userId) {
+    @MyAnnotation(methodName = "userService.getUserById",description = "service层操作")
+    public User getUserById(int userId) throws InterruptedException {
+        Thread.sleep(1000);
         return userDao.selectByPrimaryKey(userId);
     }
 
