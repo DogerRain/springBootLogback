@@ -2,6 +2,8 @@ package com.yudianxx.basic.IO;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  * @author huangyongwen
@@ -13,7 +15,16 @@ public class FileDemo {
 //        File f = new File("C:\\Windows\\notepad.exe");
         FileDemo fileDemo = new FileDemo();
 //        fileDemo.createFile();
-        fileDemo.listFile("E:\\projet\\springBootLogback\\target\\classes\\com\\yudianxx\\springBootDemo");
+//        fileDemo.listFile("E:\\projet\\springBootLogback\\target\\classes\\com\\yudianxx\\springBootDemo");
+
+        //当前目录
+        File currentDir = new File(".");
+        //        listDir(currentDir.getCanonicalFile(), 0);
+        String[] files = currentDir.list();
+        for (String s : files) {
+            System.out.println(s);
+        }
+
 
     }
 
@@ -56,13 +67,68 @@ public class FileDemo {
         File[] fs1 = f1.listFiles();//列出所有文件和子目录
         for (File file : fs1) {
             if (file.isDirectory()) {
-                listFile(file+"");
+                listFile(file + "");
             }
-            if (file.isFile()){
+            if (file.isFile()) {
                 System.out.println(file);
                 System.out.println();
-                System.out.println(file.getParentFile().getParent().substring((file.getParentFile().getParent().lastIndexOf("\\")+1)));
+                System.out.println(file.getParentFile().getParent().substring((file.getParentFile().getParent().lastIndexOf("\\") + 1)));
             }
+        }
+    }
+
+
+    static void listDir(File dir, int level) {
+
+        File[] fs = dir.listFiles();
+
+        if (fs != null) {
+
+            for (File f : fs) {
+
+                if (f.isDirectory()) {
+
+                    printSpace(level);
+
+                    System.out.println(f.getName() + "/");
+
+                    listDir(f, level + 1);
+
+                } else {
+
+                    printSpace(level);
+
+                    System.out.println(f.getName());
+
+                }
+
+            }
+
+        }
+
+    }
+
+    static void printSpace(int level) {
+
+        for (int i = 0; i < level; i++) {
+
+            System.out.print("  ");
+
+        }
+
+    }
+
+    public void pathFile() {
+        Path p1 = Paths.get("hello.txt"); // 构造一个Path对象
+        System.out.println(p1);
+        Path p2 = p1.toAbsolutePath(); // 转换为绝对路径
+        System.out.println(p2);
+        Path p3 = p2.normalize(); // 转换为规范路径
+        System.out.println(p3);
+        File f = p3.toFile(); // 转换为File对象
+        System.out.println(f);
+        for (Path p : Paths.get("..").toAbsolutePath()) { // 可以直接遍历Path
+            System.out.println("  " + p);
         }
     }
 
