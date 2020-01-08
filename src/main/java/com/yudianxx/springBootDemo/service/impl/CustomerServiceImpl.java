@@ -1,4 +1,4 @@
-package com.yudianxx.springBootDemo.serviceImpl;
+package com.yudianxx.springBootDemo.service.impl;
 
 import com.yudianxx.springBootDemo.domain.Customer;
 import com.yudianxx.springBootDemo.service.CustomerService;

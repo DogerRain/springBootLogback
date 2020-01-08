@@ -7,6 +7,8 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.Properties;
+
 /**
  * mybatis-plus 工具配置类
  */
@@ -32,13 +34,14 @@ public class MybatisPlusConfig {
      * 性能分析拦截器，不建议生产使用
      * 打印 sql
      */
-    @Bean
+//    @Bean
     public PerformanceInterceptor performanceInterceptor() {
         PerformanceInterceptor performanceInterceptor = new PerformanceInterceptor();
         //格式化sql语句
-        /*Properties properties = new Properties();
+        Properties properties = new Properties();
+        //true代表打印
         properties.setProperty("format", "true");
-        performanceInterceptor.setProperties(properties);*/
+        performanceInterceptor.setProperties(properties);
         return performanceInterceptor;
     }
 
