@@ -24,7 +24,8 @@ public class ReadAndWriteDemo {
 //        writeFile(file, content);
 
         //读文件
-        readFile(file);
+//        readFile(file);
+        System.out.println("1 ".length());
 
     }
 
