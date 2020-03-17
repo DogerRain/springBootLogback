@@ -12,8 +12,8 @@ public class BasicOperator {
 //
 //6的二进制位0000 0110 , 2的二进制位0000 0010 , 110|010为110，最终值0000 0110，故6|2等于6
     public static void main(String[] args) {
-        int a = 10;
-        int b = 21;
+        int a = 0;
+        int b = 18;
 
         System.out.println(a + "的二进制表示为：" + Integer.toBinaryString(a));
         System.out.println(b + "的二进制表示为：" + Integer.toBinaryString(b));
