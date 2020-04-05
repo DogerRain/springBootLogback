@@ -14,10 +14,15 @@ spring:
     max-active: 15
     driverClassName: com.mysql.jdbc.Driver
     max-wait: 8000
-    url: jdbc:mysql://localhost:3306/cbank?autoreconnect=true
+    url: jdbc:mysql://localhost:3306/images?autoreconnect=true&useUnicode=true&characterEncoding=UTF-8
     username: root
+
+  devtools:
+    restart:
+      enabled: true
+
 server:
-  port: 1001
+  port: 8090
 security:
   basic:
     enabled: false
@@ -50,6 +55,9 @@ flyway:
   enabled: false
 
 
+
+
+
 # mybatis-plus config
 mybatis-plus:
   mapper-locations: classpath:/mapper/*.xml
@@ -70,3 +78,4 @@ logging:
 
 create:
   bean: myBean
+

@@ -42,10 +42,11 @@ public class ImageController {
 
     @RequestMapping("/upload")
     public void handle(@RequestBody User user) {
+        log.info("进入");
 //        go("E:\\projet\\springBootLogback");
         String FileUrl = "T:\\meitulu";
 //        String FileUrl = "G:\\python_workplace\\meitulu\\meitulu\\COSER\\1";
-        go(FileUrl);
+//        go(FileUrl);
     }
 
     public void go(String fileSrc) {

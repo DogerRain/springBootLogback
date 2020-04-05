@@ -27,6 +27,8 @@ public class UserController {
 
     @Autowired
     ImageController imageController;
+//    @Autowired
+//    MeiztuPictureService meiztuPictureService;
 
     @ApiOperation(value = "散标信息", notes = "入库散标信息（会自动生成产品信息）")
     @RequestMapping(value = "/insert/bidInfo", method = RequestMethod.POST)
@@ -50,6 +52,7 @@ public class UserController {
 
     @RequestMapping(value = "/test", method = RequestMethod.POST)
     public void test(){
+//        meiztuPictureService.testTransactional();
     }
 
 
