@@ -2,6 +2,7 @@ package com.yudianxx.springBootDemo.config;
 
 import com.alibaba.druid.filter.Filter;
 import com.alibaba.druid.pool.DruidDataSource;
+import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
 import com.alibaba.druid.wall.WallConfig;
 import com.alibaba.druid.wall.WallFilter;
@@ -9,8 +10,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
@@ -76,13 +80,13 @@ public class DataSourceConfiguration {
     }
 
 //    @Bean
-//    public ServletRegistrationBean druidServlet() {
-//        ServletRegistrationBean reg = new ServletRegistrationBean(new StatViewServlet(), "/druid/*");
-//        reg.addInitParameter("loginUsername", "admin");
-//        reg.addInitParameter("loginPassword", "admin");
-//        reg.addInitParameter("logSlowSql", properties.getLogSlowSql());
-//        return reg;
-//    }
+    public ServletRegistrationBean druidServlet() {
+        ServletRegistrationBean reg = new ServletRegistrationBean(new StatViewServlet(), "/druid/*");
+        reg.addInitParameter("loginUsername", "admin");
+        reg.addInitParameter("loginPassword", "admin");
+//        reg.addInitParameter("logSlowSql", logSlowSql);
+        return reg;
+    }
 
 //    @Bean
     public FilterRegistrationBean filterRegistrationBean() {
@@ -91,5 +95,12 @@ public class DataSourceConfiguration {
         filterRegistrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
         filterRegistrationBean.addInitParameter("profileEnable", "true");
         return filterRegistrationBean;
+    }
+
+    @Bean
+    public PlatformTransactionManager transactionManager() {
+        DataSourceTransactionManager transactionManager = new DataSourceTransactionManager();
+        transactionManager.setDataSource(druidDataSource());
+        return transactionManager;
     }
 }
