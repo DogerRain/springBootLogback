@@ -20,6 +20,7 @@ public class JavaMailUtil {
    * @return: 
    */
     public static void sendMail(String messages,String subject,String fileName,String receivers) throws Exception {
+        PropertiesUtil.setPropettiesFile("config.properties");
         Session session = null;
         MimeMessage msg = null;
         MimeMultipart multipart = null;
