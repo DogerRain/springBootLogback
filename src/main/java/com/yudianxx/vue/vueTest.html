@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <style>
+        .active {
+            width: 100px;
+            height: 100px;
+            background: green;
+        }
+        .text-danger {
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="static"
+         v-bind:class="{ active: isActive, 'text-danger': hasError }">
+    </div>
+
+    <div v-bind:style="styleObject">12</div>
+
+    <h1 v-if="awesome">Vue is awesome!</h1>
+    <h1 v-else>Oh no 😢</h1>
+    <template v-if="ok">
+        <h1>Title</h1>
+        <p>Paragraph 1</p>
+        <p>Paragraph 2</p>
+    </template>
+
+    <h1 v-show="ok">Hello!</h1>
+
+    <ul>
+        <li v-for="(value, name, index) in data1">
+            {{ index }}-
+            {{ name }}-
+            {{ value }}
+        </li>
+    </ul>
+
+</div>
+
+<script>
+
+    data1={
+        isActive: true,
+        hasError: true,
+        styleObject: {
+            color: 'red',
+            fontSize: '13px'
+        },
+
+        awesome:false,
+        ok:true,
+        loginType:"username"
+    }
+
+    new Vue({
+        el: '#app',
+        data: data1
+    })
+
+            </script>
+</body>
+</html>
