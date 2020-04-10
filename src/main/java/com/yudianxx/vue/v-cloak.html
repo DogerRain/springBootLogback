@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    
+    <!-- <style>
+        [v-clock] {
+            display: none;
+        }
+    </style> -->
+</head>
+
+<body>
+    <div id="app">
+        <!-- vue.js 假如cdn很慢，有闪烁问题，v-clock会解决这个问题 -->
+        <p v-clock>{{msg}}</p>
+        <!-- 对比这个就知道了 -->
+        <p>{{msg}}</p>
+        <!-- v-text就没有闪烁问题 ，但是加载msg后，会覆盖原本的内容-->
+        <p v-text='msg'>msg加载我就不会显示了</p>
+        <!-- 这个可以把内容标签解析 会覆盖原本的内容-->
+        <p v-html='msg2'>msg加载我就不会显示了</p>
+    </div>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                msg:"闪烁问题",
+                msg2:"<h1>标签测试</h1>"
+            }
+        })
+    </script>
+   
+</body>
+
+</html>

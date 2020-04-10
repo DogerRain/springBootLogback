@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 属性绑定机制 -->
+        <!-- myTitle可以是表达式 v-bind可以写合法的js表达式-->
+        <input type="button" value="按钮" v-bind:title="myTitle">
+        <!-- 简写 -->
+        <input type="button" value="按钮" :title="myTitle+'123'">
+
+
+        <!-- 事件绑定机制 -->
+        <input type="button" value="按钮" v-on:click="show()">
+        <!-- 简写 -->
+        <input type="button" value="按钮" @click="show()">
+        <!-- 除了v-on还有其他绑定事件 -->
+        <!-- <input type="button" value="按钮" v-mouse:click="show()"> -->
+
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                myTitle: "我是按钮的标签",
+
+            },
+
+            methods:{
+                show:function(){
+                    alert("hi")
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
