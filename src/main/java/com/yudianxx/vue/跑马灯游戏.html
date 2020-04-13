@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <script src="/lib/vue.min.js"></script> -->
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <input type="button" value="开始浪" @click="lang()">
+        <input type="button" value="不要浪" @click="stop()">
+        <h2> {{msg}}</h2>
+
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: "猥琐发育，不要浪~~！！",
+                intervalId: null
+
+            },
+
+            methods: {
+                lang: function () {
+                    //控制只能开一次
+                    if (this.intervalId!=null) return
+
+                    // 箭头函数 内部的this直接指向了外部
+                    this.intervalId = setInterval(() => {
+                        // 获取第一个字符
+                        var start = this.msg.substring(0, 1)
+                        // 获取除第一个字符外后面所有的字符
+                        var end = this.msg.substring(1)
+                        this.msg = end + start
+                    }, 200);
+
+                },
+
+                stop: function () {
+                    clearInterval(this.intervalId)
+                    //清除需要重新赋值,如果不清除，不刷新intervalId一直在，lang()方法一直return
+                    this.intervalId = null
+                },
+
+
+                lang1: function () {
+                    var _this = this
+                    setInterval(function () {
+                        // 获取第一个字符
+                        var start = _this.msg.substring(0, 1)
+                        // 获取除第一个字符外后面所有的字符
+                        var end = _this.msg.substring(1)
+                        _this.msg = end + start
+                    }, 200);
+
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
