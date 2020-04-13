@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Class 与 Style 绑定</title>
+    <meta charset="utf-8">
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 最后渲染 <div class="static active"></div> -->
+        <div class="static" v-bind:class="{ active: isActive, 'text-danger': hasError }">1</div>
+        <!-- 绑定在对象里面好一点 -->
+        <div v-bind:class="classObject">2</div>
+        <!-- 可以是一个计算属性 -->
+        <div v-bind:class="classObject2">3</div>
+        <!-- 直接绑定到一个样式对象通常更好，这会让模板更清晰： -->
+        <div v-bind:style="styleObject">  12 </div>
+    </div>
+
+    <script>
+        data1 = {
+            isActive: true,
+            hasError: false,
+            error: null,
+            classObject: {
+                active: true,
+                'text-danger': false
+            },
+            styleObject: {
+                color: 'red',
+                fontSize: '13px'
+            }
+        }
+
+        var vm = new Vue({
+            el: '#app',
+            data: data1,
+            computed: {
+                classObject2: function () {
+                    return {
+                        active: this.isActive && !this.error,
+                        'text-danger': this.error && this.error.type === 'fatal'
+                    }
+                }
+            }
+
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+  <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+  <script src="https://cdn.staticfile.org/vue-router/2.7.0/vue-router.min.js"></script>
+</head>
+
+<body>
+  <div id="app-2">
+    <span v-bind:title="message">
+      {{message}}
+    </span>
+
+    <span v-once>
+      {{a}}
+
+    </span>
+
+    <button v-bind:disabled="isButtonDisabled">Button</button>
+    {{ isButtonDisabled ? 'YES' : 'NO' }}
+    <a v-bind:href="url">...</a>
+    <a @click="doSomething">...</a>
+
+    <!-- 计算 -->
+    <p>Computed reversed message: "{{ reversedMessage }}"</p>
+<!-- 函数 -->
+
+    <p>Reversed message: "{{ reversedMessage('reversedMessage') }}"</p>
+
+  </div>
+
+  <script>
+    data1 = {
+      message: '页面加载于 ' + new Date().toLocaleString(),
+      a: 1,
+      isButtonDisabled: false,
+      url: "https://www.baidu.com"
+    };
+
+    var vm = new Vue({
+      el: '#app-2',
+      data: data1,
+      created: function () {
+        // `this` 指向 vm 实例
+        console.log('a is: ' + this.a)
+
+
+
+      },
+
+      computed: {
+        reversedMessage: function () {
+          // `this` 指向 vm 实例
+          return this.message.split('').reverse().join('')
+        }
+      },
+
+     
+
+      methods: {
+        doSomething: function () {
+          console.log('a is: ' + this.a)
+
+        }, //要加，才能写下一个function
+        reversedMessage: function (inputPara) {
+          // `this` 指向 vm 实例
+          console.log(inputPara)
+          console.log(inputPara.indexOf(""))
+          return inputPara.split('').reverse().join('')
+        }
+
+      }
+
+    })
+
+
+  </script>
+</body>
+
+</html>
