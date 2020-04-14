@@ -28,6 +28,11 @@
         <!--  -->
         <blog-post2 v-for="post in posts2" v-bind:key="post.id" v-bind:post="post"></blog-post2>
 
+        <div class="demo-alert-box">
+            <strong>Error!</strong>
+            <slot></slot>
+          </div>
+
     </div>
 
 
@@ -75,6 +80,7 @@
     <div class="blog-post">
       <h3>{{ post.title }}</h3>
       <div v-html="post.content"></div>
+      <div v-html="post.comments"></div>
     </div>
   `
         });
