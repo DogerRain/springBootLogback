@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <!-- 只有在 `key` 是 `Enter` 时调用 `vm.submit()` -->
+        <input ref="submitKey" v-on:keyup.enter="submitMethod">
+
+
+        <!-- Alt + C -->
+        <input ref="submitKey1" v-on:keyup.alt.67="submitMethod">
+    </div>
+
+
+
+    <script>
+        data1 = {
+
+        }
+        var vm = new Vue({
+            el: '#app',
+            data: data1,
+            methods: {
+
+                submitMethod: function () {
+                    //通过refs获取ref="submitKey"的值
+                    alert(this.$refs.submitKey.value)
+                }
+            }
+
+
+
+            // vm.items.push({ message: 'Baz' }) 可以往items里面加一行数据
+        })
+
+        Vue.component('todo-item', {
+            template: '\
+    <li>\
+      {{ title }}\
+      <button v-on:click="$emit(\'remove\')">Remove</button>\
+    </li>\
+  ',
+            props: ['title']
+        })
+
+        var vm2 = new Vue({
+            el: '#todo-list-example',
+            data: {
+                newTodoText: '',
+                todos: [
+                    {
+                        id: 1,
+                        title: 'Do the dishes',
+                    },
+                    {
+                        id: 2,
+                        title: 'Take out the trash',
+                    },
+                    {
+                        id: 3,
+                        title: 'Mow the lawn'
+                    }
+                ],
+                nextTodoId: 4
+            },
+            methods: {
+                addNewTodo: function () {
+                    this.todos.push({
+                        id: this.nextTodoId++,
+                        title: this.newTodoText
+                    })
+                    this.newTodoText = ''
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
