@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in items" v-bind:key="item.message">
+                {{ item.message }}
+            </li>
+        </ul>
+
+
+        <ul>
+            <!-- (value, name, index) 这个是特定的顺序 -->
+            <li v-for="(value, name, index) in object">
+                {{ index}} -{{name}} -{{value}}
+            </li>
+        </ul>
+
+        <li v-for="n in evenNumbers">{{ n }}</li>
+
+        <!-- 嵌套 v-for 循环中 可以配合v-if使用-->
+        <ul v-for="(value, name, index) in sets" v-if="name =='a'">
+            {{name}} {{value}}
+            <li v-for="(value, name, index) in value"> {{value}}</li>
+        </ul>
+
+        <ul v-for="set in sets2">
+            <li v-for="n in even(set)">{{ n }}</li>
+        </ul>
+    </div>
+
+    <div id="todo-list-example">
+        <form v-on:submit.prevent="addNewTodo">
+          <label for="new-todo">Add a todo</label>
+          <input
+            v-model="newTodoText"
+            id="new-todo"
+            placeholder="E.g. Feed the cat"
+          >
+          <button>Add</button>
+        </form>
+        <ul>
+          <li
+            is="todo-item"
+            v-for="(todo, index) in todos"
+            v-bind:key="todo.id"
+            v-bind:title="todo.title"
+            v-on:remove="todos.splice(index, 1)"
+          ></li>
+        </ul>
+      </div>
+
+
+
+    <script>
+        data1 = {
+            items: [
+                { message: 'Foo' },
+                { message: 'Bar1' },
+                { message: 'Bar2' },
+                { message: 'Bar3' },
+                { message: 'Bar6' },
+                { message: 'Bar5' },
+                { message: 'Bar4' }
+            ],
+            object: {
+                title: 'How to do lists in Vue',
+                author: ['Pony Ma', 'Jack Ma'],
+                publishedAt: '2016-04-10'
+            },
+            numbers: [1, 2, 3, 4, 5],
+            sets: { "a": [1, 2, 3, 4, 5], "b": [6, 7, 8, 9, 10] },
+            sets2: [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]]
+
+        }
+        var vm = new Vue({
+            el: '#app',
+            data: data1,
+            computed: {
+                evenNumbers: function () {
+                    return this.numbers.filter(function (number) {
+                        return number % 2 === 0
+                    })
+                }
+            },
+            methods: {
+                even: function (numbers) {
+                    return numbers.filter(function (number) {
+                        return number % 2 === 0
+                    })
+                }
+            }
+
+
+
+            // vm.items.push({ message: 'Baz' }) 可以往items里面加一行数据
+        })
+
+        Vue.component('todo-item', {
+            template: '\
+    <li>\
+      {{ title }}\
+      <button v-on:click="$emit(\'remove\')">Remove</button>\
+    </li>\
+  ',
+            props: ['title']
+        })
+
+        var vm2 = new Vue({
+            el: '#todo-list-example',
+            data: {
+                newTodoText: '',
+                todos: [
+                    {
+                        id: 1,
+                        title: 'Do the dishes',
+                    },
+                    {
+                        id: 2,
+                        title: 'Take out the trash',
+                    },
+                    {
+                        id: 3,
+                        title: 'Mow the lawn'
+                    }
+                ],
+                nextTodoId: 4
+            },
+            methods: {
+                addNewTodo: function () {
+                    this.todos.push({
+                        id: this.nextTodoId++,
+                        title: this.newTodoText
+                    })
+                    this.newTodoText = ''
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
