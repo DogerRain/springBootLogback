@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/meizitu")
 @Slf4j
 public class MeiZiPictureController {
-    @RequestMapping("/upload")
+    @RequestMapping("/test")
 //    public Object test(@RequestBody User user) {
     public Object test() {
         log.info("小程序接口调入");

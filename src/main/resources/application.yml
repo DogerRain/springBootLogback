@@ -19,7 +19,16 @@ spring:
 
   devtools:
     restart:
-      enabled: true
+      enabled: false
+
+  mvc:
+    static-path-pattern: /static/**
+    view:
+      prefix: //WEB-INF/static/
+      suffix: .jsp
+  resources:
+    static-locations: classpath:/static/
+
 
 server:
   port: 8090

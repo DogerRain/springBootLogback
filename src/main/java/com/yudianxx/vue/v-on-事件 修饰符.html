@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<!-- v-on 指令监听 DOM 事件 -->
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+
+    <style>
+        .inner{
+            height: 150px;
+            background-color: red;
+        }
+
+        .outer{
+            line-height: 400px;
+            padding: 40px;
+            background-color: black;
+        }
+
+
+    </style>
+</head>
+
+
+
+
+<body>
+    <div id="app">
+
+
+        <!--点击先触发btn再到inner再到outer-->
+<!--
+        <div class="outer" @click="divouterhandler">
+
+            <div class="inner" @click="divinnerhandler">
+
+                <input type="button" @click="btnhandler" value="按钮">
+
+            </div>
+
+        </div>
+        -->
+
+<!--.slef只有点击自己才触发-->
+        <!--
+        <div class="outer" @click.self="divouterhandler">
+
+            <div class="inner" @click="divinnerhandler">
+
+                <input type="button" @click="btnhandler" value="按钮">
+
+            </div>
+
+        </div>
+-->
+
+
+        <!--.stop阻止冒泡，只触发自己，不触发其他-->
+        <div class="outer" @click="divouterhandler">
+
+            <div class="inner" @click="divinnerhandler">
+
+                <input type="button" @click.stop="btnhandler" value="按钮">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        data1 = {
+            counter: 0,
+            name: "VUE.js"
+        }
+
+        var vm = new Vue({
+            el: '#app',
+            data: data1,
+            methods: {
+                // 方法名不允许使用-
+                divouterhandler(){
+                    console.log("点击了outer")
+                },
+                divinnerhandler(){
+                    console.log("点击了inner")
+                },
+                btnhandler(){
+                    console.log("点击了btn")
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>
