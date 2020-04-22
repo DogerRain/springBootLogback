@@ -6,6 +6,15 @@
     <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
     <script src="https://cdn.staticfile.org/vue-router/2.7.0/vue-router.min.js"></script>
 </head>
+
+<style>
+    .class-a {
+        color: firebrick;
+    }
+
+</style>
+
+
 <body>
 <div id="app">
     <h1>Hello App!</h1>
@@ -19,7 +28,11 @@
         <!--<router-link v-bind:to="'bar'">Go to Bar</router-link>-->
         <!--<router-link :to="{ path: 'bar' }">Go to Bar</router-link>-->
 
-        <router-link :to="{ path: 'user/123', params: { userId: 123 } }">Go to user</router-link>
+
+
+        <router-link :to="{ path: 'UserProps' }">Go to UserProps</router-link>
+
+        <!--<router-link :to="{ path: 'user', params: { userId: 123 } }">Go to user</router-link>-->
 
 
         <!-- 命名的路由 -->
@@ -27,6 +40,12 @@
 
         <!--&lt;!&ndash; 带查询参数，下面的结果为 /register?plan=private &ndash;&gt;-->
         <!--<router-link :to="{ path: 'register', query: { plan: 'private' }}">Register</router-link>-->
+
+        <!--错误写法,这里的params不会生效-->
+        <!--<router-link :to="{ path: 'register', params: { plan: 'private' }}">Register</router-link>-->
+
+
+        <!--通过 props 解耦-->
 
 
         <br>
@@ -36,6 +55,9 @@
     <!-- 路由出口 -->
     <!-- 路由匹配到的组件将渲染在这里 -->
     <router-view></router-view>
+
+    <!--是因为不是vue文件所以没有显示出来-->
+    <router-view class="class-a" name="a"></router-view>
 </div>
 
 <script>
@@ -43,11 +65,30 @@
 
     // 1. 定义（路由）组件。
     // 可以从其他文件 import 进来
-    const Foo11 = { template: '<div>foo</div>' }
-    const Bar = { template: '<div>bar</div>' }
+    const Foo11 = {template: '<div>foo</div>'}
+
+    const Bar = {template: '<div>bar</div>'}
+
+    const UserHome = {template: '<div>UserHome</div>'}
+
     const User = {
-        template: '<div>User {{ $router.params.userId }}</div>'
+        template: `
+    <div class="user">
+      <h2>User {{ $route.params.userId }}</h2>
+    </div>
+  `
     }
+
+    <!--通过 props 解耦-->
+    const UserProps = {
+        props: ['userId'],
+        template: `
+    <div class="user">
+      <h2>User Id is : {{ userId }}</h2>
+    </div>
+  `
+    }
+
 
     // 2. 定义路由
     // 每个路由应该映射一个组件。 其中"component" 可以是
@@ -55,10 +96,35 @@
     // 或者，只是一个组件配置对象。
     // 我们晚点再讨论嵌套路由。
     const routes1 = [
-        { path: '/foo', component: Foo11 },
-        { path: '/bar', component: Bar },
+        {path: '/foo', component: Foo11},
+        // { path: '/bar',  component: {default:Bar,a : UserHome} },
+
+        {path: '/bar', redirect: '/foo'},
+
+
+        {path: '/UserProps/:userId', component: UserProps,props: true},
+
         // 动态路径参数 以冒号开头
-        { path: '/user/:userId', component: User }
+        // #/user/1/profile 也会匹配这个  为啥呢？??????????????
+        {
+            path: '/user/:userId', component: User,
+            children: [
+                {
+                    // 当 /user/:id/profile 匹配成功，
+                    // Foo11 会被渲染在 User 的 <router-view> 中
+                    path: 'profile',
+                    component: Foo11
+                },
+                {
+                    // 当 /user/:id/posts 匹配成功
+                    // Bar 会被渲染在 User 的 <router-view> 中
+                    path: 'posts',
+                    component: Bar
+                },
+                // #/user/1/ 会匹配这个
+                {path: '', component: UserHome},
+            ]
+        }
     ]
 
     // 3. 创建 router 实例，然后传 `routes` 配置
