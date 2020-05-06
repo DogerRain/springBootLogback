@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+</head>
+
+<style>
+    .red{
+        color: red;
+    }
+
+    .thin
+    {
+        font-weight: 200;
+    }
+    .italic{
+        font-style: italic;
+    }
+
+    .active{
+        letter-spacing: 5em;
+    }
+
+
+
+</style>
+
+
+<body>
+    <div id="app">
+        <span v-bind:title="message">
+            {{message}}
+        </span>
+
+        <!--v-bind 绑定-->
+        <h1 :class="['red' ,'thin','italic']">优化     </h1>
+
+
+        <!--表达式-->
+        <h1 :class="['red' ,'thin','italic',{'active':flag}]">优化2     </h1>
+        <!--使用对象-->
+        <h1 :class="objectClass">使用对象的样式     </h1>
+
+
+
+        <!--style绑定-->
+        <!--注意，属性值的key有 - 一定要用引号裹起来-->
+        <h1 :style="{ color : 'red','font-weight' :200}">style 样式绑定</h1>
+        <!--也可以使用多个对象-->
+        <h1 :style="[objectClass2,objectClass3]">style 多个对象 样式绑定</h1>
+
+    </div>
+
+    <script>
+        data1={
+            message:"hello",
+            flag:true,
+            objectClass :{ red : true,thin :true,italic : true,active:true},
+            // 要用引号括起来
+            objectClass2 :{  "font-style": 'italic'},
+            objectClass3 :{ color:'green'}
+        }
+        var vm = new Vue({
+            el: '#app',
+            data: data1,
+        })
+
+    </script>
+</body>
+
+</html>
