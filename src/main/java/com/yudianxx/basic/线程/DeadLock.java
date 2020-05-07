@@ -1,5 +1,9 @@
 package com.yudianxx.basic.线程;
 
+/**
+ * 这个例子不能死锁！！！！！不能死锁
+ */
+
 public class DeadLock {
     public static String a = "a";
     public static String b = "b";

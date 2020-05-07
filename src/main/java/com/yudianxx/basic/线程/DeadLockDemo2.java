@@ -4,15 +4,15 @@ package com.yudianxx.basic.线程;
 /**
  * Created by lkmc2 on 2018/1/27.
  */
-class MyThread1 implements Runnable {
+class DeadLockDemo2 implements Runnable {
     private String objName;
-    private MyThread1 lockObj; //用来持有对方的对象
+    private DeadLockDemo2 lockObj; //用来持有对方的对象
 
-    public MyThread1(String objName) {
+    public DeadLockDemo2(String objName) {
         this.objName = objName;
     }
 
-    public void setLockObj(MyThread1 lockObj) {
+    public void setLockObj(DeadLockDemo2 lockObj) {
         this.lockObj = lockObj;
     }
 
@@ -50,13 +50,13 @@ class MyThread1 implements Runnable {
 
 }
 
-public class TestThread {
+ class TestThread {
 
     //死锁的demo
 
     public static void main(String[] args) throws InterruptedException {
-        final MyThread1 obj1 = new MyThread1("A");
-        final MyThread1 obj2 = new MyThread1("B");
+        final DeadLockDemo2 obj1 = new DeadLockDemo2("A");
+        final DeadLockDemo2 obj2 = new DeadLockDemo2("B");
 
         obj1.setLockObj(obj2); //持有对方的对象
         obj2.setLockObj(obj1);

@@ -336,7 +336,7 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
-        
+
         <dependency>
             <groupId>com.taobao.metamorphosis</groupId>
             <artifactId>metamorphosis-client-extension</artifactId>
@@ -383,6 +383,12 @@
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.meizu.garcia</groupId>
+            <artifactId>push-server-sdk</artifactId>
+            <version>1.1.2-RC08</version>
         </dependency>
 
     </dependencies>
