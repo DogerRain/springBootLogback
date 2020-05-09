@@ -27,7 +27,7 @@ public class TestPushMessage {
         Map<String, String> map = new HashMap<>();
         map.put("key", "value");
         //secret要提供
-        String secret = "test";
+        String secret = "1f31d425a25746999446dc8eff40771a";
         System.out.println(getSignature(map,secret));
     }
 
@@ -56,7 +56,7 @@ public class TestPushMessage {
 
     public void testVarnishedMessagePush() throws Exception {
         //推送对象
-        String APP_SECRET_KEY ="test";
+        String APP_SECRET_KEY ="1f31d425a25746999446dc8eff40771a";
         IFlymePush push = new IFlymePush(APP_SECRET_KEY, true);
         //组装消息
         VarnishedMessage message = new VarnishedMessage.Builder().appId(1000L)
