@@ -21,8 +21,9 @@
     <description>Demo project for Spring Boot</description>
 
     <modules>
-        <module>web</module>
-        <module>core</module>
+        <module>yudianxx-web</module>
+        <module>yuduanxx-core</module>
+        <module>yudianxx-common</module>
     </modules>
 
     <!--<distributionManagement>-->
@@ -406,44 +407,45 @@
             <scope>provided</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.meizu.garcia</groupId>
-            <artifactId>push-server-sdk</artifactId>
-            <version>1.1.2-RC08</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.meizu.garcia</groupId>-->
+            <!--<artifactId>push-server-sdk</artifactId>-->
+            <!--<version>1.1.2-RC08</version>-->
+        <!--</dependency>-->
 
     </dependencies>
 
-    <!--<build>-->
-    <!--<plugins>-->
-    <!--<plugin>-->
-    <!--<groupId>org.springframework.boot</groupId>-->
-    <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
-    <!--</plugin>-->
-    <!--</plugins>-->
-    <!--</build>-->
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <encoding>UTF-8</encoding>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>8</source>
-                    <target>8</target>
-                </configuration>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
+
+    <!-- <build>
+         <plugins>
+             <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-compiler-plugin</artifactId>
+                 <version>3.8.0</version>
+                 <configuration>
+                     <source>1.8</source>
+                     <target>1.8</target>
+                     <encoding>UTF-8</encoding>
+                 </configuration>
+             </plugin>
+             <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-compiler-plugin</artifactId>
+                 <configuration>
+                     <source>8</source>
+                     <target>8</target>
+                 </configuration>
+             </plugin>
+         </plugins>
+     </build>-->
 
 
     <repositories>
