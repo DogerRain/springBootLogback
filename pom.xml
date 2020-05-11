@@ -12,12 +12,18 @@
         <version>1.5.9.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>com.yudainxx</groupId>
     <artifactId>springBootLogback</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>pom</packaging>
     <name>springBootLogback</name>
     <description>Demo project for Spring Boot</description>
+
+    <modules>
+        <module>web</module>
+        <module>core</module>
+    </modules>
 
     <!--<distributionManagement>-->
     <!--<repository>-->
@@ -37,13 +43,28 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.7</java.version>
-        <start-class>com.yudianxx.springBootDemo.SpringBootDemoApplication</start-class>
+        <start-class>com.SpringBootDemoApplication</start-class>
         <java.version>1.7</java.version>
         <mybatisplus.version>2.2.0</mybatisplus.version>
         <mybatisplus-spring-boot-starter.version>1.0.5</mybatisplus-spring-boot-starter.version>
     </properties>
 
     <dependencies>
+
+        <!--<dependency>-->
+            <!--<groupId>com.yudainxx</groupId>-->
+            <!--<artifactId>core</artifactId>-->
+            <!--<version>${project.version}</version>-->
+        <!--</dependency>-->
+
+
+        <!--<dependency>-->
+            <!--<groupId>com.yudainxx</groupId>-->
+            <!--<artifactId>web</artifactId>-->
+            <!--<version>${project.version}</version>-->
+        <!--</dependency>-->
+
+
 
         <!--向Eureka服务器注册微服务 -->
         <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-eureka -->
