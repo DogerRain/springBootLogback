@@ -32,13 +32,11 @@ public class TestCachedThreadPool {
 //        ExecutorService executorService = Executors.newSingleThreadExecutor();
 
         //Runnable()
-/*
         for (int i = 0; i < 5; i++) {
             executorService.execute(new TestRunnable());
             System.out.println("************* a" + i + " *************");
         }
         executorService.shutdown();
-        */
 
         //Callable()
         for (int i = 0; i < 5; i++) {
