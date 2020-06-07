@@ -16,17 +16,17 @@
 
 
         <ul>
-            <!-- (value, name, index) 这个是特定的顺序 -->
+            <!--主要用法，看这个就行了-->
+            <!-- (value, key, index) 这个是特定的顺序 -->
             <!--v k index 顺序-->
             <li v-for="(value, name, index) in object">
                 {{ index}} -{{name}} -{{value}}
-
             </li>
 
             <br>
             count in 10  value从1开始
             <li v-for="(value, name, index) in 10">
-               -  {{ index}} -{{name}} -{{value}}
+               -  {{index}} -{{name}} -{{value}}
             </li>
         </ul>
 

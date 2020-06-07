@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+</head>
+
+<body>
+<div id="app">
+    <!--<input type="button" value="toggle" @click="toggle">-->
+    <input type="button" value="toggle" @click="flag=!flag">
+
+
+
+
+    <h3 v-show="flag">这是一个v-show控制元素</h3>
+
+    <!--v-if的特点是每次都会删除或者增加dom元素;v-show不会,只是加了 display:none 样式-->
+    <!--所以v-if性能消耗要高，如果有频繁的切换，建议使用v-show-->
+    <h3 v-if="flag">这是一个v-if控制元素</h3>
+</div>
+
+<script>
+    data1 = {
+        message: "hello",
+        flag: true
+    }
+    var vm = new Vue({
+        el: '#app',
+        data: data1,
+
+        methods: {
+            toggle() {
+                console.log(this.flag);
+                this.flag = !this.flag;
+            }
+        },
+
+    })
+
+</script>
+</body>
+
+</html>

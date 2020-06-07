@@ -13,19 +13,37 @@ public class SynchronizedTest extends Thread {
     }
 
     public static void main(String[] args) throws Exception {
-        for (int i = 1; i <= 10; i++) {
-            new SynchronizedTest(i).start();
-            Thread.sleep(1);
-        }
+//        for (int i = 1; i <= 10; i++) {
+//            SynchronizedTest synchronizedTest = new SynchronizedTest(i);
+//            Thread t1 = new Thread(synchronizedTest, "Thread" + i);
+//            t1.start();
+////            Thread.sleep(1); //sleep有一种假象，看不出来的
+//        }
+
+//        SynchronizedTest synchronizedTest = new SynchronizedTest(1);
+//        SynchronizedTest synchronizedTest2 = new SynchronizedTest(2);
+//        Thread t1 = new Thread(synchronizedTest,"Thread1");
+//        Thread t2 = new Thread(synchronizedTest2,"Thread2");
+//        t1.start();
+//        t2.start();
+        //以上两个的意思，就是每次都new一个对象，不同对象之间加锁不冲突,所以不用等待
+
+        SynchronizedTest  synchronizedTest = new SynchronizedTest(1);
+        Thread t1 = new Thread(synchronizedTest);
+        Thread t2 = new Thread(synchronizedTest);
+        t1.start();
+        t2.start();
+//        这是同一个对象，所以会加锁，需要等待
+
     }
 
     /**
-     * 对于一个成员方法加synchronized关键字，这实际上是以这个成员方法所在的对象本身作为对象锁。,这里加不加synchronized结果都是随机的
+     * 对于一个成员方法加synchronized关键字
      */
     @Override
     public synchronized void run() {
-        for (int i = 1; i <= 1000; i++) {
-            System.out.println("No." + threadNo + ":" + i);
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(Thread.currentThread().getName() + "--->>>" + "No." + threadNo + ":" + i);
         }
     }
 }
@@ -52,17 +70,19 @@ class SynchronizedTest2 extends Thread {
     public static void main(String[] args) throws Exception {
         String lock = new String("lock");
         for (int i = 1; i <= 10; i++) {
-            new SynchronizedTest2(i, lock).start();
-            Thread.sleep(1);
+//            new SynchronizedTest2(i, lock).start();
+            SynchronizedTest2 synchronizedTest2 = new SynchronizedTest2(i,lock);
+            Thread t1 = new Thread(synchronizedTest2, "Thread" + i);
+            t1.start();
+//            Thread.sleep(1000);
         }
     }
-
     @Override
     public void run() {
         //lock是在堆中的实例变量
         synchronized (lock) {
-            for (int i = 1; i <= 1000; i++) {
-                System.out.println("No." + threadNo + ":" + i);
+            for (int i = 1; i <= 10; i++) {
+                System.out.println(Thread.currentThread().getName() + "--->>>" + threadNo + ":" + i);
             }
         }
     }
@@ -86,14 +106,13 @@ class SynchronizedTest3 extends Thread {
     }
 
     /**
-     *
      * 对象锁就是该静态放发所在的类的Class实例，由于在JVM中，所有被加载的类都有唯一的类对象，
      * 具体到本例，就是唯一的 SynchronizedTest3.class 整个对象。不管我们创建了该类的多少实例，但是它的类实例仍然是一个
      */
 
 
     //静态变量、方法 都在方法区
-    public  synchronized void abc(int threadNo) {
+    public synchronized void abc(int threadNo) {
         for (int i = 1; i <= 1000; i++) {
             System.out.println("No." + threadNo + ":" + i);
         }
