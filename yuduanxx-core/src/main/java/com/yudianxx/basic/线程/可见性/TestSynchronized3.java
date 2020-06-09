@@ -44,3 +44,4 @@ public class TestSynchronized3 {
 
     //因为第一个同步代码块传入的this，所以两个同步代码所需要获得的对象锁都是同一个对象锁，对象锁需要等待
 }
+
