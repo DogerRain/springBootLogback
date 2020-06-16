@@ -10,6 +10,8 @@
 .springBeans
 .sts4-cache
 .log
+.jar
+.class
 
 ### IntelliJ IDEA ###
 .idea
@@ -17,6 +19,8 @@
 *.iml
 *.ipr
 *.log
+*.class
+*.jar
 
 ### NetBeans ###
 /nbproject/private/
@@ -26,3 +30,12 @@
 /nbdist/
 /.nb-gradle/
 /mylog/
+yudianxx-common/src/main/java/target/
+yudianxx-interview/target/
+yudianxx-web/src/main/resources/templates/
+yudianxx-web/target/classes/
+yudianxx-web/target/generated-sources/
+yudianxx-web/target/generated-test-sources/
+yudianxx-web/target/maven-archiver/
+yudianxx-web/target/maven-status/
+yudianxx-web/target/yudianxx-web-0.0.1-SNAPSHOT.jar.original

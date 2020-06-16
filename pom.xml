@@ -24,6 +24,7 @@
         <module>yudianxx-web</module>
         <module>yuduanxx-core</module>
         <module>yudianxx-common</module>
+        <module>yudianxx-interview</module>
     </modules>
 
     <!--<distributionManagement>-->

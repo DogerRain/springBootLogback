@@ -23,6 +23,7 @@ public class Interview {
     public void splitTest() {
         String[] a = {"1", "2", "311按"};
         System.out.println(a.length);
+        System.out.println(a[0].length());
         //数组是length(),字符串是length
         System.out.println("11,121".split(",").length);
         System.out.println("".split("")[0].length());
