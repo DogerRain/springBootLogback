@@ -8,15 +8,23 @@ package com.yudianxx.basic.线程.ThreadDemo;
 public class ThreadDemo {
     public static void main(String[] args) {
         Thread myThread = new MyThread();
+//        myThread.run();//run()只是当普通方法去执行
         myThread.start();
 
         Thread myRunnable = new Thread(new MyRunnable());
         myRunnable.start();
 
-        Thread t = new Thread(() -> {
-            System.out.println(Thread.currentThread().getName() + "---->>>>" + "jdk1.8以上可以用lambda语法");
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println( Thread.currentThread().getName() + "---->>>>" + "简易创建线程");
+            }
         });
-        t.start();
+
+        new Thread(() -> {
+            System.out.println(Thread.currentThread().getName() + "---->>>>" + "jdk1.8以上可以用lambda语法 简易创建线程");
+        }).start();
+
 
 //        非lambda写法
         Thread t2 = new Thread(new Runnable() {

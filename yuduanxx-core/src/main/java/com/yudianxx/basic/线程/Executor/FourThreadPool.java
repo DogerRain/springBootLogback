@@ -7,25 +7,34 @@ import java.util.concurrent.*;
  * @date 2020/5/6
  * @Description
  */
-public class TestCachedThreadPool {
+public class  FourThreadPool {
     public static void main(String[] args) {
+/**
+ * 阿里开发手册建议使用这种方法创建线程池
+ */
+//        ExecutorService defaultExecutor =new ThreadPoolExecutor();
+
         /**
+         * 1
          * 此线程池的线程数不受限制。如果所有的线程都在忙于执行任务并且又有新的任务到来了，这个线程池将创建一个新的线程并将其提交到 Executor。
          * 只要其中一个线程变为空闲，它就会执行新的任务。 如果一个线程有 60 秒的时间都是空闲的，它们将被结束生命周期并从缓存中删除。
          */
 //        ExecutorService executorService = Executors.newCachedThreadPool();
         /**
+         * 2
          * 它是一个拥有固定数量线程的线程池。提交给 Executor 的任务由固定的 n 个线程执行，
          * 如果有更多的任务，它们存储在 LinkedBlockingQueue 里。这个数字 n 通常跟底层处理器CPU支持的线程总数有关。
          */
         ExecutorService executorService = Executors.newFixedThreadPool(2);
 
         /**
+         * 3
          * 当我们有一个需要定期运行的任务或者我们希望延迟某个任务时，就会使用此类型的 executor。
          */
 //        ExecutorService executorService = Executors.newScheduledThreadPool(2);
 
         /**
+         * 4
          * 此线程池 Executor 只有一个线程。它用于以顺序方式的形式执行任务。
          * 如果此线程在执行任务时因异常而挂掉，则会创建一个新线程来替换此线程，后续任务将在新线程中执行。
          */
