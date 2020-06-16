@@ -1,4 +1,9 @@
 package com.yudianxx.basic.Abstract;
+/**
+ * 现实中一些父类中的方法没必要写  各个子类中的方法会有所不同 所以没必要在父类中写,所以有了抽象类
+ * 由于抽象类不能实例化对象，所以抽象类必须被继承，才能被使用。也是因为这个原因，通常在设计阶段决定要不要设计抽象类。
+ */
+
 
 //        1. 抽象类不能被实例化(初学者很容易犯的错)，如果被实例化，就会报错，编译无法通过。只有抽象类的非抽象子类可以创建对象。
 //
@@ -42,5 +47,5 @@ public abstract class Employee {
         System.out.println("static Test");
     }
 
-//    public abstract void abstrartMethod();
+    public abstract void abstrartMethod();
 }

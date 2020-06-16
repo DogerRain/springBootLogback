@@ -30,6 +30,7 @@ public  class  Salary extends Employee{
      * @Param:
      * @return:
      */
+    @Override
     public void abstrartMethod(){
 
     }
