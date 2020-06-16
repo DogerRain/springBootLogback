@@ -8,6 +8,11 @@ public class SuperGetclass extends Employee {
         super(name);
     }
 
+    @Override
+    public void abstrartMethod() {
+
+    }
+
 
     void getClassName() {
         System.out.println(super.getClass().getName());

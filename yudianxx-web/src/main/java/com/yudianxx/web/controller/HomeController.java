@@ -1,6 +1,7 @@
 package com.yudianxx.web.controller;
 
 
+import com.yudianxx.common.annotation.TimeConsume;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class HomeController {
 
 
+    @TimeConsume
     @RequestMapping("/test")
 //    public Object test(@RequestBody User user) {
     public String  test() {
