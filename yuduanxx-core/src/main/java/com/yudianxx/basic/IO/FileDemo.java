@@ -15,7 +15,7 @@ public class FileDemo {
 //        File f = new File("C:\\Windows\\notepad.exe");
         FileDemo fileDemo = new FileDemo();
 //        fileDemo.createFile();
-//        fileDemo.listFile("E:\\projet\\springBootLogback\\target\\classes\\com\\yudianxx\\springBootDemo");
+//        fileDemo.listFile("E:\\projet\\springBootLogback\\target\\内部类\\com\\yudianxx\\springBootDemo");
 
         //当前目录
         File currentDir = new File(".");

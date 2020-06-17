@@ -1,20 +1,31 @@
 package com.yudianxx.basic.接口;
 
-public interface TestInterFace extends Runnable{
-    int a =1;
+//这里不是 implement 而是extends
+public interface TestInterFace extends Runnable {
+    int num=1;
+    int a = 1;
+    public static int b = 2;
+    public static final int c = 2;
+
 
     void A();
 
-    public static void testInterface(){
+    abstract void B();
+
+    public static void testInterface() {
         System.out.println("JDK1.8可以使用static修饰接口方法");
 
     }
-//    Interface abstract methods cannot have body
+
+    //    Interface abstract methods cannot have body
 //    public void test(){
 //
 //    }
     //接口.方法名可以调用方法
-    public static void test(){
+    public static void test() {
         TestInterFace.testInterface();
     }
+    //可以不写，默认是继承
+    @Override
+    void run();
 }
