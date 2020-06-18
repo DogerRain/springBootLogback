@@ -8,7 +8,10 @@ package com.yudianxx.basic.运算符;
 public class BasicOperator {
     //    位运算符
 //
-//|按位或和&按位与计算方式都是转换二进制再计算，不同的是运算规则(一个为真即为真)1|0 = 1 , 1|1 = 1 , 0|0 = 0 , 0|1 = 1
+//|按位或和&按位与计算方式都是转换二进制再计算，不同的是运算规则
+//
+// | (一个为真即为真)1|0 = 1 , 1|1 = 1 , 0|0 = 0 , 0|1 = 1
+// &  一个为假就为假  除了 1&1 =1 ，其他都是0
 //
 //6的二进制位0000 0110 , 2的二进制位0000 0010 , 110|010为110，最终值0000 0110，故6|2等于6
 
@@ -29,37 +32,66 @@ public class BasicOperator {
     public static void main(String[] args) {
         int a = 0;
         int b = 18;
-        int c =2;
-        int d =4;
+        int c = 2;
+        int d = 4;
 
         System.out.println(a + "的二进制表示为：" + Integer.toBinaryString(a));
         System.out.println(b + "的二进制表示为：" + Integer.toBinaryString(b));
 
-        System.out.println(a | b);
+        System.out.println("a | b--->>>" + (a | b));
+        System.out.println("a & b--->>>" + (a & b));
 
-        System.out.println(2>>>4);
-        System.out.println(2>>4);
+        System.out.println(2 >>> 4);
+        System.out.println(2 >> 4);
 
 
-        System.out.println(-1>>>1);
+        System.out.println(-1 >>> 1);
         System.out.println(Integer.toBinaryString(-1)); //11111111111111111111111111111111 ，这是-1的二进制表示，高位是1表示负
         //反码是11111111111111111111111111111110
         //源码是01
-        System.out.println(Integer.parseInt("01",2));
-        System.out.println(Integer.parseInt("00111111111111111111111111111110",2));
+        System.out.println("?????????????????");
+        System.out.println(Integer.parseInt("01", 2));
+        System.out.println(Integer.parseInt("100110", 2));
+        System.out.println(Integer.parseInt("00111111111111111111111111111110", 2));
+        System.out.println(Long.parseLong("11111111111111111111111111011010", 2));
+
 
         System.out.println(Integer.toBinaryString(-5));
         System.out.println(Integer.toBinaryString(-8));
 
 
-        System.out.println(8>>2);
-        System.out.println(-8>>2);
+        System.out.println(8 >> 2);
+        System.out.println(-8 >> 2);
 
-        System.out.println(8>>>2);
-        System.out.println(-8>>>2);
+        System.out.println(8 >>> 2);
+        System.out.println(-8 >>> 2);
+
+        System.out.println(NumberOf0(-1));
+        System.out.println(~1);
+        System.out.println(Integer.toBinaryString(37));
+        System.out.println(Integer.toBinaryString(-5));
+        System.out.println(~5);
+        System.out.println(~(-5));
+        System.out.println(14>>1);
 
     }
 
+    public static int NumberOf0(int n) {
+        int result = 0;
+        while (n != 0) {
+            ++result;
+            n = n & (n - 1);
+        }
+        return result;
+    }
 
+    public int NumberOf1(int n) {
+        int result = 0;
+        while (n != -1) {
+            ++result;
+            n = n | (n + 1);
+        }
+        return result;
+    }
 
 }
