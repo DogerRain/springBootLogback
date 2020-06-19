@@ -38,4 +38,15 @@ public class Solution {
         }
         return map.size();
     }
+
+    /**
+     * 标准答案：双指针
+     */
+    public int removeDuplicates1(int[] nums) {
+        int i = 0;
+        for (int j = 0; j < nums.length; j++) {
+
+        }
+    }
+
 }
