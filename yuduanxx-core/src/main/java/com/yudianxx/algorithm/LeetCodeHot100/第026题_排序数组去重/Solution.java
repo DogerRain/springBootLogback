@@ -1,7 +1,5 @@
 package com.yudianxx.algorithm.LeetCodeHot100.第026题_排序数组去重;
 
-import io.swagger.models.auth.In;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,7 +18,8 @@ public class Solution {
 //        System.out.println(map.put(1, 1));
 //        System.out.println(map.put(1, 1));
 
-        int result = new Solution().removeDuplicates(nums);
+//        int result = new Solution().removeDuplicates(nums);
+        int result = new Solution().removeDuplicates1(nums);
         System.out.println(result);
         for (int i = 0; i < result; i++) {
             System.out.println(nums[i]);
@@ -41,12 +40,18 @@ public class Solution {
 
     /**
      * 标准答案：双指针
+     *
+     * 短指针i，长指针j
      */
     public int removeDuplicates1(int[] nums) {
         int i = 0;
         for (int j = 0; j < nums.length; j++) {
-
+            if (nums[i] != nums[j]) {
+                i++;
+                nums[i] = nums[j];
+            }
         }
+        return i + 1;
     }
 
 }
