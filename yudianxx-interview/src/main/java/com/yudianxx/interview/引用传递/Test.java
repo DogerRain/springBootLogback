@@ -1,10 +1,12 @@
 package com.yudianxx.interview.引用传递;
 
 public class Test {
+
     String str = "123";
     String[] strs = new String[]{"1", "2", "3"};
 
     public static void main(String[] args) {
+
 
 
         Test test = new Test();
