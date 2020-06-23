@@ -38,6 +38,7 @@ public class Test {
         strs[0] = "0";
         System.out.println("strs  形参的值--->>>" + strs);
         System.out.println("strs  形参的hash地址--->>>" + strs.hashCode());
+        strs = new String[]{"2"};
     }
 
 }
