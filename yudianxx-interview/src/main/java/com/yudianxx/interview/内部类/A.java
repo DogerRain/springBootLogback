@@ -12,6 +12,7 @@ class A {
 
     }
 
+
     class C {
         B b = new B().getB(); //获取B对象
 
@@ -22,6 +23,10 @@ class A {
             A.B ab = (new A()).new B().getB();
         }
 
+
+    }
+
+    public class  D{
 
     }
 

@@ -7,6 +7,7 @@ public class QuickSort {
         for (int i = 0; i < 10; i++) {
             nums[i] = (int) (Math.random() * 100) + 1;
         }
+
         for (int i = 0; i < nums.length; i++) {
             System.out.print(nums[i] + " ");
         }
@@ -17,6 +18,7 @@ public class QuickSort {
             System.out.print(nums[i] + " ");
         }
     }
+
 
     public void quick_sort(int[] nums, int l, int r) {
         if (l < r) {
