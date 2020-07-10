@@ -5,23 +5,28 @@ import java.util.Map;
 
 public class HashMapUse {
     public static void main(String[] args) {
-        int n = 100;
+
+        HashMapUse hashMapTest = new HashMapUse();
+//        hashMapTest.nullValue();
+        hashMapTest.equals();
+
+    }
+
+    private void equals(){
+        Map<String,String> map = new HashMap<>();
+        map.put("key","key");
+        System.out.println( map.equals(map));
 
 
-//        n = n >>> 2;  //无符号右移两位2^2
-//        n = n >>> 3;  //无符号右移两位2^3
-        n = n >> 3;  //带符号右移两位2^3
 
-        System.out.println(n);
+    }
+
+    private void hashcode() {
         Map<String, String> map = new HashMap<>();
         map.put("1", "甲");
         System.out.println(map.get("1").hashCode());
         int hashcode = "甲".hashCode();
         System.out.println(hashcode);
-
-        HashMapUse hashMapTest = new HashMapUse();
-        hashMapTest.nullValue();
-
     }
 
     private String test() {
@@ -54,17 +59,17 @@ public class HashMapUse {
         }
     }
 
-    private void nullValue(){
+    private void nullValue() {
         //map可以放null值,key 也可以是null
         Map<String, String> map = new HashMap<>();
-        map.put("1",null);
-        map.put(null,"1");
-        map.put("2","value_2");
+        map.put("1", null);
+        map.put(null, "1");
+        map.put("2", "value_2");
         System.out.println(map.get("1"));
         System.out.println(map.get(null));
 
-        String returnValue = map.put("2","2_value_lastest");
-        String returnValue1 = map.put("3","3_value_lastest");
+        String returnValue = map.put("2", "2_value_lastest");
+        String returnValue1 = map.put("3", "3_value_lastest");
         //如果key存在，则返回旧值key的value
         System.out.println(returnValue);
 //        如果key不存在，则返回null

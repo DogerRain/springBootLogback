@@ -6,8 +6,6 @@ package com.yudianxx.algorithm.sort;
  * @Description
  */
 
-import com.sun.org.apache.bcel.internal.generic.I2F;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,10 +16,24 @@ public class 冒泡排序 {
 
     public static void main(String[] args) {
 
+
+        HashMap<String, String> ext = new HashMap<String, String>(){
+            {
+                put("key", "value");
+            }
+        };
+
+
+
+
         int[] nums = new int[]{5, 1, 4, 2, 8, 4};
 
-        Map map = new HashMap();
-        map.put("1", "1");
+        sort1(nums);
+
+
+        for (int i = 0; i < nums.length; i++) {
+            System.out.println(nums[i]);
+        }
 
     }
 
@@ -29,19 +41,18 @@ public class 冒泡排序 {
      * 不考虑优化的实现方式
      */
 
-    public void sort1(int[] nums) {
+    public static void sort1(int[] nums) {
 
         for (int i = 0; i < nums.length; i++) {
 
-            for (int j = 1; j < nums.length - i; j++) {
+            for (int j = 0; j < nums.length - i - 1; j++) {
                 //交换
-                if (nums[i]>nums[j]){
-                    int tmp = nums[j];
-                    nums[j] =nums[i];
-                    nums[i] = tmp;
+                if (nums[j] > nums[j + 1]) {
+                    int tmp = nums[j + 1];
+                    nums[j + 1] = nums[j];
+                    nums[j] = tmp;
                 }
             }
-
         }
 
 
