@@ -18,7 +18,10 @@ package com.yudianxx.basic.Abstract;
 import lombok.Data;
 
 @Data
-public abstract class Employee {
+public abstract class Employee extends Person implements People{
+
+    public static String a ="1";
+
     private String name;
     private String address;
     private int number;
@@ -43,9 +46,28 @@ public abstract class Employee {
         test();
     }
 
+
     public static void test(){
-        System.out.println("static Test");
+        System.out.println("我是抽象类的static方法");
     }
 
+
+
+
     public abstract void abstrartMethod();
+
+      /*  static {
+        System.out.println("我是抽象类的static代码块");
+    }
+
+    public void abstrartMethod2() {
+        System.out.println("抽象类也可以拥有非抽象方法");
+    }*/
+
+  @Override
+  public void  test1(){
+
+  }
+
+
 }

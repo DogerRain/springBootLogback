@@ -13,10 +13,12 @@ public  class  Salary extends Employee{
         super(name, address, number);
         setSalary(salary);
     }
+    @Override
     public  void  mailCheck(){
         System.out.println("我是Salary类");
         System.out.println("工资确认"+getName()+", 工资是 "+ getSalary());
     }
+    @Override
     public double computePay(){
         System.out.println("计算 Salary 的工资 : "+ getName());
         return salary/5;
@@ -34,4 +36,9 @@ public  class  Salary extends Employee{
     public void abstrartMethod(){
 
     }
+
+ /*   @Override
+    public void test1() {
+
+    }*/
 }

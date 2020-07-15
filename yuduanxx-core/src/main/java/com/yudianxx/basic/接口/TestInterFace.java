@@ -6,6 +6,7 @@ public interface TestInterFace extends Runnable {
     int a = 1;
     public static int b = 2;
     public static final int c = 2;
+    final static int ans =1;
 
 
     void A();

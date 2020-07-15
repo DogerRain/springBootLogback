@@ -16,7 +16,9 @@ public class HashMapUse {
         Map<String,String> map = new HashMap<>();
         map.put("key","key");
         System.out.println( map.equals(map));
+        System.out.println(map.get("1")==null);
 
+        String []a[] = new String[1][1];
 
 
     }
