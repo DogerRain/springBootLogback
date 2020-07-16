@@ -10,7 +10,9 @@ import javax.swing.tree.TreeNode;
 public class EveryThingTest {
     public static void main(String[] args) {
         EveryThingTest everyThingTest = new EveryThingTest();
-        everyThingTest.calculate();
+//        everyThingTest.calculate();
+        System.out.println( System.currentTimeMillis());
+
     }
 
     public void preOrderTraverse1(TreeNode root) {

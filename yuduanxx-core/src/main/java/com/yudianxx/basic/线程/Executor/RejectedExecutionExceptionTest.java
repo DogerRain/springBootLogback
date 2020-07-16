@@ -59,10 +59,21 @@ public class RejectedExecutionExceptionTest {
             return t;
         };
 
+        //或者
+        ThreadFactory factory1 = new ThreadFactory() {
+            @Override
+            public Thread newThread(Runnable r) {
+                SecurityManager s = System.getSecurityManager();
+                ThreadGroup group = (s != null) ? s.getThreadGroup() : Thread.currentThread().getThreadGroup();
+                Thread t = new Thread(group, r);
+                t.setName("任务线程 - " );
+                return t;
+            }
+        };
+
 
 //        ThreadPoolExecutor executor = new ThreadPoolExecutor(corePoolSize, maxPoolSize, keepAliveTime, TimeUnit.SECONDS, queue, rejectedExecutionHandler);
         ThreadPoolExecutor executor = new ThreadPoolExecutor(corePoolSize, maxPoolSize, keepAliveTime, TimeUnit.SECONDS, queue, factory, rejectedExecutionHandler);
-
         callable2(executor);
 //        callable(executor);
         System.out.println("------------------------------");
@@ -110,6 +121,7 @@ public class RejectedExecutionExceptionTest {
             try {
                 String s = future.get();
                 if ("SUCCESS".equals(s)) {
+                    //主线程
                     System.out.println("future.isDone()的值：" + future.isDone() + "，经过返回值比较，submit方法执行任务成功    thread name: " + Thread.currentThread().getName());
 //                    而这里的result.isDone()返回的是true？
                 }
