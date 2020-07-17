@@ -44,7 +44,7 @@ public class ThreadPoolALL {
         public String call() {
             int count = getCount();
             System.out.println(Thread.currentThread().getName() + "  线程被调用了。第" + count + "次");
-            if (count == 2) {
+            if (count == 10) {
                 throw new RuntimeException("Callable 任务出错了");
             }
             return "finish";
@@ -93,8 +93,8 @@ public class ThreadPoolALL {
         ThreadPoolExecutor executor = new ThreadPoolExecutor(corePoolSize, maxPoolSize, keepAliveTime, TimeUnit.SECONDS, queue, factory, rejectedExecutionHandler);
 
 
-        TestRunnable testRunnable = new TestRunnable();
 
+        TestRunnable testRunnable = new TestRunnable();
         for (int i = 0; i < 10; i++) {
             executor.execute(testRunnable);
         }
@@ -110,7 +110,7 @@ public class ThreadPoolALL {
 
 
         TestCallable testCallable = new TestCallable();
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 10; i++) {
             Future<String> future = executor.submit(testCallable);
             try {
                 future.get();
