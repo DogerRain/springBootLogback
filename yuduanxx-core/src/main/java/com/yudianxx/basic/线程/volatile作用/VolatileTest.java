@@ -7,39 +7,55 @@ package com.yudianxx.basic.线程.volatile作用;
  */
 
 public class VolatileTest extends Thread {
-    public volatile static int count;
 
+    public volatile static int count = 0;
+    //    public static int count = 0;
+//    public int count = 0;
+    public static int count2 = 0;
+    public static Counter counter = new Counter();
     public volatile static Integer j = 1;
+
+
+    public static void main(String[] args) {
+        //100个线程去访问
+        VolatileTest[] mythreadArray = new VolatileTest[100];
+        for (int i = 0; i < 100; i++) {
+            mythreadArray[i] = new VolatileTest();
+        }
+        for (int i = 0; i < 100; i++) {
+            mythreadArray[i].start();
+        }
+
+        System.out.println(Thread.currentThread().getName() + " count  =" + count);
+        System.out.println(Thread.currentThread().getName() + " count2 =" + counter.getCount());
+    }
 
     private void addCount() {
 //        synchronized (this.j) {
 //        synchronized (this) {
 //        synchronized (VolatileTest.class) {
-            for (int i = 0; i < 100; i++) {
-                count++;
-            }
-            System.out.println(Thread.currentThread().getName() + " count=" + count);
+        for (int i = 0; i < 100; i++) {
+            count++;
+//                System.out.println(Thread.currentThread().getName() + " count=" + count);
+            counter.getCount();
         }
+
+    }
 //        System.out.println(Thread.currentThread().getName() + " count=" + count);
 //    }
 
     @Override
     public void run() {
         addCount();
+
     }
 }
 
-class Run {
-    public static void main(String[] args) {
-        VolatileTest[] mythreadArray = new VolatileTest[100];
-        for (int i = 0; i < 100; i++) {
-            mythreadArray[i] = new VolatileTest();
-        }
+class Counter {
+    private int count = 0;
 
-        for (int i = 0; i < 100; i++) {
-            mythreadArray[i].start();
-        }
-
+    public synchronized int getCount() {
+        return count++;
     }
 }
 
@@ -55,3 +71,4 @@ class Run {
  * <p>
  * 这种情形在《Effective JAVA》中称之为“安全性失败”
  */
+

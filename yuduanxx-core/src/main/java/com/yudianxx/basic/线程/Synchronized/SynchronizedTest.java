@@ -26,6 +26,7 @@ public class SynchronizedTest extends Thread {
 //        Thread t2 = new Thread(synchronizedTest2,"Thread2");
 //        t1.start();
 //        t2.start();
+
         //以上两个的意思，就是每次都new一个对象，不同对象之间加锁不冲突,所以不用等待
 
         SynchronizedTest  synchronizedTest = new SynchronizedTest(1);
