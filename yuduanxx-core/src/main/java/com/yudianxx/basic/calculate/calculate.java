@@ -3,6 +3,7 @@ package com.yudianxx.basic.calculate;
 
 import com.google.common.collect.Lists;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -21,6 +22,9 @@ public class calculate {
         method(k++);
         method(++k);
         method2();
+        List<Integer> list = new ArrayList<>();
+        list.add(2);
+        list.add(0,1);
     }
     static void method(int in){
         System.out.println(in);

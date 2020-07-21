@@ -9,11 +9,15 @@ public interface TestInterFace extends Runnable {
     final static int ans =1;
 
 
-    void A();
 
     abstract void B();
 
-    public static void testInterface() {
+
+    //接口是不能有普通方法的
+    void A();
+
+    //可以有static方法，默认且只能 是default static 修饰
+    static void testInterface() {
         System.out.println("JDK1.8可以使用static修饰接口方法");
 
     }
@@ -29,4 +33,5 @@ public interface TestInterFace extends Runnable {
     //可以不写，默认是继承
     @Override
     void run();
+
 }
