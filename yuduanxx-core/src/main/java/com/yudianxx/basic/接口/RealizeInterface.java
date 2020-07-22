@@ -51,5 +51,6 @@ public class RealizeInterface extends RealizeInterfaceSuper implements TestInter
 
         System.out.println(realizeInterface.getNumProtected());
 
+
     }
 }

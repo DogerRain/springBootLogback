@@ -7,14 +7,9 @@ package com.yudianxx.basic.线程.volatile作用;
  */
 
 public class VolatileTest extends Thread {
-
     public volatile static int count = 0;
-    //    public static int count = 0;
-//    public int count = 0;
-    public static int count2 = 0;
-    public static Counter counter = new Counter();
-    public volatile static Integer j = 1;
-
+    public static Counter1 counter1 = new Counter1();
+    public static Counter2 counter2 = new Counter2();
 
     public static void main(String[] args) {
         //100个线程去访问
@@ -22,12 +17,27 @@ public class VolatileTest extends Thread {
         for (int i = 0; i < 100; i++) {
             mythreadArray[i] = new VolatileTest();
         }
+
         for (int i = 0; i < 100; i++) {
             mythreadArray[i].start();
+            try {
+                if (i!=99){
+                    mythreadArray[i+1].join();
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        try {
+            Thread.sleep(2 * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
 
         System.out.println(Thread.currentThread().getName() + " count  =" + count);
-        System.out.println(Thread.currentThread().getName() + " count2 =" + counter.getCount());
+        System.out.println(Thread.currentThread().getName() + " counter1 =" + counter1.getCount());
+        System.out.println(Thread.currentThread().getName() + " counter2 =" + counter2.getCount());
     }
 
     private void addCount() {
@@ -36,26 +46,32 @@ public class VolatileTest extends Thread {
 //        synchronized (VolatileTest.class) {
         for (int i = 0; i < 100; i++) {
             count++;
-//                System.out.println(Thread.currentThread().getName() + " count=" + count);
-            counter.getCount();
+            counter1.getCount();
+            counter2.getCount();
         }
-
     }
-//        System.out.println(Thread.currentThread().getName() + " count=" + count);
-//    }
 
+    //        System.out.println(Thread.currentThread().getName() + " count=" + count);
+//    }
     @Override
     public void run() {
         addCount();
-
     }
-}
 
-class Counter {
-    private int count = 0;
+    public static class Counter1 {
+        private int count = 0;
 
-    public synchronized int getCount() {
-        return count++;
+        public int getCount() {
+            return count++;
+        }
+    }
+
+    public static class Counter2 {
+        private int count = 0;
+
+        public synchronized int getCount() {
+            return count++;
+        }
     }
 }
 

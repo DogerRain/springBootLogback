@@ -40,6 +40,7 @@ public class TestSynchronized4 {
                 myt2.test2();
             }
         }, "test2");
+
         test1.start();
         test2.start();
     }

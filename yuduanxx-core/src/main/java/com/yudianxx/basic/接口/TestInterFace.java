@@ -10,6 +10,7 @@ public interface TestInterFace extends Runnable {
 
 
 
+
     abstract void B();
 
 
@@ -18,8 +19,7 @@ public interface TestInterFace extends Runnable {
 
     //可以有static方法，默认且只能 是default static 修饰
     static void testInterface() {
-        System.out.println("JDK1.8可以使用static修饰接口方法");
-
+        System.out.println("JDK1.8可以使用static修饰接口的普通方法");
     }
 
     //    Interface abstract methods cannot have body
