@@ -37,7 +37,7 @@ public class TestSynchronized4 {
         }, "test1");
         Thread test2 = new Thread(new Runnable() {
             public void run() {
-                myt2.test2();
+                myt2.test1();
             }
         }, "test2");
 

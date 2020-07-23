@@ -16,13 +16,13 @@ public class TestSynchronized5 implements Runnable {
         int i = 50;
         while (i-- > 0) {
 //        synchronized (i) {
-            synchronized (y) {
+//            synchronized (y) {
 //        synchronized (k) { //锁 k，i，其实就是锁对象，和 this一样，但是 j++不行，对象变了
 //            y++;
 //            i++; //这样可以，static 保持地址一样，同一个对象
                 //这样可以，static 保持地址一样，如果不是同一个对象，volatile可以保证可见性
 //        synchronized (this) {
-//        synchronized (TestSynchronized5.class) {
+        synchronized (TestSynchronized5.class) {
                 setNumeber();
                 System.out.println(Thread.currentThread().getName() + " : " + i);
 //                try {

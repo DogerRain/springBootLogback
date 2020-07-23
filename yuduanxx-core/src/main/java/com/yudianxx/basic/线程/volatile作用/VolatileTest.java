@@ -1,15 +1,20 @@
 package com.yudianxx.basic.线程.volatile作用;
 
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
- * @author huangyongwen
+ * @author HaC
  * @date 2020/6/23
  * @Description
  */
 
 public class VolatileTest extends Thread {
-    public volatile static int count = 0;
     public static Counter1 counter1 = new Counter1();
     public static Counter2 counter2 = new Counter2();
+    public static Counter3 counter3 = new Counter3();
+    public static Counter4 counter4 = new Counter4();
 
     public static void main(String[] args) {
         //100个线程去访问
@@ -20,57 +25,94 @@ public class VolatileTest extends Thread {
 
         for (int i = 0; i < 100; i++) {
             mythreadArray[i].start();
-            try {
-                if (i!=99){
-                    mythreadArray[i+1].join();
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
         }
 
-        try {
-            Thread.sleep(2 * 1000);
+        while (Thread.activeCount() > 4) //主线程和守护线程，只剩下主线程和守护线程 就退出。
+            Thread.yield();
+        //保证执行完毕，如果无法理解上面的，可以设置休眠时间
+    /*    try {
+            Thread.sleep(10 * 1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
-
-        System.out.println(Thread.currentThread().getName() + " count  =" + count);
+        }*/
         System.out.println(Thread.currentThread().getName() + " counter1 =" + counter1.getCount());
         System.out.println(Thread.currentThread().getName() + " counter2 =" + counter2.getCount());
+        System.out.println(Thread.currentThread().getName() + " counter3 =" + counter3.getCount());
+        System.out.println(Thread.currentThread().getName() + " counter4 =" + counter4.getCount());
+
     }
 
     private void addCount() {
-//        synchronized (this.j) {
-//        synchronized (this) {
-//        synchronized (VolatileTest.class) {
         for (int i = 0; i < 100; i++) {
-            count++;
-            counter1.getCount();
-            counter2.getCount();
+//            synchronized (VolatileTest.class) {
+            counter1.setCount();
+//            }
+            counter2.setCount();
+            counter3.setCount();
+            counter4.setCount();
         }
     }
 
-    //        System.out.println(Thread.currentThread().getName() + " count=" + count);
-//    }
     @Override
     public void run() {
         addCount();
     }
 
     public static class Counter1 {
-        private int count = 0;
+        private volatile int count = 0;
+
+        public void setCount() {
+            count++;
+        }
 
         public int getCount() {
-            return count++;
+            return count;
         }
     }
 
+    //synchronized 锁等待
     public static class Counter2 {
         private int count = 0;
 
-        public synchronized int getCount() {
-            return count++;
+        public synchronized void setCount() {
+            count++;
+        }
+
+        public int getCount() {
+            return count;
+        }
+
+    }
+
+    //Lock
+    public static class Counter3 {
+        private int count = 0;
+        Lock lock = new ReentrantLock();
+
+        public void setCount() {
+            lock.lock();
+            try {
+                count++;
+            } finally {
+                lock.unlock();
+            }
+        }
+
+        public int getCount() {
+            return count;
+        }
+    }
+
+    //java并发包中的原子操作类，原子操作类是通过CAS循环的方式来保证其原子性的
+    public static class Counter4 {
+        private AtomicInteger count = new AtomicInteger();
+
+        public void setCount() {
+            count.getAndIncrement();
+        }
+
+        public AtomicInteger getCount() {
+            return count;
         }
     }
 }
