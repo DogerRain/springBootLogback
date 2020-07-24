@@ -15,7 +15,8 @@ public class RejectedExecutionExceptionTest {
         int maxPoolSize = 5; //线程池维护线程的最大数量
         long keepAliveTime = 1; //线程池维护线程所允许的空闲时间（解释：当线程池的数量超过corePoolSize时，多余的空闲线程的存活时间。）
         //缓存队列可以放多少个线程
-        BlockingDeque<Runnable> queue = new LinkedBlockingDeque<>(5);
+//        BlockingDeque<Runnable> queue = new LinkedBlockingDeque<>(5);
+        SynchronousQueue<Runnable> queue = new SynchronousQueue<Runnable>();
         //参数为空则默认无界
 //        BlockingDeque<Runnable> queue = new LinkedBlockingDeque<>();
 

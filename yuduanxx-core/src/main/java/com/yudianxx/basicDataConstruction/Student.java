@@ -28,15 +28,17 @@ class HashSetTest {
         Student stu2 = new Student("B", "11", 2L);
         Student stu3 = new Student("C", "12", 3L);
         Student stu4 = new Student("D", "12", 4L);
-        Student stu5 = new Student("D", "12", 4L);
+        Student stu5 = new Student("D", "12", 5L);
         Student stu6 = new Student("E", "20", 5L);
+        //set把stu4 stu5 认为是同一个对象，虽然他们的地址不一样
         set.add(stu1);
         set.add(stu1);
+        set.add(stu6);
         set.add(stu2);
         set.add(stu3);
         set.add(stu4);
         set.add(stu5);
-        set.add(stu6);
+
         System.out.println("-----------------HashSet----------------------");
         for (Student s : set) {
             System.out.println(s.getName() + "----" + s.getAge());
@@ -45,11 +47,12 @@ class HashSetTest {
         LinkedHashSet<Student> set2 = new LinkedHashSet<>();
         set2.add(stu1);
         set2.add(stu1);
+        set2.add(stu6);
         set2.add(stu2);
         set2.add(stu3);
         set2.add(stu4);
         set2.add(stu5);
-        set2.add(stu6);
+
         for (Student s2 : set2) {
             System.out.println(s2.getName() + "----" + s2.getAge());
         }
@@ -69,6 +72,15 @@ class HashSetTest {
         }
 
         System.out.println("-----------------List----------------------\n");
+
+
+    }
+
+    void listMethod(){
+        Student stu1 = new Student("A", "10", 1L);
+        Student stu2 = new Student("B", "11", 2L);
+        Student stu6 = new Student("E", "20", 5L);
+        Student stu5 = new Student("D", "12", 1L);
 
         //list是有顺序的，先add的先被遍历出来
         List<Student> list = new ArrayList<>();

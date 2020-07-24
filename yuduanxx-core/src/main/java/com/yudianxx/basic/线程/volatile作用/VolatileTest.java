@@ -7,7 +7,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * @author HaC
  * @date 2020/6/23
- * @Description
+ * @Description 已写入到typora
  */
 
 public class VolatileTest extends Thread {

@@ -22,7 +22,6 @@ public class FourThreadPool {
 //        ExecutorService executorService = new newFixedThreadPool().newFixedThreadPool();
         ExecutorService executorService = new newSingleThreadExecutor().newSingleThreadExecutor();
 
-
         //Runnable()
         for (int i = 0; i < 10; i++) {
             executorService.execute(new TestRunnable());
