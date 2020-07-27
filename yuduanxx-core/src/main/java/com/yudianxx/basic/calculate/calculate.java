@@ -40,6 +40,7 @@ public class calculate {
                     oldValueList.addAll(newValueList);
                     return oldValueList;
                 }));
+//        list.forEach(list1-> System.out.println(list1));
         System.out.println(map);
     }
 
