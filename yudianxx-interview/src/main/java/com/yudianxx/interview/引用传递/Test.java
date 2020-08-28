@@ -2,6 +2,10 @@ package com.yudianxx.interview.引用传递;
 
 public class Test {
 
+
+    String testStr = "";
+
+
     String str = "123";
     String[] strs = new String[]{"1", "2", "3"};
 
@@ -9,7 +13,10 @@ public class Test {
 
 
 
+
         Test test = new Test();
+
+        System.out.println(test.testStr);
 
         System.out.println("修改前 test.str  实参的值--->>>" + test.str);
         System.out.println("修改前 test.str  实参的hash地址--->>>" + test.str.hashCode());
@@ -35,6 +42,8 @@ public class Test {
     }
 
     private void changeStrs(String[] strs) {
+//        int a  ;
+//        System.out.println(a);
         strs[0] = "0";
         System.out.println("strs  形参的值--->>>" + strs);
         System.out.println("strs  形参的hash地址--->>>" + strs.hashCode());

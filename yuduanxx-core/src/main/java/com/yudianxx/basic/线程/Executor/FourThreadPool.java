@@ -17,10 +17,10 @@ public class FourThreadPool {
 //        ExecutorService defaultExecutor =new ThreadPoolExecutor();
 
 //        new ScheduledThreadPoolExecutorTest().ScheduledThreadPoolExecutorTest();
-//        ExecutorService executorService = new newCachedThreadPoolTest().newCachedThreadPoolTest();
+        ExecutorService executorService = new newCachedThreadPoolTest().newCachedThreadPoolTest();
 
 //        ExecutorService executorService = new newFixedThreadPool().newFixedThreadPool();
-        ExecutorService executorService = new newSingleThreadExecutor().newSingleThreadExecutor();
+//        ExecutorService executorService = new newSingleThreadExecutor().newSingleThreadExecutor();
 
         //Runnable()
         for (int i = 0; i < 10; i++) {
