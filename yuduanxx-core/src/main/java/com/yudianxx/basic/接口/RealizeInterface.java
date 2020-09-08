@@ -1,6 +1,6 @@
 package com.yudianxx.basic.接口;
 
-public class RealizeInterface extends RealizeInterfaceSuper implements TestInterFace {
+public class RealizeInterface extends RealizeInterfaceSuper implements TestInterFace,TestInterFace2 {
     RealizeInterface(){
         System.out.println("我是子类，我是构造方法");
         System.out.println(super.getNum());

@@ -44,7 +44,11 @@ public class CommonExceptionHandler {
         return RetResponse.makeErrRsp(ex.getMessage());
     }
 
-
+    /**
+     * 最终Exception处理
+     * @param e
+     * @return
+     */
     @ExceptionHandler(Exception.class)
     @ResponseBody
     RetResult handleException(Exception e) {
