@@ -6,10 +6,13 @@ package com.yudianxx.basic.接口;
  * @Description
  */
 public class 抽象类和接口 {
+
     public abstract class abstractClassFather {
         //        普通方法，普通变量
         private String a = "1";
         private final String b = "1";
+
+        public int k = 2;
 
 
         public void test() {

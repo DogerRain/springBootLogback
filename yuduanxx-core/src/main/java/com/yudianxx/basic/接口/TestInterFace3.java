@@ -1,7 +1,7 @@
 package com.yudianxx.basic.接口;
 
 //这里不是 implement 而是extends
-public interface TestInterFace2 {
+public interface TestInterFace3 {
     int num=1;
     int a = 1;
     public static int b = 2;
@@ -10,7 +10,7 @@ public interface TestInterFace2 {
 
 
 
-
+    //本来就是一抽象方法，所以不需要加abstract
     abstract void B();
 
 
@@ -26,9 +26,14 @@ public interface TestInterFace2 {
 //    public void test(){
 //
 //    }
+
     //接口.方法名可以调用方法
     public static void test() {
-        TestInterFace2.testInterface();
+        TestInterFace3.testInterface();
+    }
+
+    default void a(){
+
     }
 
 

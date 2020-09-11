@@ -1,7 +1,7 @@
 package com.yudianxx.basic.接口;
 
 //这里不是 implement 而是extends
-public interface TestInterFace extends Runnable {
+public interface TestInterFace extends Runnable  {
     int num=1;
     int a = 1;
     public static int b = 2;

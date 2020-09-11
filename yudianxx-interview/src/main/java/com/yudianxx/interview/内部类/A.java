@@ -1,9 +1,17 @@
 package com.yudianxx.interview.内部类;
 
-class A {
+//default ,外部类 ，这里可以是 public
+ class A {
 
-
+     //内部类
     public class B {
+
+        class BB{
+
+        }
+        //局部内部类 , 相当于就是一个局部变量一样，不需要什么访问修饰符，最多加个final、static
+        int a = 1;
+
 
         public B getB() {
             return new B();
@@ -13,7 +21,7 @@ class A {
     }
 
 
-    class C {
+    public class C {
         B b = new B().getB(); //获取B对象
 
 
@@ -33,6 +41,7 @@ class A {
 
 }
 
+//外部类，这里不能是public，因为 public 修饰的类必须要和文件名一样
 class AA {
 
     public static void main(String[] args) {
