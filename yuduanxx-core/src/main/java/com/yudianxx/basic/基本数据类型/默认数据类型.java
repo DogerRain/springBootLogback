@@ -8,6 +8,10 @@ import javax.swing.tree.TreeNode;
  * @Description
  */
 public class 默认数据类型 {
+
+
+    String defaultValue;
+
     public void a() {
         System.out.println("1h黄！!".length());
 
@@ -42,6 +46,18 @@ public class 默认数据类型 {
         System.out.println("k=" + k);
         int l = 2;
         System.out.println(1 + ++l * l++);
+    }
+
+    public void defaultValue(){
+        String str ;
+        //局部
+//        String str1 =str;
+        //全局
+        String str2 =defaultValue;
+
+        //想一下类加载过程，在准备的阶段已经开始 分配默认值了。而 方法声明 在方法区，局部变量在栈 ， 不初始化默认值怎么可能使用。
+
+
     }
 
 

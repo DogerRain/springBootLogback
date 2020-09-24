@@ -36,6 +36,8 @@ public class ReadAndWriteDemo {
             outputStream = outputStream.append(content + "\r\n");
             writer = new FileWriter(file, true); //true表示追加
             writer.write(outputStream.toString());
+//            throw new RuntimeException("wd");
+
         } catch (IOException e) {
             e.printStackTrace();
         } finally {

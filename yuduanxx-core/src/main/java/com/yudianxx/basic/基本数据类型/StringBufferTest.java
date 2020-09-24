@@ -25,6 +25,11 @@ public class StringBufferTest {
         System.out.println(b == c);//false
 
 
+        StringBuffer stringBuffer = new StringBuffer("1");
+
+        stringBuffer.append("1");
+
+
     }
 
 }

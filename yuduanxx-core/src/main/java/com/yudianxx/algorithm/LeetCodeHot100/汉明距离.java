@@ -7,6 +7,7 @@ public class 汉明距离 {
     }
 
     public static int hammingDistance(int x, int y) {
+        // 异或，位相同则为0，不相同则为1
         return Integer.bitCount(x ^ y);
     }
 }

@@ -36,5 +36,10 @@ public class EqualsTest {
         System.out.println(a.substring(2)); //substring的源码看一下
         char b[] =a.substring(2).toCharArray();
         System.out.println(b.length);
+
+
+        String  jb = " +1 duplicates,100%";
+        System.out.println(jb.substring(jb.indexOf("duplicates,")+"duplicates,".length()));
+
     }
 }

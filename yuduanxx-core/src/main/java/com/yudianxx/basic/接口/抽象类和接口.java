@@ -60,18 +60,28 @@ public class 抽象类和接口 {
         //interface中的变量都是默认public static final修饰的
         public static final int MAX_LENGTH = 1000;
 
+        //普通方法
         default void testAmethod() {
 
         }
 
-        default void testAmethod2() {
+        public static void testA1(){
+
+        }
+
+        default void testA2() {
             System.out.println("A");
         }
 
         //法都是默认public abstract修饰的
         public abstract void testA();
 
+         void testB();
+
+
     }
+
+
 
     public interface B {
         void testB();
@@ -80,7 +90,7 @@ public class 抽象类和接口 {
     //接口可以多继承
     public interface C extends A, B {
         @Override
-        default void testAmethod2() {
+        default void testA2() {
             System.out.println("C");
         }
 
@@ -99,13 +109,13 @@ public class 抽象类和接口 {
         }
 
         @Override
-        public void testAmethod2() {
+        public void testA2() {
             System.out.println("DObject");
         }
 
         public static void main(String[] args) {
             DObject d = new DObject();
-            d.testAmethod2();
+            d.testA2();
         }
 
     }
