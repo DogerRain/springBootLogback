@@ -20,6 +20,7 @@ public class 默认数据类型 {
 
         //java浮点数默认是double 的 ,不叫f 就是double，这样转换就会报错的
         float a111 = 1.1f;
+        float num = (float) 1.1;
         Float a222 = 1.1f;
         System.out.println(a111 == a222);
 

@@ -30,6 +30,18 @@ public class StringBufferTest {
         stringBuffer.append("1");
 
 
+
+
+    }
+
+    public void lengthAndCapitity(){
+//        StringBuffer s1=new StringBuffer(1); //第一次扩容是2倍+2，如果扩充后的容量还是不够，则直接扩充到需要的容量大小。
+        StringBuffer s1=new StringBuffer(4);
+        s1.append("12341");
+        s1.capacity();
+        System.out.println(s1.length()); //
+        System.out.println(s1.capacity());//
+
     }
 
 }
