@@ -2,14 +2,17 @@ package com.yudianxx.interview.自增脑残题目;
 
 public class test {
     public static void main(String[] args) {
+
+        count();
+    }
+
+    public static void count1(){
         int a = 100, b = 50, c = a-- - b; //此时a的值是99
         int d = a-- - b;
         System.out.println(a);
         System.out.println(b);
         System.out.println(c);
         System.out.println(d);
-
-        count();
     }
 
     public static void count() {
@@ -17,6 +20,13 @@ public class test {
         int i = 1;
         int k = 1;
         int b = 1;
+        int j =1;
+
+        int c= j++ +j;
+//        int c= ++j +j;
+        System.out.println("j="+j);
+        System.out.println("c="+c);
+
         System.out.println(a++ + a--);
 //        i = i++ + i;
         System.out.println(i++ + (++i)); //4

@@ -15,11 +15,18 @@ spring:
     driverClassName: com.mysql.jdbc.Driver
     max-wait: 8000
 #    url: jdbc:mysql://localhost:3306/images?autoreconnect=true&useUnicode=true&characterEncoding=UTF-8
-    url: jdbc:mysql://localhost:3306/images?autoreconnect=true&useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/seckill?autoreconnect=true&useUnicode=true&characterEncoding=UTF-8
     username: root
 
 
 
+
+
+  redis:
+    sentinel:
+      master: master
+      nodes: 81.71.16.134:6379,81.71.16.134:6380,81.71.16.134:6381
+    password: redis
 
   devtools:
     restart:
@@ -73,7 +80,7 @@ mybatis-plus:
       id-type: auto
   #      table-underline: false
   configuration:
-    map-underscore-to-camel-case: false
+    map-underscore-to-camel-case: true
 
 
 logging:
