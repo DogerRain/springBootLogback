@@ -4,10 +4,12 @@ import com.yudianxx.springBootDemo.model.responseVo.RetResponse;
 import com.yudianxx.springBootDemo.model.responseVo.RetResult;
 import com.yudianxx.springBootDemo.service.seckkill.BookOrderService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
@@ -26,11 +28,16 @@ public class OrderController {
 //    @Qualifier("bookOrderService")
             BookOrderService bookOrderService;
 
-    @RequestMapping("/seckill/{bookId}")
-    public RetResult seckill(@PathVariable @Valid Long bookId) {
-        //用户id，这里的用户id应该由前端传入，这里使用 随机数表示
-//        log.info("请求进入");
-        Long userId = (long) (Math.random() * 1000);
+
+    @Value("${server.port}")
+    String port;
+
+    @RequestMapping("/seckill")
+    public RetResult seckill(@RequestParam(value = "bookId") Long bookId, @RequestParam(value = "userId",required = false) Long userId) {
+        if (userId == null) {
+            //模拟userId，随机生成
+            userId = (long) (Math.random() * 1000);
+        }
         String result = bookOrderService.seckill(bookId, userId);
         return RetResponse.makeOKRsp(result);
     }

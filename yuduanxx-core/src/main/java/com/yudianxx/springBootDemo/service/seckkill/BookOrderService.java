@@ -1,6 +1,8 @@
 package com.yudianxx.springBootDemo.service.seckkill;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.yudianxx.basic.线程.Executor.ThreadPoolALL;
+import com.yudianxx.common.HttpRequestUtils;
 import com.yudianxx.springBootDemo.mapper.seckill.BookMapper;
 import com.yudianxx.springBootDemo.mapper.seckill.OrderMapper;
 import com.yudianxx.springBootDemo.model.seckill.Book;
@@ -16,6 +18,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -39,22 +43,29 @@ public class BookOrderService {
 
     public String seckill(Long bookId, Long userId) {
 
+        return lockDemo(bookId, userId);
+//
+//        return notLockDemo(bookId, userId);
 
-        final String lockKey = bookId + "-" + userId + "-RedissonLock";
+
+    }
+
+
+    String lockDemo(Long bookId, Long userId) {
+        final String lockKey = bookId + ":" + "seckill" + ":RedissonLock" + ":";
 
         RLock rLock = redissonClient.getLock(lockKey);
 
         try {
 
-            Boolean flag = rLock.tryLock(10, 10, TimeUnit.SECONDS);
+            Boolean flag = rLock.tryLock(10, 30, TimeUnit.SECONDS);
 
-            if (!flag) {
+            if (flag) {
                 //1、判断这个用户id 是否已经秒杀过
                 List<Order> list = orderMapper.selectList(new QueryWrapper<Order>().lambda().eq(Order::getUserId, userId).eq(Order::getStatus, 1).eq(Order::getBookId, bookId));
                 if (list.size() >= 1) {
                     log.info("你已经抢过了");
-
-                    return "一人只能抢一次";
+                    return "你已经抢过了，一人只能抢一次";
                 }
 
                 //2、查库存
@@ -81,17 +92,62 @@ public class BookOrderService {
                     bookMapper.update(newBook, new QueryWrapper<Book>().lambda().eq(Book::getBookId, bookId));
                     log.info("userId：{} 秒杀成功", userId);
                     return "秒杀成功" + "";
+                } else {
+                    log.info("秒杀失败，被抢完了");
                 }
             } else {
+                log.info("秒杀失败，userid:{} 已经抢过了", userId);
                 return "你已经抢过了";
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            rLock.unlock();
+            if (rLock.isLocked()) {
+                if (rLock.isHeldByCurrentThread()) {
+                    rLock.unlock();
+                }
+            }
         }
         return "很遗憾，没货了...";
+    }
+
+
+    String notLockDemo(Long bookId, Long userId) {
+        //1、判断这个用户id 是否已经秒杀过
+        List<Order> list = orderMapper.selectList(new QueryWrapper<Order>().lambda().eq(Order::getUserId, userId).eq(Order::getStatus, 1).eq(Order::getBookId, bookId));
+        if (list.size() >= 1) {
+            log.info("你已经抢过了");
+            return "你已经抢过了，一人只能抢一次";
+        }
+
+        //2、查库存
+        Book book = bookMapper.selectOne(new QueryWrapper<Book>().lambda().eq(Book::getBookId, bookId));
+        if (book != null && book.getCount() > 0) {
+            //生成订单
+            //订单号
+            String orderId = UUID.randomUUID().toString();
+            //数量，默认 1
+            int count = 1;
+
+            Order newOrder = Order.builder().
+                    orderId(orderId).
+                    status(1).
+                    bookId(bookId).
+                    userId(userId).
+                    count(count).
+                    billTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())).build();
+
+            orderMapper.insert(newOrder);
+
+            //更新库存
+            Book newBook = Book.builder().count(book.getCount() - 1).build();
+            bookMapper.update(newBook, new QueryWrapper<Book>().lambda().eq(Book::getBookId, bookId));
+            log.info("userId：{} 秒杀成功", userId);
+            return "秒杀成功" + "";
+        } else {
+            log.info("秒杀失败，被抢完了");
+            return "很遗憾，没货了...";
+        }
     }
 
 
@@ -107,8 +163,42 @@ public class BookOrderService {
 //                jedis.close();
 //            }
 //        }
+
         Long userId = (long) (Math.random() * 1000);
         System.out.println(userId);
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        });
+
+
+        int count = 1000;
+//        int count = 1;
+        for (int i = 1; i <= count; i++) {
+            thread.start();
+        }
+
+    }
+
+}
+
+class TestSecKill implements Runnable {
+    @Override
+    public void run() {
+        //用户id，这里的用户id  随机数表示
+        Long userId = (long) (Math.random() * 1000);
+        HttpRequestUtils.httpGet("http://hellocoder.com/Order/seckill?userId=" + userId + "&bookId=1");
+    }
+
+    public static void main(String[] args) {
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(1000, 2000, 100, TimeUnit.SECONDS, new LinkedBlockingDeque<>(100));
+        TestSecKill testSecKill = new TestSecKill();
+        for (int i = 0; i <= 1000; i++) {
+            executor.execute(testSecKill);
+        }
     }
 
 }

@@ -25,3 +25,9 @@ INSERT INTO `seckill`.`t_book`(`book_id`, `name`, `count`) VALUES (1, '《HaC的
 
 SELECT * FROM t_book;
 SELECT * FROM t_book_order;
+
+
+
+TRUNCATE TABLE t_book_order;
+
+UPDATE t_book SET count = 5 WHERE book_id =1;

@@ -3,6 +3,8 @@ package com.yudianxx.springBootDemo.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.yudianxx.springBootDemo.model.User;
+import com.yudianxx.springBootDemo.model.responseVo.RetResponse;
+import com.yudianxx.springBootDemo.model.responseVo.RetResult;
 import io.swagger.models.auth.In;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,7 +23,7 @@ public class MeiZiPictureController {
     public Object test(@RequestBody @Validated User user) {
         log.info(user + "");
         log.info("小程序接口调入");
-        user=null;
+        user = null;
         user.getPassword();
         User user1 = User.builder().age(25).userName("黄以太网").password(null).id(user.getId()).build();
         return JSONObject.toJSON(user1);
@@ -47,16 +49,25 @@ public class MeiZiPictureController {
 
     /**
      * 多个传参也是可以的
+     *
      * @param id
      * @param user
      */
     @RequestMapping(value = "/test3/{id}", method = RequestMethod.POST)
-    public void test3(@PathVariable @Valid String id, @RequestBody User user, @RequestParam (value = "id",required = false)Integer id1) {
+    public void test3(@PathVariable @Valid String id, @RequestBody User user, @RequestParam(value = "id", required = false) Integer id1) {
         log.info("user:{}", user);
         log.info("id = {} ", id);
         log.info("id1 = {} ", id1);
     }
 
+//    http://hellocoder.com/Order/seckill/1?userId=557
+    @RequestMapping("/seckill/{bookId}")
+    public RetResult seckill(@PathVariable @Valid Long bookId, @RequestParam(value = "userId", required = false) Long userId) {
+        log.info("userId:{},bookId:{}", userId, bookId);
+//        String result = bookOrderService.seckill(bookId, userId);
+//        return RetResponse.makeOKRsp(result);
+        return null;
+    }
 }
 
 @Data
