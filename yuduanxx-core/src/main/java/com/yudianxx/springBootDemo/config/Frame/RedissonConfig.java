@@ -38,6 +38,8 @@ public class RedissonConfig {
 //        config.useSentinelServers();//哨兵
 //        config.useClusterServers();//集群
 
+//        config.setLockWatchdogTimeout(30000);
+
         config.useMasterSlaveServers()
                 .setPassword("redis")
                 .setMasterAddress("redis://81.71.16.134:6379")
