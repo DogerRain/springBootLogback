@@ -13,7 +13,7 @@ import java.util.Properties;
  * mybatis-plus 工具配置类
  */
 @Configuration
-@MapperScan(value = "com.yudianxx.springBootDemo.mapper.**")
+@MapperScan(value = "com.yudianxx.mapper.**")
 public class MybatisPlusConfig {
 
 /*

@@ -13,7 +13,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.yudainxx</groupId>
+    <groupId>com.yudianxx</groupId>
     <artifactId>springBootLogback</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
