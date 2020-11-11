@@ -9,8 +9,6 @@ public interface TestInterFace extends Runnable  {
     final static int ans =1;
 
 
-
-
     abstract void B();
 
 

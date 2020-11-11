@@ -2,8 +2,9 @@ package com.yudianxx.basic.基本数据类型;
 
 public class 拆箱和装箱 {
     public static void main(String[] args) {
-//        IntegerTest3();
-        new Test2().test();
+        IntegerTest2();
+        IntegerTest3();
+//        new Test2().test();
 
     }
 
@@ -35,7 +36,7 @@ public class 拆箱和装箱 {
 
     }
 
-    public void IntegerTest2() {
+    public static void IntegerTest2() {
         int a = 100;
         int b = 100;
         int c = 2000;
@@ -62,7 +63,7 @@ public class 拆箱和装箱 {
         System.out.println("i == k 》》》" + (i == k));
 
 //        System.out.println("a == 100 》》》"+(a == 100)); //true
-        System.out.println("a == e 》》》" + (a == e));
+        System.out.println("a == e 》》》" + (a == e)); //true
         System.out.println("c == g 》》》" + (c == g));  //g最后会自动拆箱的，拆箱之后返回的是一个value
 
         System.out.println("a == i 》》》" + (a == i));  //

@@ -13,21 +13,22 @@ public class Lambda1 {
     public static void main(String[] args) {
         List<String> names = Arrays.asList("peter", "anna", "mike", "xenia");
 
-        int k[]  = new int[]{12,3,4};
+        int k[] = new int[]{12, 3, 4};
 
         //默认降序
         Collections.sort(names);
         //升序
-        Collections.sort(names,Collections.reverseOrder());
+        Collections.sort(names, Collections.reverseOrder());
 
-        Collections.sort(Arrays.asList(k),Collections.reverseOrder());
+        Collections.sort(Arrays.asList(k), Collections.reverseOrder());
 
-        List<int[]> kk= Arrays.asList(k);
+        List<int[]> kk = Arrays.asList(k);
 
-        System.out.println("K:"+ kk.get(1));
+        System.out.println("K:" + kk.get(1));
 
 
         System.out.println(names);
+
 
         //自定义排序
         Collections.sort(names, new Comparator<String>() {

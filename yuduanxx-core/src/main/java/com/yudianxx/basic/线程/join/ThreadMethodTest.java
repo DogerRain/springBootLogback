@@ -43,8 +43,8 @@ public class ThreadMethodTest {
 
         @Override
         public void run() {
-            testSleepLock();
-//        testWaitLock();
+//            testSleepLock();  //sleep是不会释放锁
+        testWaitLock(); //wait是会释放锁的
         }
 
         void testSleepLock() {
@@ -81,7 +81,7 @@ public class ThreadMethodTest {
                 }
             } else {
                 synchronized (object) {
-                    object.notify(); //唤醒不一定马上执行
+                    object.notify(); //唤醒不一定马上执行，如果不唤醒就不会执行上面方法
                     System.out.println(Thread.currentThread().getName() + " 拿到锁");
                 }
             }
