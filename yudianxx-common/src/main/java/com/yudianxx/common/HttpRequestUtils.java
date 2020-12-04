@@ -1,6 +1,7 @@
 package com.yudianxx.common;
 
 import com.alibaba.fastjson.JSONObject;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.HttpGet;
@@ -15,6 +16,8 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.net.URLDecoder;
+import java.util.Iterator;
+import java.util.Map;
 
 public class HttpRequestUtils {
     private static Logger logger = LoggerFactory.getLogger(HttpRequestUtils.class);    //日志记录
@@ -82,6 +85,47 @@ public class HttpRequestUtils {
      * @return
      */
     public static JSONObject httpGet(String url) {
+        //get请求返回结果
+        JSONObject jsonResult = null;
+        try {
+//            CloseableHttpClient httpClient = HttpClientBuilder.create().build(); //这样写一个httpClient 也是可以的
+            DefaultHttpClient client = new DefaultHttpClient();
+            //发送get请求
+            HttpGet request = new HttpGet(url);
+            HttpResponse response = client.execute(request);
+
+            /**请求发送成功，并得到响应**/
+            if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+                /**读取服务器返回过来的json字符串数据**/
+                String strResult = EntityUtils.toString(response.getEntity());
+                /**把json字符串转换成json对象**/
+                jsonResult = JSONObject.parseObject(strResult);
+                url = URLDecoder.decode(url, "UTF-8");
+            } else {
+                logger.error("get请求提交失败:" + url);
+            }
+        } catch (IOException e) {
+            logger.error("get请求提交失败:" + url, e);
+        }
+        return jsonResult;
+    }
+
+
+    public static JSONObject httpGet(String url, Map<String, String> map) {
+        if (map != null && !map.isEmpty()) {
+            StringBuffer buffer = new StringBuffer();
+            Iterator<Map.Entry<String, String>> iterator = map.entrySet().iterator();
+            while (iterator.hasNext()) {
+                Map.Entry<String, String> entry = iterator.next();
+                if (StringUtils.isEmpty(buffer.toString())) {
+                    buffer.append("?");
+                } else {
+                    buffer.append("&");
+                }
+                buffer.append(entry.getKey()).append("=").append(entry.getValue());
+            }
+            url += buffer.toString();
+        }
         //get请求返回结果
         JSONObject jsonResult = null;
         try {

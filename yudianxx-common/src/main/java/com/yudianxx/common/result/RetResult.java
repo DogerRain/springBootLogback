@@ -1,4 +1,4 @@
-package com.yudianxx.springBootDemo.model.responseVo;
+package com.yudianxx.common.result;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.AllArgsConstructor;
@@ -64,6 +64,12 @@ public class RetResult<T> implements Serializable {
 
     public RetResult<T> setData(T data) {
         this.data = data;
+        return this;
+    }
+
+    public RetResult<T> setCodeAndMsg(RetCode retCode) {
+        this.code = retCode.code;
+        this.msg = retCode.msg;
         return this;
     }
 

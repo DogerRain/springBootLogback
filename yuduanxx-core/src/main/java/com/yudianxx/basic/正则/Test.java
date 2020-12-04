@@ -7,7 +7,8 @@ public class Test {
     public static void main(String[] args) {
 
         getHttp();
-        StringAndNumbeer();
+//        StringAndNumbeer();
+        getHttp2();
     }
 
     public void other() {
@@ -76,5 +77,18 @@ public class Test {
         System.out.println(str.replaceAll("\\D", "")); //\\D指所有非数字
     }
 
+
+    public static void  getHttp2(){
+        String complie = "http(|s)://(.*?)/";
+        String strber = "http://image.meizu.com/image/aider";
+        String result = "";
+        Pattern pattern = Pattern
+                .compile(complie);
+        Matcher matcher = pattern.matcher(strber);
+        if (matcher.find()) {
+            result = matcher.group();
+        }
+        System.out.println(result);
+    }
 
 }

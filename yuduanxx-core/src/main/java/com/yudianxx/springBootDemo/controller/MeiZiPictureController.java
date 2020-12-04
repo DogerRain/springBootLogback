@@ -2,10 +2,10 @@ package com.yudianxx.springBootDemo.controller;
 
 
 import com.alibaba.fastjson.JSONObject;
+import com.yudianxx.common.result.RetCode;
+import com.yudianxx.common.result.RetResponse;
+import com.yudianxx.common.result.RetResult;
 import com.yudianxx.springBootDemo.model.User;
-import com.yudianxx.springBootDemo.model.responseVo.RetResponse;
-import com.yudianxx.springBootDemo.model.responseVo.RetResult;
-import io.swagger.models.auth.In;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -65,8 +65,7 @@ public class MeiZiPictureController {
     public RetResult seckill(@PathVariable @Valid Long bookId, @RequestParam(value = "userId", required = false) Long userId) {
         log.info("userId:{},bookId:{}", userId, bookId);
 //        String result = bookOrderService.seckill(bookId, userId);
-//        return RetResponse.makeOKRsp(result);
-        return null;
+        return RetResponse.makeOkRspCodeAndMsg(RetCode.APP_USERNAME_EXISTS);
     }
 }
 

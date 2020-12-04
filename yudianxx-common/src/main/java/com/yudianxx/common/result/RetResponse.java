@@ -1,4 +1,4 @@
-package com.yudianxx.springBootDemo.model.responseVo;
+package com.yudianxx.common.result;
 
 /**
  * @author huangyongwen
@@ -31,6 +31,10 @@ public class RetResponse {
 
     public static <T> RetResult<T> makeUnKnowRsp() {
         return new RetResult<T>().setCode(RetCode.INTERNAL_SERVER_ERROR).setMsg(FAIL);
+    }
+
+    public static <T> RetResult<T> makeOkRspCodeAndMsg(RetCode Code) {
+        return new RetResult<T>().setCodeAndMsg(Code);
     }
 
 }

@@ -1,7 +1,7 @@
 package com.yudianxx.springBootDemo.controller.seckill;
 
-import com.yudianxx.springBootDemo.model.responseVo.RetResponse;
-import com.yudianxx.springBootDemo.model.responseVo.RetResult;
+import com.yudianxx.common.result.RetResponse;
+import com.yudianxx.common.result.RetResult;
 import com.yudianxx.springBootDemo.service.seckkill.BookOrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

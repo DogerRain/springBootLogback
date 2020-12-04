@@ -1,6 +1,7 @@
 package com.yudianxx.springBootDemo.config;
 
-import com.yudianxx.springBootDemo.model.responseVo.RetResponse;
+import com.yudianxx.common.result.RetResponse;
+import com.yudianxx.common.result.RetResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -9,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import com.yudianxx.springBootDemo.model.responseVo.RetResult;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.validation.ConstraintViolationException;
