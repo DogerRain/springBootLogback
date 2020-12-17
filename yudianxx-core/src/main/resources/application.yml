@@ -73,13 +73,13 @@ mybatis-plus:
       id-type: auto
   #      table-underline: false
   configuration:
-    map-underscore-to-camel-case: false
+    map-underscore-to-camel-case: true
 
 
 logging:
   config: classpath:logback.xml
   level:
-    com.yudianxx.springBootDemo: info
+    com.yudianxx.springBootDemo: debug
 
 create:
   bean: myBean

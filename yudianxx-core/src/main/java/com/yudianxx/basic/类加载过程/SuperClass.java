@@ -56,3 +56,46 @@ class test {
 
 
 //父类的静态区>子类的静态区>父类的代码块>父类的构造方法>子类的代码块>子类的构造方法
+
+class StaticStuff {
+    static int x = 10;
+
+    static {
+        x += 5;
+    }
+
+    public static void main(String args[]) {
+        System.out.println("x = " + StaticStuff.x);
+    }
+
+    static {
+        x /= 3;
+    }
+}
+//输出结果 x = 5
+
+class X {
+    Y y = new Y();
+
+    public X() {
+        System.out.print("X");
+    }
+}
+
+class Y {
+    public Y() {
+        System.out.print("Y");
+    }
+}
+
+class Z extends X {
+    Y y = new Y();
+
+    public Z() {
+        System.out.print("Z");
+    }
+
+    public static void main(String[] args) {
+        new Z();
+    }
+}

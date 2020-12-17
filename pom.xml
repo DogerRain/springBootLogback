@@ -48,8 +48,6 @@
         <java.version>1.7</java.version>
         <start-class>com.SpringBootDemoApplication</start-class>
         <java.version>1.7</java.version>
-        <mybatisplus.version>2.2.0</mybatisplus.version>
-        <mybatisplus-spring-boot-starter.version>1.0.5</mybatisplus-spring-boot-starter.version>
     </properties>
 
     <dependencies>
@@ -267,43 +265,12 @@
             <artifactId>druid</artifactId>
             <version>1.1.0</version>
         </dependency>
-        <!--集成mybaties-->
-        <!--<dependency>-->
-        <!--<groupId>org.mybatis.spring.boot</groupId>-->
-        <!--<artifactId>mybatis-spring-boot-starter</artifactId>-->
-        <!--<version>1.3.1</version>-->
-        <!--</dependency>-->
 
-
-
-        <!--MyBatis-Plus-->
-        <!--<dependency>-->
-            <!--<groupId>com.baomidou</groupId>-->
-            <!--<artifactId>mybatis-plus</artifactId>-->
-            <!--<version>${mybatisplus.version}</version>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-            <!--<groupId>com.baomidou</groupId>-->
-            <!--<artifactId>mybatisplus-spring-boot-starter</artifactId>-->
-            <!--<version>${mybatisplus-spring-boot-starter.version}</version>-->
-        <!--</dependency>-->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-annotation</artifactId>
-            <version>3.0-RC3</version>
-        </dependency>
 
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.0.6</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>spring-boot-configuration-processor</artifactId>
-                    <groupId>org.springframework.boot</groupId>
-                </exclusion>
-            </exclusions>
+            <version>3.2.0</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-install-plugin -->
@@ -338,12 +305,7 @@
             <!--&lt;!&ndash; <scope>test</scope> &ndash;&gt;-->
         <!--</dependency>-->
 
-        <!--分页插件-->
-        <dependency>
-            <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper-spring-boot-starter</artifactId>
-            <version>1.2.5</version>
-        </dependency>
+
 
         <!--springboot使用redis-->
         <!--<dependency>-->
