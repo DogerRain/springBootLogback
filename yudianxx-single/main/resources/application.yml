@@ -1,0 +1,68 @@
+spring:
+  application:
+    name: single
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/seckill?autoreconnect=true&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+
+
+  devtools:
+    restart:
+      enabled: false
+
+
+server:
+  port: 8070
+security:
+  basic:
+    enabled: false
+management:
+  security:
+    enabled: false
+  user:
+    password: root
+    name: root
+#Zipkin-export: true
+#
+#flyway:
+#  password: root
+#  schemas: cbank
+#  sql-migration-prefix: V
+#  locations: db/migration
+#  encoding: UTF-8
+#  user: root
+#  enabled: false
+#  url: jdbc:mysql://localhost:3306/mysql
+eureka:
+  client:
+    fetchRegistry: false
+    registerWithEureka: false
+
+
+#mybatis:
+#  mapper-locations: classpath*:mapper/*.xml
+flyway:
+  enabled: false
+
+
+
+
+
+# mybatis-plus config
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.yudianxx.single.Object.**
+  global-config:
+    db-config:
+      db-type: mysql
+      id-type: auto
+  #      table-underline: false
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+
+
+

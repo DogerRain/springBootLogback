@@ -22,9 +22,10 @@
 
     <modules>
         <module>yudianxx-web</module>
-        <module>yuduanxx-core</module>
+        <module>yudianxx-core</module>
         <module>yudianxx-common</module>
         <module>yudianxx-interview</module>
+        <module>yudianxx-single</module>
     </modules>
 
     <!--<distributionManagement>-->
