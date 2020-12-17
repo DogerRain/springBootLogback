@@ -9,7 +9,7 @@
     </parent>
 
     <groupId>com.yudianxx</groupId>
-    <artifactId>yuduanxx-core</artifactId>
+    <artifactId>yudianxx-core</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <description>Demo project for Spring Boot</description>
 
