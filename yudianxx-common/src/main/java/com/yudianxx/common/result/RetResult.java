@@ -15,10 +15,11 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonSerialize(include= JsonSerialize.Inclusion.NON_NULL)
+@JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
 public class RetResult<T> implements Serializable {
 
     private static final long serialVersionUID = -4505655308965878999L;
+
 
     /**
      * 错误码.
@@ -34,6 +35,26 @@ public class RetResult<T> implements Serializable {
      * 具体的内容.
      */
     private T data;
+
+    public RetResult(RetCode retCode, String msg, T data){
+        this.code = retCode.code;
+        this.msg = msg;
+        this.data = data;
+    }
+
+    public RetResult<T> setRetResult(RetCode retCode, String msg, T data) {
+        this.code = retCode.code;
+        this.msg = msg;
+        this.data = data;
+        return this;
+    }
+
+    public RetResult<T> getRetResult() {
+        return this;
+    }
+
+
+
 
     public RetResult<T> setCode(RetCode retCode) {
         this.code = retCode.code;

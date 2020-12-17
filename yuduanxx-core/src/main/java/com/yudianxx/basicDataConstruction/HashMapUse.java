@@ -7,8 +7,8 @@ public class HashMapUse {
     public static void main(String[] args) {
 
         HashMapUse hashMapTest = new HashMapUse();
-//        hashMapTest.nullValue();
-        hashMapTest.equals();
+        hashMapTest.nullValue();
+//        hashMapTest.equals();
 
     }
 
@@ -72,6 +72,8 @@ public class HashMapUse {
 
         String returnValue = map.put("2", "2_value_lastest");
         String returnValue1 = map.put("3", "3_value_lastest");
+        System.out.println("remove "+map.remove("2"));
+        System.out.println("remove "+map.remove("-1"));
         //如果key存在，则返回旧值key的value
         System.out.println(returnValue);
 //        如果key不存在，则返回null

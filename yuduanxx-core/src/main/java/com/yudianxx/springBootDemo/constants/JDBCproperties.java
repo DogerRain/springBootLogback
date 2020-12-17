@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  * @Description
  */
 @Data
-@Component
+//@Component
 @Slf4j
 @PropertySource(value = "dbinfo.properties")
 public class JDBCproperties {

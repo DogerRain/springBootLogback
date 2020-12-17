@@ -1,7 +1,25 @@
 package com.yudianxx.interview;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class 数组 {
     public static void main(String[] args) {
+        b();
+
+    }
+
+    private static void b() {
+        String sysRegion = null;
+        String[] strings= new String[]{};
+        if (StringUtils.isNotBlank(sysRegion)){
+            strings = sysRegion.split(",");
+        }
+        for (String region : strings) {
+            System.out.println(region);
+        }
+    }
+
+    static void a (){
         int arr1[] = new int[10]; /*开辟了一个长度为3的数组  下标从0开始*/
 //int[] arr1 = new int[3]; //也可以这样写
         arr1[0] = 10; // 第一个元素
@@ -31,6 +49,5 @@ public class 数组 {
         System.out.println(strArray.hashCode());
         strArray = new String[5];
         System.out.println(strArray.hashCode());
-
     }
 }

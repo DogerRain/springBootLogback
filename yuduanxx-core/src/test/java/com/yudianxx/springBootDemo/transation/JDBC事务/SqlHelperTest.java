@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * @date 2020/4/8
  * @Description
  */
-@Component
+//@Component
 //@PropertySource(value = "dbinfo.properties") //报找不到这个文件不知道为什么
 // 报错 java.lang.IllegalStateException: Failed to load ApplicationContext 可能Test不能获取原生的ApplicationContext容器
 @Data
