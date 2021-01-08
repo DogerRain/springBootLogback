@@ -1,86 +1,58 @@
 package com.yudianxx.algorithm.LeetCodeHot100;
 
+import com.yudianxx.algorithm.树.MyTreeNode;
+
 /**
  * @author huangyongwen
  * @date 2020/9/15
  * @Description
  */
 public class 合并二叉树 {
-    //代表每一个节点
-    static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
+    public static void main(String[] args) {
 
-        TreeNode(int val) {
-            this.val = val;
-        }
+        MyTreeNode treeNode1 = new MyTreeNode(1);
 
-        public TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
-            if (t1 == null) {
-                return t2;
-            }
-            if (t2 == null) {
-                return t1;
-            }
+        treeNode1.left = new MyTreeNode(3);
+        treeNode1.right = new MyTreeNode(2);
+        treeNode1.left.left = new MyTreeNode(5);
 
-//            if (t1.left==null)
+        MyTreeNode treeNode2 = new MyTreeNode(2);
+        treeNode2.left = new MyTreeNode(1);
+        treeNode2.right = new MyTreeNode(3);
+        treeNode2.left.right = new MyTreeNode(4);
+        treeNode2.right.right = new MyTreeNode(7);
 
-            return null;
-        }
-
-        static void printNode(TreeNode treeNode) {
-            System.out.print(treeNode.val + " ");
-        }
-
-        //先序遍历
-        public static void preOrder(TreeNode treeNode) {
-            if (treeNode == null) {
-                return;
-            }
-            printNode(treeNode);
-            preOrder(treeNode.left);
-            preOrder(treeNode.right);
-        }
-
-        //中序遍历
-        public static void inOrder(TreeNode treeNode) {
-            if (treeNode == null) {
-                return;
-            }
-            preOrder(treeNode.left);
-            printNode(treeNode);
-            preOrder(treeNode.right);
-        }
-
-        //后序遍历
-        public static void postOrder(TreeNode treeNode) {
-            if (treeNode == null) {
-                return;
-            }
-            preOrder(treeNode.left);
-            preOrder(treeNode.right);
-            printNode(treeNode);
-        }
-
+        MyTreeNode myTreeNode = new MyTreeNode();
+        myTreeNode.preOrder(mergeTrees(treeNode1, treeNode2));
+        System.out.println();
+        myTreeNode.preOrder(mergeTrees2(treeNode1, treeNode2));
 
     }
 
-    public static void main(String[] args) {
-        TreeNode treeNode1 = new TreeNode(1);
-        treeNode1.left = new TreeNode(3);
-        treeNode1.right = new TreeNode(2);
-        treeNode1.left.left = new TreeNode(5);
+    public static MyTreeNode mergeTrees(MyTreeNode t1, MyTreeNode t2) {
+        if (t1 == null) {
+            return t2;
+        }
+        if (t2 == null) {
+            return t1;
+        }
 
-//        treeNode1.preOrder(treeNode1);
+        MyTreeNode newTree = new MyTreeNode(t1.val + t2.val);
+        newTree.left = mergeTrees(t1.left, t2.left);
+        newTree.right = mergeTrees(t1.right, t2.right);
+        return newTree;
+    }
 
-        TreeNode treeNode2 = new TreeNode(2);
-        treeNode2.left = new TreeNode(1);
-        treeNode2.right = new TreeNode(3);
-        treeNode2.left.right = new TreeNode(4);
-        treeNode2.right.right = new TreeNode(7);
-        treeNode2.preOrder(treeNode2);
 
+    static MyTreeNode mergeTrees2(MyTreeNode t1, MyTreeNode t2) {
+        if (t1 == null || t2 == null) {
+            return t1 == null ? t2 : t1;
+        }
+        t1.val += t2.val;
+        t1.left = mergeTrees2(t1.left, t2.left);
+        t1.right = mergeTrees2(t1.right, t2.right);
+
+        return t1;
 
     }
 

@@ -8,7 +8,7 @@ package com.yudianxx.basic.运算符;
 public class 右移左移 {
     public static void main(String[] args) {
 //        1. 无符号 右移 多少位    变小
-        int n = 16 >>> 5; //右移两位  16 / 2^5
+        int n = 128 >>> 3; //右移两位 128 / 2^3
 //        有符号 右移
         int m = -4 >> 2;
 
@@ -25,6 +25,7 @@ public class 右移左移 {
         System.out.println(n1);
         System.out.println(m1);
 
+        System.out.println(8&1);
 
     }
 }

@@ -106,6 +106,11 @@ class SynchronizedTest3 extends Thread {
         }
     }
 
+    static {
+        int a = 1;
+        System.out.println(a);
+    }
+
     /**
      * 对象锁就是该静态放发所在的类的Class实例，由于在JVM中，所有被加载的类都有唯一的类对象，
      * 具体到本例，就是唯一的 SynchronizedTest3.class 整个对象。不管我们创建了该类的多少实例，但是它的类实例仍然是一个
