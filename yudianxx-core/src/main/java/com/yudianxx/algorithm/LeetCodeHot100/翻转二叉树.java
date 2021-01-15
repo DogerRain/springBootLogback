@@ -48,23 +48,36 @@ public class 翻转二叉树 {
 
     public static void main(String[] args) {
         TreeNode root = new TreeNode(4);
+        root.left = new TreeNode(2);
+        root.left.left = new TreeNode(1);
+        root.left.right = new TreeNode(3);
+
+        root.right = new TreeNode(7);
+        root.right.left = new TreeNode(6);
+        root.right.right = new TreeNode(9);
         invertTree(root);
     }
 
+    /**
+     * 递归翻转，不应该交换值，应该整颗树翻转
+     *
+     * @param root
+     * @return
+     */
     static TreeNode invertTree(TreeNode root) {
         if (root == null) {
             return null;
         }
 
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+
         //递归，得到最后一个左树
-        TreeNode left = invertTree(root.left);
+        invertTree(root.left);
 
-        TreeNode right = invertTree(root.right);
+        invertTree(root.right);
 
-        //交换左右两个子树的值
-        int temp = left.val;
-        left.val = right.val;
-        right.val = temp;
 
         return root;
     }
