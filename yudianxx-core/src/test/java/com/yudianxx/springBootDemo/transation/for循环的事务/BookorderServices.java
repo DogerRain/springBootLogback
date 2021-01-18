@@ -34,13 +34,13 @@ public class BookorderServices {
     BookorderServices bookorderServices;
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public Book insertBook(Book book){
+    public Book insertBook(Book book) {
         bookMapper.insert(book);
         return book;
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public void inserBookOrder(Order bookOrder){
+    public void inserBookOrder(Order bookOrder) {
         orderMapper.insert(bookOrder);
     }
 
@@ -60,12 +60,13 @@ public class BookorderServices {
 
 
     }
+
     @Transactional(rollbackForClassName = {"Exception", "RuntimeException"}, propagation = Propagation.REQUIRED)
-    public void insert(Book book){
+    public void insert(Book book) {
         try {
             Book returnBook = bookorderServices.insertBook(book);
 
-            if (book.getName().equals("2")){
+            if (book.getName().equals("2")) {
                 throw new RuntimeException("book2报错");
             }
             String orderId = UUID.randomUUID().toString();
@@ -80,11 +81,21 @@ public class BookorderServices {
                     billTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()))
                     .build();
             bookorderServices.inserBookOrder(newOrder);
-        }catch (Exception e){
+        } catch (Exception e) {
 
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 
         }
     }
 
+}
+
+
+
+
+class MyFirstJavaDemo {
+    public static void main(String[] args) {  //语法
+        String name = "I am HaC";  //先定义name
+        System.out.println("HelloWorld," + name); //流程控制，输出，使用name
+    }
 }

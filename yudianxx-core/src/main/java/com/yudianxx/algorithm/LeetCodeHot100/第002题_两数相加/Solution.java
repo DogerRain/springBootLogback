@@ -15,9 +15,22 @@ public class Solution {
 
     */
 
+    /**
+     * 自定义链表结构
+     */
+    static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+        }
+
+    }
+
 //二话不说用链表解决
 
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
         ListNode head = new ListNode(0);
         ListNode p = l1, q = l2, curr = head;
@@ -35,31 +48,79 @@ public class Solution {
 
             carry = sum / 10;
 
+            if (carry > 0) {
+                head.val = 1;
+            }
+
             curr.next = new ListNode(sum % 10);
             curr = curr.next;
 
             if (q != null) q = q.next;
-            if (p != null) p =p.next;
+            if (p != null) p = p.next;
+
+
         }
 
-        if (carry>0){
 
+        return head;
+    }
+
+    static ListNode addTwoNumbers2(ListNode l1, ListNode l2) {
+
+        ListNode one = l1;
+        ListNode two = l2;
+
+        int count = 0; //进位
+        ListNode head = new ListNode(0); //头
+        ListNode cur = head;
+
+        while (one != null || two != null) {
+            int x = one != null ? one.val : 0;
+            int y = two != null ? two.val : 0;
+
+            int sum = x + y + count;
+
+            count = sum / 10;
+
+
+            if (count > 0) {
+                head.val = 1;
+            }
+            head.next = new ListNode(sum % 10);
+
+
+            if (one != null) {
+                one = one.next;
+            }
+            if (two != null) {
+                two = two.next;
+            }
         }
-
-
         return head.next;
+
+    }
+
+    public static void main(String[] args) {
+        ListNode one = new ListNode(2);
+        one.next = new ListNode(4);
+        one.next.next = new ListNode(3);
+
+        ListNode two = new ListNode(5);
+        two.next = new ListNode(6);
+        two.next.next = new ListNode(4);
+
+        ListNode returnNode = addTwoNumbers(one, two);
+
+        while (returnNode != null) {
+            System.out.print(returnNode.val + " ");
+            returnNode = returnNode.next;
+        }
+//        ListNode returnNode2 = addTwoNumbers2(one, two);
+//        while (returnNode2 != null) {
+//            System.out.print(returnNode2.val + " ");
+//            returnNode2 = returnNode2.next;
+//        }
+
     }
 }
 
-/**
- * 自定义链表结构
- */
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-        val = x;
-    }
-
-}
