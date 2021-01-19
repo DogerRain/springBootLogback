@@ -69,17 +69,33 @@ public class 翻转二叉树 {
             return null;
         }
 
+        //从上往下翻转
         TreeNode temp = root.left;
         root.left = root.right;
         root.right = temp;
 
         //递归，得到最后一个左树
         invertTree(root.left);
-
         invertTree(root.right);
-
 
         return root;
     }
 
+    //从下往上翻转
+    static TreeNode invertTree2(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+
+        TreeNode left = invertTree2(root.left);
+        TreeNode right = invertTree2(root.right);
+
+        root.right = left;
+        root.left = right;
+
+
+        return root;
+
+
+    }
 }

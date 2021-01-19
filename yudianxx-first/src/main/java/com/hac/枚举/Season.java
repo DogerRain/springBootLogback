@@ -35,5 +35,6 @@ class Test {
 
         System.out.println("------------------");
         System.out.println(Season.valueOf("WINTER"));
+        System.out.println(Season.SPRING.getName());
     }
 }
