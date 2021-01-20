@@ -81,7 +81,13 @@ public class 翻转二叉树 {
         return root;
     }
 
-    //从下往上翻转
+    /**
+     * 从下往上翻转
+     *
+     * 加点想象力理解递归
+     * @param root
+     * @return
+     */
     static TreeNode invertTree2(TreeNode root) {
         if (root == null) {
             return null;

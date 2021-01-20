@@ -4,23 +4,25 @@ import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.Iterator;
 import java.util.Map;
 
 public class HttpRequestUtils {
-    private static Logger logger = LoggerFactory.getLogger(HttpRequestUtils.class);    //日志记录
+    static Logger logger = LoggerFactory.getLogger(HttpRequestUtils.class);
 
     /**
      * httpPost
@@ -43,10 +45,11 @@ public class HttpRequestUtils {
      */
     public static JSONObject httpPost(String url, JSONObject jsonParam, boolean noNeedResponse) {
         //post请求返回结果
-        DefaultHttpClient httpClient = new DefaultHttpClient();
+        HttpClient httpClient = HttpClientBuilder.create().build();
         JSONObject jsonResult = null;
-        HttpPost method = new HttpPost(url);
         try {
+            url = URLEncoder.encode(url, "utf-8");
+            HttpPost method = new HttpPost(url);
             if (null != jsonParam) {
                 //解决中文乱码问题
                 StringEntity entity = new StringEntity(jsonParam.toString(), "utf-8");
@@ -85,13 +88,24 @@ public class HttpRequestUtils {
      * @return
      */
     public static JSONObject httpGet(String url) {
+        logger.info("请求url：" + url);
         //get请求返回结果
         JSONObject jsonResult = null;
         try {
-//            CloseableHttpClient httpClient = HttpClientBuilder.create().build(); //这样写一个httpClient 也是可以的
-            DefaultHttpClient client = new DefaultHttpClient();
+           /* BasicHttpParams httpParams = new BasicHttpParams();
+            HttpConnectionParams.setConnectionTimeout(httpParams, 20 * 1000);
+            HttpConnectionParams.setSoTimeout(httpParams, 30 * 1000);
+            HttpClient client = new DefaultHttpClient(httpParams);*/
+            RequestConfig.Builder requestBuilder = RequestConfig.custom();
+            requestBuilder = requestBuilder.setConnectTimeout(20 * 1000);
+            requestBuilder = requestBuilder.setConnectionRequestTimeout(30 * 1000);
+
+            HttpClientBuilder builder = HttpClientBuilder.create();
+            builder.setDefaultRequestConfig(requestBuilder.build());
+            HttpClient client = builder.build();
             //发送get请求
             HttpGet request = new HttpGet(url);
+
             HttpResponse response = client.execute(request);
 
             /**请求发送成功，并得到响应**/
@@ -110,7 +124,6 @@ public class HttpRequestUtils {
         return jsonResult;
     }
 
-
     public static JSONObject httpGet(String url, Map<String, String> map) {
         if (map != null && !map.isEmpty()) {
             StringBuffer buffer = new StringBuffer();
@@ -122,32 +135,17 @@ public class HttpRequestUtils {
                 } else {
                     buffer.append("&");
                 }
-                buffer.append(entry.getKey()).append("=").append(entry.getValue());
+                String param = "";
+                try {
+                    // encode 特殊字符和中文
+                    param = URLEncoder.encode(entry.getValue(), "UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    logger.error("参数encode失败:" + entry.getValue());
+                }
+                buffer.append(entry.getKey()).append("=").append(param);
             }
             url += buffer.toString();
         }
-        //get请求返回结果
-        JSONObject jsonResult = null;
-        try {
-//            CloseableHttpClient httpClient = HttpClientBuilder.create().build(); //这样写一个httpClient 也是可以的
-            DefaultHttpClient client = new DefaultHttpClient();
-            //发送get请求
-            HttpGet request = new HttpGet(url);
-            HttpResponse response = client.execute(request);
-
-            /**请求发送成功，并得到响应**/
-            if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
-                /**读取服务器返回过来的json字符串数据**/
-                String strResult = EntityUtils.toString(response.getEntity());
-                /**把json字符串转换成json对象**/
-                jsonResult = JSONObject.parseObject(strResult);
-                url = URLDecoder.decode(url, "UTF-8");
-            } else {
-                logger.error("get请求提交失败:" + url);
-            }
-        } catch (IOException e) {
-            logger.error("get请求提交失败:" + url, e);
-        }
-        return jsonResult;
+        return httpGet(url);
     }
 }

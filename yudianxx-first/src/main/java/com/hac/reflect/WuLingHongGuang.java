@@ -13,6 +13,9 @@ import java.lang.reflect.Method;
 
 class Car {
     public String carName;
+    static {
+        System.out.println("这是一辆车");
+    }
 }
 
 //五菱宏光 类
@@ -30,19 +33,22 @@ public class WuLingHongGuang extends Car {
     public String getUserName() {
         return userName;
     }
+    static {
+        System.out.println("这是一辆五菱宏光");
+    }
 }
 
 class Test {
     public static void main(String[] args) throws NoSuchMethodException, IllegalAccessException, InstantiationException, InvocationTargetException, ClassNotFoundException, NoSuchFieldException {
-        WuLingHongGuang wuLingHongGuang = new WuLingHongGuang("五菱宏光");
-        System.out.println(wuLingHongGuang.getUserName());
-        System.out.println(wuLingHongGuang.carName);
-        System.out.println(wuLingHongGuang.getCarName());
+//        WuLingHongGuang wuLingHongGuang = new WuLingHongGuang("五菱宏光");
+//        System.out.println(wuLingHongGuang.getUserName());
+//        System.out.println(wuLingHongGuang.carName);
+//        System.out.println(wuLingHongGuang.getCarName());
 
 
         System.out.println("---------分割线-----------");
-//        Class<?> clz = Class.forName("com.hac.reflect.WuLingHongGuang"); // 取得Class文件
-        Class clz = WuLingHongGuang.class;
+        Class<?> clz = Class.forName("com.hac.reflect.WuLingHongGuang"); // 取得Class文件
+//        Class clz = WuLingHongGuang.class;
         Constructor constructor = clz.getConstructor(String.class);//获得构造方法
 
         Object object = constructor.newInstance("五菱宏光");//反射实例化对象
@@ -62,8 +68,8 @@ class Test {
     }
 }
 class Test2{
-    public static void main(String[] args) {
-        WuLingHongGuang wuLingHongGuang = new WuLingHongGuang("五菱宏光");
-        Class clz = wuLingHongGuang.getClass();
+    public static void main(String[] args) throws ClassNotFoundException {
+        ClassLoader.getSystemClassLoader().loadClass("com.hac.reflect.WuLingHongGuang");
+
     }
 }
