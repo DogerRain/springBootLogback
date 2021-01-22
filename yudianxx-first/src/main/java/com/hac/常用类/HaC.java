@@ -12,6 +12,8 @@ public class HaC {
 
     public static String WxName = "HelloCoder";
 
+    String name11 = new String("HelloCoder");
+
     public static void main(String[] args) {
         String name = "1";
 
