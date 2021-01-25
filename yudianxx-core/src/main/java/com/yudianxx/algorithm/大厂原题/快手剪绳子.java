@@ -64,7 +64,6 @@ public class 快手剪绳子 {
     }
 
     /**
-     *
      * 贪心算法   O(1)
      *
      * @param n

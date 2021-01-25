@@ -48,20 +48,25 @@ public class 翻转链表206 {
      * @return
      */
     public static ListNode reverseList(ListNode head) {
-        ListNode prev = null;
+        ListNode prev = null; //新链表
         ListNode curr = head;
         while (curr != null) {
             //next
-            ListNode next = curr.next;
+            ListNode next = curr.next; //暂存起来下一个
             //三个数交换
-            curr.next = prev;
+            curr.next = prev; //指向左侧，不再指向右侧
             prev = curr;
             curr = next;
         }
         return prev;
     }
 
-    public static ListNode reverseList2(ListNode head) {
+    /**
+     * 用栈、或者List 实现
+     * @param head
+     * @return
+     */
+    public static ListNode reverseList3(ListNode head) {
 
         Stack<Integer> stack = new Stack();
         while (head != null) {
@@ -78,6 +83,10 @@ public class 翻转链表206 {
         return cur.next;
     }
 
+    /**
+     * 打印链表
+     * @param head
+     */
     static void printListNode(ListNode head) {
         while (head != null) {
             System.out.print(head.val + " ");
