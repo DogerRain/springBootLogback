@@ -25,6 +25,7 @@ package com.yudianxx.algorithm;
 public class 移动零283 {
     public static void main(String[] args) {
         int nums[] = new int[]{0, 1, 0, 3, 12};
+//        int nums[] = new int[]{0, 0, 0, 0, 0, 1};
         moveZeroes(nums);
         for (int num : nums) {
             System.out.print(num + " ");
@@ -32,14 +33,15 @@ public class 移动零283 {
     }
 
     static void moveZeroes(int[] nums) {
-        int curr = nums.length - 1;
+        int j = 0;
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i] == 0 && curr != i) {
-                while (i+1<nums.length){
-
-                }
-                nums[nums.length - 1] = nums[i];
+            if (nums[i] != 0) {
+                nums[j] = nums[i];
+                j++;
             }
+        }
+        for (; j < nums.length; j++) {
+            nums[j] = 0;
         }
     }
 }
