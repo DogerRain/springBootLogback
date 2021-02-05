@@ -15,17 +15,8 @@ public class 翻转链表206 {
     static class ListNode {
         int val;
         ListNode next;
-
-        ListNode() {
-        }
-
         ListNode(int val) {
             this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
         }
     }
 
@@ -49,12 +40,12 @@ public class 翻转链表206 {
      */
     public static ListNode reverseList(ListNode head) {
         ListNode prev = null; //新链表
-        ListNode curr = head;
+        ListNode curr = head; //指向表头
         while (curr != null) {
             //next
             ListNode next = curr.next; //暂存起来下一个
             //三个数交换
-            curr.next = prev; //指向左侧，不再指向右侧
+            curr.next = prev; //指向左侧，不再指向右侧（翻转）
             prev = curr;
             curr = next;
         }

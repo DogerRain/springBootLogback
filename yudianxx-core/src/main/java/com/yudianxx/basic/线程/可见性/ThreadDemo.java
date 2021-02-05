@@ -31,7 +31,7 @@ class ThreadA extends Thread {
 //        synchronized (this) {
 //        synchronized (i) { //i++，i对象变了，锁失效;i++不是原子操作
         synchronized (this.l) {
-            for (; i <= 110; i++, j++) {
+            for (; j <= 110; i++, j++) {
                 System.out.println(j + "--->>" + Thread.currentThread().getName() + "-->>" + i);
             }
             System.out.println(i);
@@ -39,7 +39,7 @@ class ThreadA extends Thread {
     }
     public static void main(String[] args) {
         ThreadA threadA = new ThreadA();
-        new Thread(threadA,"ThreadA").start();
-        new Thread(threadA,"ThreadB").start();
+        new Thread(threadA,"ThreadA-1").start();
+        new Thread(threadA,"ThreadA-2").start();
     }
 }

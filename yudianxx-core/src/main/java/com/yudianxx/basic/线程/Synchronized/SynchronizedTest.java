@@ -6,36 +6,45 @@ package com.yudianxx.basic.线程.Synchronized;
  * @Description
  */
 public class SynchronizedTest extends Thread {
-    private int threadNo;
 
-    public SynchronizedTest(int threadNo) {
-        this.threadNo = threadNo;
-    }
 
     public static void main(String[] args) throws Exception {
-//        for (int i = 1; i <= 10; i++) {
-//            SynchronizedTest synchronizedTest = new SynchronizedTest(i);
-//            Thread t1 = new Thread(synchronizedTest, "Thread" + i);
-//            t1.start();
-////            Thread.sleep(1); //sleep有一种假象，看不出来的
-//        }
+//        例子1，不同对象
 
-//        SynchronizedTest synchronizedTest = new SynchronizedTest(1);
-//        SynchronizedTest synchronizedTest2 = new SynchronizedTest(2);
-//        Thread t1 = new Thread(synchronizedTest,"Thread1");
+        for (int i = 1; i <= 10; i++) {
+            SynchronizedTest1 synchronizedTest = new SynchronizedTest1(i);
+            Thread t1 = new Thread(synchronizedTest, "Thread" + i);
+            t1.start();
+//            Thread.sleep(1); //sleep有一种假象，看不出来的
+        }
+
+//        例子2
+//        SynchronizedTest1 synchronizedTest1 = new SynchronizedTest1(1);
+//        SynchronizedTest1 synchronizedTest2 = new SynchronizedTest1(2);
+//        Thread t1 = new Thread(synchronizedTest1,"Thread1");
 //        Thread t2 = new Thread(synchronizedTest2,"Thread2");
 //        t1.start();
 //        t2.start();
 
         //以上两个的意思，就是每次都new一个对象，不同对象之间加锁不冲突,所以不用等待
 
-        SynchronizedTest  synchronizedTest = new SynchronizedTest(1);
-        Thread t1 = new Thread(synchronizedTest);
-        Thread t2 = new Thread(synchronizedTest);
-        t1.start();
-        t2.start();
-//        这是同一个对象，所以会加锁，需要等待
+        //        例子3
+        //        这是同一个对象，所以会加锁，需要等待
+//        SynchronizedTest1  synchronizedTest = new SynchronizedTest1(1);
+//        Thread t1 = new Thread(synchronizedTest);
+//        Thread t2 = new Thread(synchronizedTest);
+//        t1.start();
+//        t2.start();
 
+
+    }
+}
+
+class SynchronizedTest1 extends Thread {
+    private int threadNo;
+
+    public SynchronizedTest1(int threadNo) {
+        this.threadNo = threadNo;
     }
 
     /**
@@ -50,6 +59,7 @@ public class SynchronizedTest extends Thread {
 }
 
 
+//这是另外一个例子，main方法
 class SynchronizedTest2 extends Thread {
     private int threadNo;
     private String lock;
@@ -71,25 +81,29 @@ class SynchronizedTest2 extends Thread {
     public static void main(String[] args) throws Exception {
         String lock = new String("lock");
         for (int i = 1; i <= 10; i++) {
+//            String lock = new String("lock"); //lock放到这里就不行了，此时的lock是栈的，私有的
+//            简写
 //            new SynchronizedTest2(i, lock).start();
-            SynchronizedTest2 synchronizedTest2 = new SynchronizedTest2(i,lock);
+            SynchronizedTest2 synchronizedTest2 = new SynchronizedTest2(i, lock);
             Thread t1 = new Thread(synchronizedTest2, "Thread" + i);
             t1.start();
 //            Thread.sleep(1000);
         }
     }
+
     @Override
     public void run() {
         //lock是在堆中的实例变量
         synchronized (lock) {
             for (int i = 1; i <= 10; i++) {
-                System.out.println(Thread.currentThread().getName() + "--->>>" + threadNo + ":" + i);
+                System.out.println(Thread.currentThread().getName() + "--->>>" + ":" + i);
             }
         }
     }
 }
 
 
+//这又是另外一个例子，main方法
 class SynchronizedTest3 extends Thread {
 
     private int threadNo;
@@ -124,6 +138,7 @@ class SynchronizedTest3 extends Thread {
         }
     }
 
+    @Override
     public void run() {
         abc(threadNo);
     }

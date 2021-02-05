@@ -35,69 +35,28 @@ public class 合并两个有序链表21 {
         int val;
         ListNode next;
 
-        ListNode() {
-        }
-
         ListNode(int val) {
             this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
         }
     }
 
     public static void main(String[] args) {
+        ListNode listNode1 = new ListNode((1));
+        listNode1.next = new ListNode(2);
+        listNode1.next.next = new ListNode(4);
 
-    }
+        ListNode listNode2 = new ListNode((1));
+        listNode2.next = new ListNode(3);
+        listNode2.next.next = new ListNode(4);
 
-    static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        if (l1 == null || l2 == null) {
-            return l1 == null ? l2 : l1;
-        }
-
-        while (l1 != null) {
-
-            int l1val = l1.val;
-
-            while (l2 != null) {
-                if (l1val > l2.val) {
-
-                } else {
-
-                }
-                l2 = l2.next;
-            }
-
-
-            l1 = l1.next;
-        }
-
-        return l2;
-    }
-
-    static ListNode mergeTwoLists2(ListNode l1, ListNode l2) {
-        if (l1 == null || l2 == null) {
-            return l1 == null ? l2 : l1;
-        }
-        l1.next = l2;
-
-        while (l1 != null) {
-            ListNode cur = l1;
-            ListNode next = l1.next;
-            if ((cur.val > next.val)) {
-                ListNode nextList = l1.next;
-            }
-        }
-
-        return l1;
-
-
+        ListNode result = mergeTwoLists3(listNode1, listNode2);
+        printListNode(result);
     }
 
     /**
      * 官方解答，递归
+     * <p>
+     * 说实话，很难理解
      *
      * @param l1
      * @param l2
@@ -108,7 +67,9 @@ public class 合并两个有序链表21 {
             return l2;
         } else if (l2 == null) {
             return l1;
-        } else if (l1.val < l2.val) {
+        }
+
+        if (l1.val < l2.val) {
             l1.next = mergeTwoLists3(l1.next, l2);
             return l1;
         } else {
@@ -120,7 +81,7 @@ public class 合并两个有序链表21 {
 
     static void printListNode(ListNode listNode) {
         while (listNode != null) {
-            System.out.println(listNode.val + " ");
+            System.out.print(listNode.val + " ");
             listNode = listNode.next;
         }
     }

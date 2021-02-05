@@ -40,6 +40,7 @@ class DeadLockDemo2 implements Runnable {
         System.out.printf("线程%s离开intoA()，objName=%s\n", currentThread, objName);
     }
 
+    @Override
     public void run() {
         if (objName.equals("A")) {
             intoA();
@@ -50,7 +51,7 @@ class DeadLockDemo2 implements Runnable {
 
 }
 
- class TestThread {
+class TestThread {
 
     //死锁的demo
 
