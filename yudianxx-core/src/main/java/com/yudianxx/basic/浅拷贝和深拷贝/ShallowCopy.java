@@ -12,53 +12,69 @@ import lombok.Data;
 
 public class ShallowCopy {
     public static void main(String[] args) throws CloneNotSupportedException {
-        Teacher teacher = new Teacher();
-        teacher.setName("riemann");
-        teacher.setAge(28);
+        Teacher teacher1 = new Teacher();
+        teacher1.setName("陈老师");
+        teacher1.setAge(45);
+        Student student1 = new Student();
+        student1.setName("HaC");
+        student1.setAge(20);
+        student1.setTeacher(teacher1);
 
-        Student1 student1 = new Student1();
-        student1.setName("edgar");
-        student1.setAge(18);
-        student1.setTeacher(teacher);
+        //使用clone() 方法进行拷贝
+        Student student2 = (Student) student1.clone();
+        System.out.println("-------------浅拷贝后-------------");
+        System.out.println("Student:" + student1);
+        System.out.println("student2:" + student2);
 
-        Student1 student2 = (Student1) student1.clone();
-        System.out.println("-------------拷贝后-------------");
-        System.out.println("student1:"+student1);
-        System.out.println("student2:"+student2);
 
         System.out.println("-------------修改老师的信息后-------------");
         // 修改老师的信息
-        teacher.setName("jack");
-
-
-        System.out.println("student1的teacher为： " + student1.getTeacher().getName());
+        teacher1.setName("黄老师");
+        //修改了引用类型，联动。 浅拷贝如果是引用数据类型，会copy 地址
+        System.out.println("Student1的teacher为： " + student1.getTeacher().getName());
         System.out.println("student2的teacher为： " + student2.getTeacher().getName());
 
+        //修改学生信息，浅拷贝如果是基本数据类型会copy一个对象
+        student1.setAge(21);
+        System.out.println("Student1的age为： " + student1.getAge());
+        System.out.println("student2的age为： " + student2.getAge());
+    }
 
-        //修改学生信息
-        student1.setAge(2);
+    @Data
+    static class Teacher implements Cloneable {
+        private String name;
+        private int age;
 
-        System.out.println("student1的teacher为： " + student1.getAge());
-        System.out.println("student2的teacher为： " + student2.getAge());
+        @Override
+        public Object clone() throws CloneNotSupportedException {
+            return super.clone();
+        }
+    }
+
+    //学生的老师
+    @Data
+    static class Student implements Cloneable {
+        private String name;
+        private int age;
+        private Teacher teacher;
+
+
+        @Override
+        public Object clone() throws CloneNotSupportedException {
+            //浅拷贝的关键实现
+//            Object object = super.clone();
+//            return object;
+
+
+            //深拷贝的关键实现
+            Student student = (Student) super.clone();
+            // 本来是浅复制，现在将Teacher对象复制一份并重新set进来
+            student.setTeacher((Teacher) student.getTeacher().clone());
+            return student;
+
+        }
+
     }
 }
-@Data
-class Teacher implements Cloneable {
-    private String name;
-    private int age;
-
-}
-
-@Data
-class Student1 implements Cloneable {
-    private String name;
-    private int age;
-    private Teacher teacher;
 
 
-    @Override
-    public Object clone() throws CloneNotSupportedException {
-        Object object = super.clone();
-        return object;
-    }
-}
