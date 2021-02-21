@@ -11,7 +11,7 @@ import java.util.Map;
  */
 public class MapTest {
     public static void main(String[] args) {
-
+        Testmap();
     }
 
     //    遍历一个Map的几种方法
@@ -20,7 +20,12 @@ public class MapTest {
         Map<Integer, String> map = new HashMap<>();
         map.put(1, "五菱宏光");
         map.put(3, "奥迪");
-        map.put(2, "宝马");
+//        Map返回
+        //Map不存在返回null
+        System.out.println(map.put(2, "宝马"));
+        //Map存在返回旧值
+        System.out.println(map.put(1, "111"));
+
         // 遍历方法1
         for (Integer key : map.keySet()) {
             String value = map.get(key);
