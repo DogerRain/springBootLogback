@@ -8,7 +8,6 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.yudianxx</groupId>
     <artifactId>yudianxx-core</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <description>Demo project for Spring Boot</description>
@@ -34,6 +33,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!--引用yudianxx-common依赖包-->
         <dependency>
             <groupId>com.yudianxx.common</groupId>
             <artifactId>yudianxx-common</artifactId>

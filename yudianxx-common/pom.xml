@@ -70,8 +70,12 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <!--为什么加了这个就可以被其他子项目引用了？？-->
+                <!--<configuration>-->
+                    <!--<classifier>exec</classifier>-->
+                <!--</configuration>-->
+                <!--引入这个就可以被其他项目依赖了-->
                 <configuration>
-                    <classifier>exec</classifier>
+                    <skip>true</skip>
                 </configuration>
             </plugin>
         </plugins>

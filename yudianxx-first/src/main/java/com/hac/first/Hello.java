@@ -6,6 +6,7 @@ public class Hello {
     static final String WEIXIN_ID = "HelloCoder";
 
     public static void main(String[] args) {
+        String name = "HaC";
         Hello.printName();  //static 的方法可以直接使用 类名.方法名 调用
         printSex(); // 同一个类的static方法 则 可以直接调用
 //        WEIXIN_ID = "HelloCoder200";
