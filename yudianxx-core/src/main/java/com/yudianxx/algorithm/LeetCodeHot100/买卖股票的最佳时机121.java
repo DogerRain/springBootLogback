@@ -37,12 +37,14 @@ public class 买卖股票的最佳时机121 {
     public static void main(String[] args) {
 //        int[] prices = new int[]{7, 1, 5, 3, 6, 4, 1, 10, 2};
         int[] prices = new int[]{7, 1, 5, 3, 6, 4};
-        System.out.println(maxProfit(prices));
+        System.out.println(maxProfit3(prices));
     }
 
     /**
      * 暴力
      * 超时了~
+     *
+     * 我的解法
      *
      * @param prices
      * @return
@@ -58,24 +60,49 @@ public class 买卖股票的最佳时机121 {
     }
 
     /**
-     * 我自己的解法
+     * 官方，一次遍历
+     *
+     * 复杂度分析
+     *
+     * 时间复杂度：O(n)，只需要遍历一次。
+     * 空间复杂度：O(1)，只使用了常数个变量。
      *
      * @param prices
      * @return
      */
     static int maxProfit2(int[] prices) {
-        int l = 0;
-        int r = prices.length - 1;
-        int max = 0;
-        while (l != r) {
-            max = prices[r] - prices[l] > max ? prices[r] - prices[l] : max;
-            //左右同时移动
-            if (prices[r] > prices[l]) {
-                l++;
-            } else {
-                r--;
-            }
+        if (prices == null || prices.length == 0) {
+            return 0;
         }
-        return max;
+        int maxProfit = 0;  //最大利润
+        int minPriceInHistory = prices[0]; //截止至当前的股票最低价
+        for (int i = 1; i < prices.length; ++i) {
+
+            minPriceInHistory = Math.min(minPriceInHistory, prices[i]);
+            maxProfit = Math.max(maxProfit, prices[i] - minPriceInHistory);
+        }
+        return maxProfit;
     }
+    /**
+     * 评论区，动态规划
+     */
+    static int maxProfit3(int[] prices) {
+        if (prices.length == 0) {
+            return 0;
+        }
+        int[] profit = new int[prices.length];
+        profit[0] = 0;
+        //相邻两天的利润差
+        for (int i = 1; i < profit.length; i++) {
+            profit[i] = prices[i] - prices[i - 1];
+        }
+        int pre = profit[0];
+        int max = profit[0];
+        for (int i = 1; i < profit.length; i++) {
+            pre = Math.max(profit[i], pre + profit[i]);
+            max = Math.max(max, pre);
+        }
+        return max > 0 ? max : 0;
+    }
+
 }
