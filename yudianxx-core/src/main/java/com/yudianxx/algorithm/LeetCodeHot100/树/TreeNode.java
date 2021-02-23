@@ -1,30 +1,30 @@
-package com.yudianxx.algorithm.树;
+package com.yudianxx.algorithm.LeetCodeHot100.树;
 
 /**
  * @author huangyongwen
  * @date 2020/12/24
  * @Description
  */
-public class MyTreeNode {
+public class TreeNode {
     public int val;
-    public MyTreeNode left;
-    public MyTreeNode right;
+    public TreeNode left;
+    public TreeNode right;
 
-    public MyTreeNode(int val){
+    public TreeNode(int val){
         this.val =val;
     }
 
-    public MyTreeNode(){
+    public TreeNode(){
 
     }
 
 
-    static void printNode(MyTreeNode treeNode){
+    static void printNode(TreeNode treeNode){
         System.out.print(treeNode.val + " ");
     }
 
     //先序遍历
-    public static void preOrder(MyTreeNode treeNode) {
+    public static void preOrder(TreeNode treeNode) {
         if (treeNode == null) {
             return;
         }
@@ -34,7 +34,7 @@ public class MyTreeNode {
     }
 
     //中序遍历
-    public static void inOrder(MyTreeNode treeNode) {
+    public static void inOrder(TreeNode treeNode) {
         if (treeNode == null) {
             return;
         }
@@ -44,7 +44,7 @@ public class MyTreeNode {
     }
 
     //后序遍历
-    public static void postOrder(MyTreeNode treeNode) {
+    public static void postOrder(TreeNode treeNode) {
         if (treeNode == null) {
             return;
         }

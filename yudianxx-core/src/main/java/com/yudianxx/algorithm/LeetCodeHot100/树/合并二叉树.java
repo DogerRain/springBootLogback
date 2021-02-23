@@ -1,6 +1,4 @@
-package com.yudianxx.algorithm.LeetCodeHot100;
-
-import com.yudianxx.algorithm.树.MyTreeNode;
+package com.yudianxx.algorithm.LeetCodeHot100.树;
 
 /**
  * @author huangyongwen
@@ -10,26 +8,26 @@ import com.yudianxx.algorithm.树.MyTreeNode;
 public class 合并二叉树 {
     public static void main(String[] args) {
 
-        MyTreeNode treeNode1 = new MyTreeNode(1);
+        TreeNode treeNode1 = new TreeNode(1);
 
-        treeNode1.left = new MyTreeNode(3);
-        treeNode1.right = new MyTreeNode(2);
-        treeNode1.left.left = new MyTreeNode(5);
+        treeNode1.left = new TreeNode(3);
+        treeNode1.right = new TreeNode(2);
+        treeNode1.left.left = new TreeNode(5);
 
-        MyTreeNode treeNode2 = new MyTreeNode(2);
-        treeNode2.left = new MyTreeNode(1);
-        treeNode2.right = new MyTreeNode(3);
-        treeNode2.left.right = new MyTreeNode(4);
-        treeNode2.right.right = new MyTreeNode(7);
+        TreeNode treeNode2 = new TreeNode(2);
+        treeNode2.left = new TreeNode(1);
+        treeNode2.right = new TreeNode(3);
+        treeNode2.left.right = new TreeNode(4);
+        treeNode2.right.right = new TreeNode(7);
 
-        MyTreeNode myTreeNode = new MyTreeNode();
+        TreeNode myTreeNode = new TreeNode();
         myTreeNode.preOrder(mergeTrees(treeNode1, treeNode2));
         System.out.println();
         myTreeNode.preOrder(mergeTrees2(treeNode1, treeNode2));
 
     }
 
-    public static MyTreeNode mergeTrees(MyTreeNode t1, MyTreeNode t2) {
+    public static TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
         if (t1 == null) {
             return t2;
         }
@@ -37,14 +35,14 @@ public class 合并二叉树 {
             return t1;
         }
 
-        MyTreeNode newTree = new MyTreeNode(t1.val + t2.val);
+        TreeNode newTree = new TreeNode(t1.val + t2.val);
         newTree.left = mergeTrees(t1.left, t2.left);
         newTree.right = mergeTrees(t1.right, t2.right);
         return newTree;
     }
 
 
-    static MyTreeNode mergeTrees2(MyTreeNode t1, MyTreeNode t2) {
+    static TreeNode mergeTrees2(TreeNode t1, TreeNode t2) {
         if (t1 == null || t2 == null) {
             return t1 == null ? t2 : t1;
         }

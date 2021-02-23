@@ -1,4 +1,4 @@
-package com.yudianxx.algorithm.LeetCodeHot100;
+package com.yudianxx.algorithm.LeetCodeHot100.树;
 
 /**
  * @author huangyongwen
@@ -34,15 +34,6 @@ package com.yudianxx.algorithm.LeetCodeHot100;
 
  */
 
-class TreeNode {
-    public int val;
-    public TreeNode left;
-    public TreeNode right;
-
-    public TreeNode(int val) {
-        this.val = val;
-    }
-}
 
 public class 翻转二叉树 {
 

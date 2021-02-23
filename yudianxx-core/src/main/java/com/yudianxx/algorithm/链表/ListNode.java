@@ -15,4 +15,16 @@ public class ListNode {
     ListNode(int x) {
         val = x;
     }
+
+    /**
+     * 打印链表
+     *
+     * @param head
+     */
+    public void printListNode(ListNode head) {
+        while (head != null) {
+            System.out.print(head.val + " ");
+            head = head.next;
+        }
+    }
 }
