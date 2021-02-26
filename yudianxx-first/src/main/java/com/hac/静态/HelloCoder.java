@@ -1,5 +1,7 @@
 package com.hac.静态;
 
+import org.openjdk.jol.info.ClassLayout;
+
 /**
  * @author huangyongwen
  * @date 2021/1/14
@@ -28,7 +30,7 @@ public class HelloCoder {
     public static void main(String[] args) {    //main方法也是一个静态方法
         HelloCoder helloCoder = new HelloCoder();
         helloCoder.printName(); //也可以使用对象访问静态方法
-
+//
         HelloCoder.printName(); //建议使用这种方法访问
     }
 }

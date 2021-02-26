@@ -37,7 +37,7 @@ public class 买卖股票的最佳时机121 {
     public static void main(String[] args) {
 //        int[] prices = new int[]{7, 1, 5, 3, 6, 4, 1, 10, 2};
         int[] prices = new int[]{7, 1, 5, 3, 6, 4};
-        System.out.println(maxProfit3(prices));
+        System.out.println(maxProfit2(prices));
     }
 
     /**
@@ -77,32 +77,10 @@ public class 买卖股票的最佳时机121 {
         int maxProfit = 0;  //最大利润
         int minPriceInHistory = prices[0]; //截止至当前的股票最低价
         for (int i = 1; i < prices.length; ++i) {
-
             minPriceInHistory = Math.min(minPriceInHistory, prices[i]);
             maxProfit = Math.max(maxProfit, prices[i] - minPriceInHistory);
         }
         return maxProfit;
-    }
-    /**
-     * 评论区，动态规划
-     */
-    static int maxProfit3(int[] prices) {
-        if (prices.length == 0) {
-            return 0;
-        }
-        int[] profit = new int[prices.length];
-        profit[0] = 0;
-        //相邻两天的利润差
-        for (int i = 1; i < profit.length; i++) {
-            profit[i] = prices[i] - prices[i - 1];
-        }
-        int pre = profit[0];
-        int max = profit[0];
-        for (int i = 1; i < profit.length; i++) {
-            pre = Math.max(profit[i], pre + profit[i]);
-            max = Math.max(max, pre);
-        }
-        return max > 0 ? max : 0;
     }
 
 }
