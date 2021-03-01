@@ -9,7 +9,8 @@ import java.io.File;
  */
 public class 遍历生成MarkDown目录 {
     public static void main(String[] args) {
-        String dir = "F:\\笔记\\LearnJavaToFindAJob（Java面试题）\\docs\\articles";
+//        String dir = "F:\\笔记\\LearnJavaToFindAJob（Java面试题）\\docs\\articles";
+        String dir = "F:\\笔记\\PureJavaCoderRoad（Java基础教程）\\docs\\articles";
         File file = new File(dir);
         generateCategory(file, 1);
     }

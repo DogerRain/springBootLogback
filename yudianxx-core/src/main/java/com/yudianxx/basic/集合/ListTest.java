@@ -31,6 +31,7 @@ public class ListTest {
 
     /**
      * 这种 **只能查改，不能对List增删** 否则会报 `UnsupportedOperationException`
+     * 不支持增删
      */
     static void ArrayToList1() {
         String[] strArray = new String[]{"1", "2"};
@@ -42,6 +43,7 @@ public class ListTest {
 
     /**
      * 优化后，转为ArrayList
+     * 支持增删
      */
     static void ArrayToList2() {
         String[] strArray = new String[]{"1", "2"};
@@ -61,7 +63,7 @@ public class ListTest {
     }
 
     /**
-     * 使用Collections.addAll()，这种方法最高效
+     * 使用Collections.addAll()，这种方法最高效，数据量大最高效
      */
     static void ArrayToList4() {
         String[] strArray = new String[]{"1", "2"};
@@ -98,7 +100,15 @@ public class ListTest {
             System.out.println(str);
         }
 
-
+//        坑：
+/**
+ * int[] intArray1 = new int[2];
+ * List<Integer> list1 = Arrays.asList(intArray1);//此处报错！！！
+ *
+ * 答案： 只能用Integer[]转List<Integer>，即只能用基本数据类型的包装类型，才能直接转为List。
+ *
+ * 原因：List声明时，需要传递一个泛型<E>作为形参，asList()参数类型也是泛型中的通配类型<T>。Java中所有的泛型必须是引用类型。
+ */
     }
 }
 

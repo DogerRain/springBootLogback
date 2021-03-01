@@ -61,7 +61,7 @@ public class 最大子序和53 {
         int max_ending_here = nums[0];
         int max_so_far = nums[0];
         for (int i = 0; i < nums.length - 1; i++) {
-//            不管前面都长，反正我告诉你截止到你位置最大的值
+//            不管前面多长，反正我告诉你截止到你位置最大的值
 //            -2, 1, -3, 4, -1, 2, 1, -5, 4
 //            -2, 1,  1, 4, 3,  5, 6, 1,  5
             max_ending_here = Math.max(nums[i], max_ending_here + nums[i]);
@@ -71,7 +71,7 @@ public class 最大子序和53 {
     }
 
     /**
-     * 和上面的都是一样的，无法理解
+     * 和上面的都是一样的，很难理解
      *
      * @param nums
      * @return
