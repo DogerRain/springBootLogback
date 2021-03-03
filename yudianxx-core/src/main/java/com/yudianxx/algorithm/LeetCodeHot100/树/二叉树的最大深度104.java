@@ -38,7 +38,7 @@ public class 二叉树的最大深度104 {
         treeNode.right.left = new TreeNode(15);
         treeNode.right.right = new TreeNode(7);
         treeNode.right.right.right = new TreeNode(7);
-
+//       该树表示为：
         /**
          *  * 3
          *  * / \
