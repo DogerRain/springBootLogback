@@ -22,7 +22,7 @@ public class Solution {
         int result = new Solution().removeDuplicates1(nums);
         System.out.println(result);
         for (int i = 0; i < result; i++) {
-            System.out.println(nums[i]);
+            System.out.print(nums[i]+" ");
         }
     }
 
@@ -42,6 +42,9 @@ public class Solution {
      * 标准答案：双指针
      *
      * 短指针i，长指针j
+     *
+     * {0, 0, 1, 1, 1, 2, 2, 3, 3, 4, 5, 5};
+     *
      */
     public int removeDuplicates1(int[] nums) {
         int i = 0;

@@ -24,7 +24,7 @@ package com.yudianxx.algorithm.LeetCodeHot100;
  * <p>
  * 两个链表的节点数目范围是 [0, 50]
  * -100 <= Node.val <= 100
- * l1 和 l2 均按 非递减顺序 排列
+ * l1 和 l2 均按 非递减顺序 全排列46
  * <p>
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/merge-two-sorted-lists

@@ -63,15 +63,26 @@ public class 找到所有数组中消失的数字448 {
      * 官方题解，O（n），空间复杂度O（1），一种规律
      * <p>
      * 思想就是通过值作为下标，把下标对应的值修改为负数
-     * 为什么是负数，还是-1，那是因为绝对值还是本身,这个本身还是要用的
+     * 为什么是负数，而且还是-1，那是因为绝对值还是本身,这个本身还是要用做下标的
      *
      * @param nums
      * @return
      */
+    /**
+     * [4,3,2,7,8,2,3,1]
+     *
+     * 变成索引i：
+     * [3,2,1,6,7,1,2,0]
+     *
+     * nums[i] 乘 -1
+     * [-1,-3,-2,-7,8,2,-3,-1]
+     */
     static List<Integer> findDisappearedNumbers2(int[] nums) {
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < nums.length; i++) {
+            //把值变成下标
             int index = Math.abs(nums[i]) - 1;
+            // 下标对应的值 *-1，让其变成负数，如果没有乘以-1的，上一步就溢出或者没意义了
             if (nums[index] > 0) {
                 nums[index] *= -1;
             }
