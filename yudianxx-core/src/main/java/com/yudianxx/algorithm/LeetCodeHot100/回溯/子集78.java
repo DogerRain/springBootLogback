@@ -41,6 +41,13 @@ public class 子集78 {
         System.out.println(subsets(nums));
     }
 
+    /**
+     *
+     * 参数构建
+     *
+     * @param nums
+     * @return
+     */
     static List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         ArrayList<Integer> tmp = new ArrayList<>();
@@ -48,8 +55,21 @@ public class 子集78 {
         return res;
     }
 
+    /**
+     * 回溯的核心
+     *
+     * [[], [1], [1, 2], [1, 2, 3], [1, 3], [2], [2, 3], [3]]
+     *
+     * @param i
+     * @param nums
+     * @param res
+     * @param tmp
+     */
     static void backtrack(int i, int[] nums, List<List<Integer>> res, ArrayList<Integer> tmp) {
+        //这是个无条件加入
         res.add(new ArrayList<>(tmp));
+
+        //
         for (int j = i; j < nums.length; j++) {
             //做选择
             tmp.add(nums[j]);

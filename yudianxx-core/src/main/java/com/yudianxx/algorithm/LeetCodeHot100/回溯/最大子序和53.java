@@ -1,4 +1,4 @@
-package com.yudianxx.algorithm.LeetCodeHot100;
+package com.yudianxx.algorithm.LeetCodeHot100.回溯;
 
 /**
  * @author huangyongwen
@@ -45,7 +45,9 @@ package com.yudianxx.algorithm.LeetCodeHot100;
 public class 最大子序和53 {
 
     public static void main(String[] args) {
-        int[] nums = new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4};
+        int[] nums = new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4,99};
+//        int[] nums = new int[]{-2};
+//        int[] nums = new int[]{-2,2};
         System.out.println(maxSubArray(nums));
     }
 
@@ -60,7 +62,7 @@ public class 最大子序和53 {
     static int maxSubArray(int[] nums) {
         int max_ending_here = nums[0];
         int max_so_far = nums[0];
-        for (int i = 0; i < nums.length - 1; i++) {
+        for (int i = 1; i < nums.length; i++) {
 //            不管前面多长，反正我告诉你截止到你位置最大的值
 //            -2, 1, -3, 4, -1, 2, 1, -5, 4
 //            -2, 1,  1, 4, 3,  5, 6, 1,  5

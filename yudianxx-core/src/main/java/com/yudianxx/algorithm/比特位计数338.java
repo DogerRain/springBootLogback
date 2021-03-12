@@ -25,15 +25,64 @@ package com.yudianxx.algorithm;
  */
 public class 比特位计数338 {
     public static void main(String[] args) {
-        int[] result = countBits(5);
+        int[] result = countBits2(7);
         for (int i : result) {
             System.out.print(i + " ");
         }
+        System.out.println();
+
+
     }
 
+    /**
+     * 规律
+     * 0    0
+     * 1    1
+     * 2    1
+     * 3    2
+     * 4    1
+     * 5    2
+     * 6    2
+     * 7    3
+     * 8    1
+     * 9    2
+     *
+     * 规律，通过奇偶数判断
+     *
+     * @param num
+     * @return
+     */
     static int[] countBits(int num) {
         int[] result = new int[num + 1];
+        result[0] = 0;
+        for (int i = 1; i <= num; i++) {
+            if (i % 2 == 1) {
+                result[i] = result[i - 1] + 1;
+            } else {
+                result[i] = result[i / 2];
+            }
+        }
         return result;
     }
+
+    /**
+     * 时间复杂度：O(n)
+     * 空间复杂度：O(n)
+     *
+     * 动态规划
+     *
+     * @param n
+     * @return
+     */
+    static int[] countBits2(int n) {
+        int[] ans = new int[n + 1];
+        // ans[i] = 「i >> 1 所包含的 1 的个数」+「i 的最低位是否为 1」
+        for (int i = 1; i <= n; i++) {
+            //因为ans[i>>1]肯定存在的
+            ans[i] = ans[i >> 1] + (i & 1);
+        }
+        return ans;
+    }
+
 
 }

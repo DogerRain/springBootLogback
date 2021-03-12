@@ -40,6 +40,7 @@ public class 移动零283 {
                 j++;
             }
         }
+        //后面直接补0
         for (; j < nums.length; j++) {
             nums[j] = 0;
         }
